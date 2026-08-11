@@ -4,6 +4,7 @@ import { ArrowUpRight, Star } from "lucide-react";
 import { SiteNav, CallBar } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
+import { ContactBlock } from "@/components/contact-block";
 import { BUSINESS, SERVICES } from "@/lib/business";
 import { businessSchema, JsonLd } from "@/lib/schema";
 
@@ -120,9 +121,9 @@ export default function Home() {
               <p className="u-data md:pt-3">About</p>
             </Reveal>
             <Reveal delay={120}>
-              <p className="max-w-[24ch] text-[clamp(1.75rem,4vw,3.25rem)] font-display uppercase leading-[0.98] text-ink">
+              <h2 className="max-w-[24ch] text-[clamp(1.75rem,4vw,3.25rem)] font-display uppercase leading-[0.98] text-ink">
                 One contractor for the whole job.
-              </p>
+              </h2>
               <p className="mt-10 max-w-[62ch] text-[17px] leading-relaxed text-mute md:text-[18px]">
                 Florida Green Improvements is a licensed general contractor working across roofing,
                 impact glazing, air conditioning, solar, and full interior renovation. One permit,
@@ -136,7 +137,7 @@ export default function Home() {
         <section id="services" className="border-t border-line/40">
           <div className="mx-auto max-w-[1400px] px-6 pt-24 md:px-10 md:pt-32">
             <Reveal>
-              <p className="u-data">Services · {SERVICES.length}</p>
+              <h2 className="u-data">Services · {SERVICES.length}</h2>
             </Reveal>
           </div>
 
@@ -184,7 +185,7 @@ export default function Home() {
 
           <div className="relative mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-40">
             <Reveal>
-              <p className="u-data mb-14">How it works</p>
+              <h2 className="u-data mb-14">How it works</h2>
             </Reveal>
             <div className="grid gap-14 md:grid-cols-3 md:gap-12">
               {PROCESS.map((step, i) => (
@@ -245,6 +246,7 @@ export default function Home() {
             </Reveal>
           </div>
         </section>
+        <ContactBlock />
       </main>
 
       <SiteFooter />

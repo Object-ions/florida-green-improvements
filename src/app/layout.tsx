@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Newsreader } from "next/font/google";
 import { Analytics } from "@/components/analytics";
+import { ConsentProvider } from "@/components/consent";
 import { BUSINESS } from "@/lib/business";
 import "./globals.css";
 
@@ -95,10 +96,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body>
+      {/* Extensions (ColorZilla, Grammarly, LastPass…) inject attributes onto
+          <body> before React hydrates. Not our markup — but the mismatch is
+          real, so <body> gets the same guard <html> already carries. */}
+      <body suppressHydrationWarning>
         <a href="#main" className="skip-link">Skip to content</a>
-        {children}
-        <Analytics />
+        <ConsentProvider>
+          {children}
+          <Analytics />
+        </ConsentProvider>
       </body>
     </html>
   );

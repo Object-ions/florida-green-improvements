@@ -81,13 +81,24 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col gap-4 border-t border-line/40 pt-8 md:flex-row md:items-center md:justify-between">
+        <div className="mt-20 flex flex-col gap-5 border-t border-line/40 pt-8 md:flex-row md:items-center md:justify-between">
           <p className="u-data">
             © {new Date().getFullYear()} {BUSINESS.legalName}
           </p>
           <p className="u-data">
             {BUSINESS.rating.value.toFixed(1)} ★ · {BUSINESS.rating.count} Google reviews · BBB{" "}
             {BUSINESS.bbb}
+          </p>
+          <p className="u-data">
+            Site by{" "}
+            <a
+              href="https://switchcasestudio.com"
+              target="_blank"
+              rel="noopener"
+              className="text-ink-2 underline decoration-line underline-offset-4 transition-colors hover:text-brass hover:decoration-brass"
+            >
+              Switch Case Studio
+            </a>
           </p>
         </div>
       </div>

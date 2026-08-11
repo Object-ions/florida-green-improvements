@@ -62,7 +62,7 @@ export default function AboutPage() {
 
         <section className="border-t border-line/40">
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-24">
-            <Reveal><p className="u-data mb-12">On the record</p></Reveal>
+            <Reveal><h2 className="u-data mb-12">On the record</h2></Reveal>
             <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
               {FACTS.map((f, i) => (
                 <Reveal key={f.k} delay={i * 110}>
