@@ -28,10 +28,10 @@ export default function ContactPage() {
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,19,14,.82),var(--fg-ground))]" />
           </div>
           <div className="relative mx-auto max-w-[1400px] px-6 pb-20 pt-40 md:px-10 md:pb-28 md:pt-48">
-            <Reveal>
+            
               <p className="u-data mb-7 text-green">Free estimates · No obligation</p>
               <h1 className="max-w-[14ch] text-[clamp(2.5rem,7.5vw,6rem)] text-ink">Tell us what you are planning</h1>
-            </Reveal>
+            
           </div>
         </section>
 

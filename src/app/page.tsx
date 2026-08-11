@@ -55,28 +55,21 @@ export default function Home() {
           </div>
 
           <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-end px-6 pb-14 pt-36 md:px-10 md:pb-16">
-            <Reveal delay={120}>
-              <p className="u-data on-photo mb-6 text-ink-2">
+            <p className="u-data on-photo mb-6 text-ink-2">
                 <span className="text-green">&#9679;</span>{" "}
                 {BUSINESS.address.locality}, Florida &middot; Licence {BUSINESS.license}
               </p>
-            </Reveal>
 
-            <Reveal delay={220}>
-              <h1 className="on-photo max-w-[15ch] text-[clamp(2.5rem,7.6vw,5.75rem)] text-ink">
+            <h1 className="on-photo max-w-[15ch] text-[clamp(2.5rem,7.6vw,5.75rem)] text-ink">
                 {BUSINESS.tagline}
               </h1>
-            </Reveal>
 
-            <Reveal delay={340}>
-              <p className="on-photo mt-7 max-w-[42ch] text-[17px] leading-relaxed text-ink-2 md:text-[19px]">
+            <p className="on-photo mt-7 max-w-[42ch] text-[17px] leading-relaxed text-ink-2 md:text-[19px]">
                 Roofing, impact windows and full remodels for South Florida homes that have to
                 survive the season and still look like this.
               </p>
-            </Reveal>
 
-            <Reveal delay={460}>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-10 flex flex-wrap items-center gap-4">
                 <Link
                   href="/contact"
                   className="bg-brass px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-ground transition-opacity hover:opacity-90"
@@ -90,11 +83,10 @@ export default function Home() {
                   {BUSINESS.phone}
                 </a>
               </div>
-            </Reveal>
+            
           </div>
 
-          <Reveal delay={620}>
-            <div className="relative mx-auto w-full max-w-[1400px] border-t border-line/40 px-6 py-6 md:px-10">
+          <div className="relative mx-auto w-full max-w-[1400px] border-t border-line/40 px-6 py-6 md:px-10">
               <ul className="flex flex-wrap items-center gap-x-10 gap-y-3">
                 <li className="on-photo flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
                   <Star size={12} strokeWidth={1.5} className="text-brass" aria-hidden />
@@ -111,7 +103,7 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-          </Reveal>
+          
         </section>
 
         {/* ── STATEMENT ──────────────────────────────────────────── */}

@@ -1,0 +1,50 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # The three NEXT_PUBLIC_* values below are public identifiers by design — a GA4
+  # measurement ID, a Clarity project ID and a Search Console token are all meant
+  # to be readable in the page source. Netlify's secret scanner flags any env var
+  # it finds in the build output, so these are declared exempt. Nothing that is
+  # actually secret is listed here.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_GA_MEASUREMENT_ID,NEXT_PUBLIC_CLARITY_PROJECT_ID,NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,NEXT_PUBLIC_SITE_URL"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# ── Draft and preview deploys must never be indexed ──────────────────────
+# A review link that Google indexes becomes a duplicate of the real site and
+# competes with it. Production is the only context allowed into the index.
+[context.deploy-preview]
+  [[context.deploy-preview.headers]]
+    for = "/*"
+    [context.deploy-preview.headers.values]
+      X-Robots-Tag = "noindex, nofollow"
+
+[context.branch-deploy]
+  [[context.branch-deploy.headers]]
+    for = "/*"
+    [context.branch-deploy.headers.values]
+      X-Robots-Tag = "noindex, nofollow"
+
+# Security headers are set in next.config.ts, not here. Netlify's
+# context-specific header blocks REPLACE the top-level [[headers]] block
+# instead of merging, which silently dropped three of them on previews.
+
+# Fingerprinted build assets are safe to cache forever.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/atmosphere/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/work/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"

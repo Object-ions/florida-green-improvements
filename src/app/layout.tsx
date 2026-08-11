@@ -22,9 +22,12 @@ const display = Archivo({
 const body = Newsreader({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
   variable: "--font-newsreader",
   display: "swap",
+  // Not preloaded on purpose. The LCP element is the headline, set in Archivo;
+  // preloading both fonts made them compete for bandwidth on throttled mobile
+  // and pushed LCP out by ~1.8 s. Body copy can arrive a beat later.
+  preload: false,
 });
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.floridagreenimprovements.com";

@@ -35,10 +35,10 @@ export default function AboutPage() {
             <div className="absolute inset-0 bg-[radial-gradient(110%_80%_at_78%_22%,rgba(30,107,79,.24),transparent_64%)] mix-blend-screen" />
           </div>
           <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24">
-            <Reveal>
+            
               <p className="u-data mb-7 text-green">Since 2016 · {BUSINESS.address.locality}, Florida</p>
               <h1 className="max-w-[15ch] text-[clamp(2.5rem,7.5vw,6rem)] text-ink">Built by people who answer the phone</h1>
-            </Reveal>
+            
           </div>
         </section>
 

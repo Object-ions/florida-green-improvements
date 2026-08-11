@@ -70,7 +70,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
 
           <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24">
-            <Reveal>
+            
               <nav aria-label="Breadcrumb" className="mb-7">
                 <ol className="flex items-center gap-3 font-data text-[12px] uppercase tracking-[0.1em] text-mute">
                   <li>
@@ -80,12 +80,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   <li className="text-green">{service.name}</li>
                 </ol>
               </nav>
-            </Reveal>
-            <Reveal delay={140}>
-              <h1 className="max-w-[16ch] text-[clamp(2.25rem,7vw,5.5rem)] text-ink">
+            
+            <h1 className="max-w-[16ch] text-[clamp(2.25rem,7vw,5.5rem)] text-ink">
                 {service.name}
               </h1>
-            </Reveal>
+            
           </div>
         </section>
 
