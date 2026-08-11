@@ -140,7 +140,7 @@ export function QuoteForm() {
       <button
         type="submit"
         disabled={state === "sending"}
-        className="mt-2 self-start bg-brass px-9 py-4 font-data text-[10px] font-medium uppercase tracking-[0.2em] text-ground transition-opacity hover:opacity-90 disabled:opacity-50"
+        className="mt-2 self-start bg-brass px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-ground transition-opacity hover:opacity-90 disabled:opacity-50"
       >
         {state === "sending" ? "Sending…" : "Send request"}
       </button>

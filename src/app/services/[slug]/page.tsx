@@ -72,7 +72,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24">
             <Reveal>
               <nav aria-label="Breadcrumb" className="mb-7">
-                <ol className="flex items-center gap-3 font-data text-[10px] uppercase tracking-[0.2em] text-mute">
+                <ol className="flex items-center gap-3 font-data text-[12px] uppercase tracking-[0.1em] text-mute">
                   <li>
                     <Link href="/" className="transition-colors hover:text-ink">Home</Link>
                   </li>
@@ -134,7 +134,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               {service.points.map((p, i) => (
                 <Reveal key={p.title} delay={i * 140}>
                   <div className="border-t border-line pt-7">
-                    <p className="font-data text-[10px] uppercase tracking-[0.24em] text-green">
+                    <p className="font-data text-[12px] uppercase tracking-[0.08em] text-green">
                       {String(i + 1).padStart(2, "0")}
                     </p>
                     <h2 className="mt-5 text-[clamp(1.375rem,2.4vw,1.875rem)] text-ink">{p.title}</h2>
@@ -167,7 +167,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <h2 className="max-w-[18ch] text-[clamp(1.875rem,5vw,3.75rem)] text-ink">
                   Talk to us about your {service.name.toLowerCase()} project
                 </h2>
-                <p className="mt-7 flex items-center gap-2 font-data text-[10px] uppercase tracking-[0.2em] text-mute">
+                <p className="mt-7 flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-mute">
                   <Star size={12} strokeWidth={1.5} className="text-brass" aria-hidden />
                   {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} Google reviews ·
                   Licence {BUSINESS.license}
@@ -177,13 +177,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <div className="flex flex-wrap gap-4">
                   <Link
                     href="/contact"
-                    className="bg-brass px-8 py-4 font-data text-[10px] font-medium uppercase tracking-[0.2em] text-ground transition-opacity hover:opacity-90"
+                    className="bg-brass px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-ground transition-opacity hover:opacity-90"
                   >
                     Request a quote
                   </Link>
                   <a
                     href={BUSINESS.phoneHref}
-                    className="border border-line px-8 py-4 font-data text-[10px] uppercase tracking-[0.2em] text-ink transition-colors hover:border-ink"
+                    className="border border-line px-8 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink"
                   >
                     {BUSINESS.phone}
                   </a>

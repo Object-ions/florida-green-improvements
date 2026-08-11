@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Newsreader, JetBrains_Mono } from "next/font/google";
+import { Archivo, Newsreader } from "next/font/google";
 import { Analytics } from "@/components/analytics";
 import { BUSINESS } from "@/lib/business";
 import "./globals.css";
@@ -8,7 +8,9 @@ import "./globals.css";
    Display : Archivo variable — width axis pulled to condensed, set light
              and huge. The Vault never uses weight to shout.
    Body    : Newsreader — editorial serif, holds up on a dark ground.
-   Data    : JetBrains Mono — licence numbers, eyebrows, metrics.        */
+   Data    : Archivo at normal width — labels, eyebrows, metrics. A tracked
+             monospace at 10px was unreadable; this is the same superfamily
+             as the display, differentiated by width rather than by face.   */
 const display = Archivo({
   subsets: ["latin"],
   axes: ["wdth"], // variable width — the condensed cut is set in globals.css
@@ -21,13 +23,6 @@ const body = Newsreader({
   weight: ["300", "400", "500"],
   style: ["normal", "italic"],
   variable: "--font-newsreader",
-  display: "swap",
-});
-
-const data = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-jetbrains",
   display: "swap",
 });
 
@@ -83,7 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${data.variable}`}
+      className={`${display.variable} ${body.variable}`}
       suppressHydrationWarning
     >
       <head>

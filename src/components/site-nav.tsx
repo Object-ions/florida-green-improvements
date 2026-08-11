@@ -35,7 +35,7 @@ export function SiteNav() {
       <nav className="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-5 md:px-10">
         <Link
           href="/"
-          className="font-data text-[11px] uppercase tracking-[0.3em] text-ink transition-opacity hover:opacity-70"
+          className="font-data text-[11px] uppercase tracking-[0.09em] text-ink transition-opacity hover:opacity-70"
         >
           Florida Green
         </Link>
@@ -45,7 +45,7 @@ export function SiteNav() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="font-data text-[10px] uppercase tracking-[0.26em] text-mute transition-colors hover:text-ink"
+                className="font-data text-[12px] uppercase tracking-[0.08em] text-mute transition-colors hover:text-ink"
               >
                 {item.label}
               </Link>
@@ -57,7 +57,7 @@ export function SiteNav() {
           <a
             href={BUSINESS.phoneHref}
             onClick={() => track("phone_click", { location: "nav" })}
-            className="hidden font-data text-[10px] uppercase tracking-[0.22em] text-ink transition-colors hover:text-brass sm:inline"
+            className="hidden font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:text-brass sm:inline"
           >
             {BUSINESS.phone}
           </a>
@@ -75,7 +75,7 @@ export function SiteNav() {
       {open ? (
         <div className="fixed inset-0 z-50 flex flex-col bg-ground md:hidden">
           <div className="flex items-center justify-between px-6 py-5">
-            <span className="font-data text-[11px] uppercase tracking-[0.3em] text-ink">Menu</span>
+            <span className="font-data text-[11px] uppercase tracking-[0.09em] text-ink">Menu</span>
             <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="text-ink">
               <X size={20} strokeWidth={1.25} aria-hidden />
             </button>
@@ -101,7 +101,7 @@ export function SiteNav() {
                   <Link
                     href={`/services/${s.slug}`}
                     onClick={() => setOpen(false)}
-                    className="font-data text-[11px] uppercase tracking-[0.18em] text-mute"
+                    className="font-data text-[11px] uppercase tracking-[0.09em] text-mute"
                   >
                     {s.name}
                   </Link>
@@ -122,13 +122,13 @@ export function CallBar() {
       <a
         href={BUSINESS.phoneHref}
         onClick={() => track("phone_click", { location: "callbar" })}
-        className="flex items-center justify-center gap-2 py-4 font-data text-[10px] uppercase tracking-[0.2em] text-ink"
+        className="flex items-center justify-center gap-2 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink"
       >
         <Phone size={13} strokeWidth={1.5} aria-hidden /> Call
       </a>
       <a
         href="/contact"
-        className="flex items-center justify-center bg-brass py-4 font-data text-[10px] font-medium uppercase tracking-[0.2em] text-ground"
+        className="flex items-center justify-center bg-brass py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-ground"
       >
         Request a quote
       </a>

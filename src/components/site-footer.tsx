@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10">
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <p className="font-data text-[11px] uppercase tracking-[0.3em] text-ink">
+            <p className="font-data text-[11px] uppercase tracking-[0.09em] text-ink">
               Florida Green Improvements
             </p>
             <p className="mt-6 max-w-[34ch] text-[15px] leading-relaxed text-mute">

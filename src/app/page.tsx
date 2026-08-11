@@ -40,34 +40,35 @@ export default function Home() {
         <section className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden">
           <div className="absolute inset-0">
             <Image
-              src="/atmosphere/hero-house-dusk.jpg"
+              src="/atmosphere/hero-alt-glow.jpg"
               alt=""
               fill
               priority
               sizes="100vw"
               quality={72}
-              className="object-cover opacity-[0.62] [filter:saturate(.9)_contrast(1.06)]"
+              className="object-cover opacity-[0.86] [filter:saturate(.94)_contrast(1.04)]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(105deg,var(--fg-ground)_4%,rgba(8,19,14,.62)_44%,rgba(8,19,14,.12)_100%)]" />
-            <div className="absolute inset-x-0 bottom-0 h-[62%] bg-[linear-gradient(to_top,var(--fg-ground)_6%,rgba(8,19,14,.72)_38%,transparent_100%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_88%_16%,rgba(30,107,79,.34),transparent_66%)] mix-blend-screen" />
+            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(8,19,14,.94)_0%,rgba(8,19,14,.42)_40%,rgba(8,19,14,.06)_100%)]" />
+            <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(to_top,var(--fg-ground)_2%,rgba(8,19,14,.86)_26%,transparent_100%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(70%_55%_at_90%_14%,rgba(30,107,79,.24),transparent_68%)] mix-blend-screen" />
           </div>
 
           <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-end px-6 pb-14 pt-36 md:px-10 md:pb-16">
             <Reveal delay={120}>
-              <p className="u-data mb-6 text-green">
-                {BUSINESS.address.locality}, Florida · Licence {BUSINESS.license}
+              <p className="u-data on-photo mb-6 text-ink-2">
+                <span className="text-green">&#9679;</span>{" "}
+                {BUSINESS.address.locality}, Florida &middot; Licence {BUSINESS.license}
               </p>
             </Reveal>
 
             <Reveal delay={220}>
-              <h1 className="max-w-[15ch] text-[clamp(2.5rem,7.6vw,5.75rem)] text-ink">
+              <h1 className="on-photo max-w-[15ch] text-[clamp(2.5rem,7.6vw,5.75rem)] text-ink">
                 {BUSINESS.tagline}
               </h1>
             </Reveal>
 
             <Reveal delay={340}>
-              <p className="mt-7 max-w-[42ch] text-[17px] leading-relaxed text-mute md:text-[19px]">
+              <p className="on-photo mt-7 max-w-[42ch] text-[17px] leading-relaxed text-ink-2 md:text-[19px]">
                 Roofing, impact windows and full remodels for South Florida homes that have to
                 survive the season and still look like this.
               </p>
@@ -77,13 +78,13 @@ export default function Home() {
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <Link
                   href="/contact"
-                  className="bg-brass px-8 py-4 font-data text-[10px] font-medium uppercase tracking-[0.2em] text-ground transition-opacity hover:opacity-90"
+                  className="bg-brass px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-ground transition-opacity hover:opacity-90"
                 >
                   Request a quote
                 </Link>
                 <a
                   href={BUSINESS.phoneHref}
-                  className="border border-line px-8 py-4 font-data text-[10px] uppercase tracking-[0.2em] text-ink transition-colors hover:border-ink"
+                  className="border border-line px-8 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink"
                 >
                   {BUSINESS.phone}
                 </a>
@@ -94,17 +95,17 @@ export default function Home() {
           <Reveal delay={620}>
             <div className="relative mx-auto w-full max-w-[1400px] border-t border-line/40 px-6 py-6 md:px-10">
               <ul className="flex flex-wrap items-center gap-x-10 gap-y-3">
-                <li className="flex items-center gap-2 font-data text-[10px] uppercase tracking-[0.2em] text-mute">
+                <li className="on-photo flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
                   <Star size={12} strokeWidth={1.5} className="text-brass" aria-hidden />
                   {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} Google reviews
                 </li>
-                <li className="font-data text-[10px] uppercase tracking-[0.2em] text-mute">
+                <li className="on-photo font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
                   Licensed &amp; insured
                 </li>
-                <li className="font-data text-[10px] uppercase tracking-[0.2em] text-mute">
+                <li className="on-photo font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
                   BBB {BUSINESS.bbb}
                 </li>
-                <li className="font-data text-[10px] uppercase tracking-[0.2em] text-mute">
+                <li className="on-photo font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
                   Miami-Dade &amp; Broward
                 </li>
               </ul>
@@ -146,7 +147,7 @@ export default function Home() {
                   href={`/services/${s.slug}`}
                   className="group grid items-center gap-6 border-b border-line/40 py-8 md:grid-cols-[86px_1fr_1.1fr_44px] md:gap-10 md:py-10"
                 >
-                  <span className="font-data text-[10px] uppercase tracking-[0.2em] text-mute">
+                  <span className="on-photo font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
                     {String(i + 1).padStart(2, "0")}
                   </span>
 
@@ -189,7 +190,7 @@ export default function Home() {
               {PROCESS.map((step, i) => (
                 <Reveal key={step.n} delay={i * 140}>
                   <div className="border-t border-line pt-7">
-                    <p className="font-data text-[10px] uppercase tracking-[0.24em] text-green">
+                    <p className="font-data text-[12px] uppercase tracking-[0.08em] text-green">
                       {step.n}
                     </p>
                     <h3 className="mt-5 text-[clamp(1.5rem,2.6vw,2rem)] text-ink">{step.title}</h3>
@@ -230,13 +231,13 @@ export default function Home() {
               <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="bg-brass px-9 py-4 font-data text-[10px] font-medium uppercase tracking-[0.2em] text-ground transition-opacity hover:opacity-90"
+                  className="bg-brass px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-ground transition-opacity hover:opacity-90"
                 >
                   Request a quote
                 </Link>
                 <a
                   href={BUSINESS.phoneHref}
-                  className="border border-line px-9 py-4 font-data text-[10px] uppercase tracking-[0.2em] text-ink transition-colors hover:border-ink"
+                  className="border border-line px-9 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink"
                 >
                   {BUSINESS.phone}
                 </a>

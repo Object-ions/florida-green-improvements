@@ -74,7 +74,7 @@
 
   --fg-font-display: var(--font-archivo), "Archivo", "Helvetica Neue", Arial, sans-serif;
   --fg-font-body:    var(--font-newsreader), "Newsreader", Georgia, serif;
-  --fg-font-data:    var(--font-jetbrains), ui-monospace, "SF Mono", Menlo, monospace;
+  --fg-font-data:    var(--font-archivo), "Archivo", "Helvetica Neue", Arial, sans-serif;
 
   color-scheme: dark;
 
@@ -123,13 +123,22 @@
    Applied here rather than per-component so every heading inherits it. */
 @layer base {
   h1,h2,h3,h4 { font-variation-settings: "wdth" 84; }
+  /* Utility labels. Previously 11px monospace at 0.28em, which was genuinely
+     painful to read. Archivo at normal width, larger and far tighter. */
   .u-data {
     font-family: var(--fg-font-data);
-    font-size: 0.6875rem;
-    letter-spacing: 0.28em;
+    font-variation-settings: "wdth" 100;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--fg-mute);
   }
+  .font-data { font-variation-settings: "wdth" 100; font-weight: 500; }
+
+  /* Text sitting directly on a photograph needs its own floor, or it depends
+     entirely on whatever happens to be behind it in that particular crop. */
+  .on-photo { text-shadow: 0 1px 18px rgba(4, 10, 7, 0.85), 0 1px 3px rgba(4, 10, 7, 0.7); }
   .skip-link {
     position: absolute; left: -9999px; top: 0; z-index: 100;
     background: var(--fg-brass); color: var(--fg-ground);
