@@ -59,11 +59,20 @@ export const metadata: Metadata = {
     description:
       "Licensed general contractor in North Miami Beach. Rated 5.0 from 44 Google reviews.",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
-  },
+  /**
+   * The site stays out of the index until it is live on the real domain.
+   * Until then it is a review copy on a netlify.app subdomain, and letting
+   * Google index that would create a duplicate competing with the client's
+   * existing site. Flip NEXT_PUBLIC_INDEXABLE to "true" at DNS cutover.
+   */
+  robots:
+    process.env.NEXT_PUBLIC_INDEXABLE === "true"
+      ? {
+          index: true,
+          follow: true,
+          googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+        }
+      : { index: false, follow: false, nocache: true },
   // Self-verifies Search Console the moment this ships on the domain.
   verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
@@ -72,8 +81,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08130E",
-  colorScheme: "dark",
+  themeColor: "#F3F5F0",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
 };

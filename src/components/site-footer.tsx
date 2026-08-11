@@ -41,7 +41,7 @@ export function SiteFooter() {
             <address className="not-italic">
               <a
                 href={BUSINESS.phoneHref}
-                className="block text-[15px] text-ink transition-colors hover:text-brass"
+                className="block text-[15px] text-ink transition-colors hover:text-brass-text"
               >
                 {BUSINESS.phone}
               </a>
@@ -95,7 +95,7 @@ export function SiteFooter() {
               href="https://switchcasestudio.com"
               target="_blank"
               rel="noopener"
-              className="text-ink-2 underline decoration-line underline-offset-4 transition-colors hover:text-brass hover:decoration-brass"
+              className="text-ink-2 underline decoration-line underline-offset-4 transition-colors hover:text-brass-text hover:decoration-brass-text"
             >
               Switch Case Studio
             </a>

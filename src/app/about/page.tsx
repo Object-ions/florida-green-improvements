@@ -30,9 +30,9 @@ export default function AboutPage() {
         <section className="relative flex min-h-[62svh] items-end overflow-hidden">
           <div className="absolute inset-0">
             <Image src="/work/about.jpg" alt="" fill priority sizes="100vw" quality={74}
-              className="object-cover opacity-[0.38] [filter:saturate(.85)_contrast(1.05)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(105deg,var(--fg-ground)_4%,rgba(8,19,14,.78)_52%,rgba(8,19,14,.3)_100%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(110%_80%_at_78%_22%,rgba(30,107,79,.24),transparent_64%)] mix-blend-screen" />
+              className="object-cover opacity-[0.9] [filter:saturate(1.02)_contrast(1.02)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(105deg,var(--fg-ground)_4%,rgba(243,245,240,.78)_52%,rgba(243,245,240,.3)_100%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(110%_80%_at_78%_22%,rgba(39,107,74,.24),transparent_64%)] mix-blend-multiply" />
           </div>
           <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24">
             
@@ -78,15 +78,15 @@ export default function AboutPage() {
 
         <section className="relative overflow-hidden border-t border-line/40">
           <div className="absolute inset-0">
-            <Image src="/atmosphere/pool-dusk.jpg" alt="" fill sizes="100vw" quality={36}
-              className="object-cover opacity-[0.16] [filter:saturate(.75)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(90%_80%_at_50%_50%,rgba(30,107,79,.2),transparent_70%)] mix-blend-screen" />
+            <Image src="/atmosphere/pool-dusk.jpg" alt="" fill sizes="100vw" quality={45}
+              className="object-cover opacity-[0.22] [filter:saturate(.95)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(90%_80%_at_50%_50%,rgba(39,107,74,.2),transparent_70%)] mix-blend-multiply" />
           </div>
           <div className="relative mx-auto max-w-[1400px] px-6 py-28 text-center md:px-10 md:py-40">
             <Reveal>
               <h2 className="mx-auto max-w-[18ch] text-[clamp(2rem,5.5vw,4rem)] text-ink">Ready to transform your living space?</h2>
               <div className="mt-11 flex flex-wrap items-center justify-center gap-4">
-                <Link href="/contact" className="bg-brass px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-ground transition-opacity hover:opacity-90">Request a quote</Link>
+                <Link href="/contact" className="bg-brass px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-brass transition-opacity hover:opacity-90">Request a quote</Link>
                 <a href={BUSINESS.phoneHref} className="border border-line px-9 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink">{BUSINESS.phone}</a>
               </div>
             </Reveal>

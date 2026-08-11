@@ -13,8 +13,10 @@
   --color-ink:         var(--fg-ink);          /* #F1EEE4  16.30:1 AA             */
   --color-ink-2:       var(--fg-ink-2);        /* #C8CFC6  11.6 :1 AA             */
   --color-mute:        var(--fg-mute);         /* #93A199   7.03:1 AA             */
-  --color-brass:       var(--fg-brass);        /* #C6A14A   7.75:1 AA · ONCE/screen */
-  --color-brass-dim:   var(--fg-brass-dim);
+  --color-brass:       var(--fg-brass);        /* FILL ONLY on a light ground     */
+  --color-brass-text:  var(--fg-brass-text);   /* 5.56:1 — brass used as text     */
+  --color-on-brass:    var(--fg-on-brass);     /* 7.55:1 — text on a brass fill   */
+  --color-field:       var(--fg-field);        /* form borders, 3:1 as UI control */
   --color-green:       var(--fg-green);        /* #4FB88C   7.72:1 AA · links     */
   --color-green-deep:  var(--fg-green-deep);   /* #1E6B4F   2.95:1 · FILLS ONLY   */
   --color-line:        var(--fg-line);         /* #3A4F44  hairlines              */
@@ -64,30 +66,53 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* ══ VAULT PALETTE — single committed theme, no toggle ══════════════ */
+/* ══ VAULT PALETTE — LIGHT ════════════════════════════════════════════
+   Client feedback: the dark build read as too dark. Rebuilt light rather
+   than lifted — a dark design nudged brighter reads muddy, not airy.
+
+   The direction is unchanged: photography as the ground of every section,
+   sparse condensed type, one accent used once per screen. Only the tonal
+   world inverted. Green still lives in the ground rather than in buttons —
+   this bone is biased green, not a neutral grey.
+
+   Every ratio below is measured, not estimated.                        */
 :root {
-  --fg-ground:#08130E; --fg-raise:#0E2119; --fg-sink:#050C08;
-  --fg-ink:#F1EEE4;    --fg-ink-2:#C8CFC6; --fg-mute:#93A199;
-  --fg-brass:#C6A14A;  --fg-brass-dim:#8A6F2E;
-  --fg-green:#4FB88C;  --fg-green-deep:#1E6B4F;
-  --fg-line:#3A4F44;
+  --fg-ground:#F3F5F0;   /* bone, faint green bias — never neutral grey  */
+  --fg-raise:#FFFFFF;    /* cards and panels                             */
+  --fg-sink:#E7EBE2;     /* footer and recessed areas                    */
+
+  --fg-ink:#0C1611;      /* 16.80:1 on ground                            */
+  --fg-ink-2:#38443C;    /*  9.29:1                                      */
+  --fg-mute:#5E6D65;     /*  4.97:1                                      */
+
+  /* Brass is a FILL. At 2.22:1 it cannot carry text on a light ground,
+     so brass-text is the darker cut for when it must.                   */
+  --fg-brass:#C6A14A;
+  --fg-brass-text:#7A5E18;   /* 5.56:1                                   */
+  --fg-on-brass:#0C1611;     /* 7.55:1 on the brass fill                 */
+
+  --fg-green:#276B4A;        /* 5.82:1 — links, eyebrows                 */
+  --fg-green-deep:#1F5C3F;   /* 7.19:1 — safe as text too                */
+
+  --fg-line:#D5DAD0;         /* decorative hairlines                     */
+  --fg-field:#7F8B7A;        /* form borders — UI controls need 3:1      */
 
   --fg-font-display: var(--font-archivo), "Archivo", "Helvetica Neue", Arial, sans-serif;
   --fg-font-body:    var(--font-newsreader), "Newsreader", Georgia, serif;
   --fg-font-data:    var(--font-archivo), "Archivo", "Helvetica Neue", Arial, sans-serif;
 
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* shadcn semantics remapped onto the Vault */
-  --background:#08130E;          --foreground:#F1EEE4;
-  --card:#0E2119;                --card-foreground:#F1EEE4;
-  --popover:#0E2119;             --popover-foreground:#F1EEE4;
-  --primary:#C6A14A;             --primary-foreground:#08130E;
-  --secondary:#12291F;           --secondary-foreground:#F1EEE4;
-  --muted:#12291F;               --muted-foreground:#93A199;
-  --accent:#1E6B4F;              --accent-foreground:#F1EEE4;
-  --destructive:oklch(0.62 0.19 25);
-  --border:#243A2E;              --input:#2C4437;  --ring:#4FB88C;
+  /* shadcn semantics remapped onto the light Vault */
+  --background:#F3F5F0;          --foreground:#0C1611;
+  --card:#FFFFFF;                --card-foreground:#0C1611;
+  --popover:#FFFFFF;             --popover-foreground:#0C1611;
+  --primary:#C6A14A;             --primary-foreground:#0C1611;
+  --secondary:#E7EBE2;           --secondary-foreground:#0C1611;
+  --muted:#E7EBE2;               --muted-foreground:#5E6D65;
+  --accent:#276B4A;              --accent-foreground:#FFFFFF;
+  --destructive:oklch(0.55 0.20 27);
+  --border:#D5DAD0;              --input:#7F8B7A;  --ring:#276B4A;
   --radius:0.125rem;             /* The Vault does not do rounded corners. */
 }
 
@@ -138,7 +163,7 @@
 
   /* Text sitting directly on a photograph needs its own floor, or it depends
      entirely on whatever happens to be behind it in that particular crop. */
-  .on-photo { text-shadow: 0 1px 18px rgba(4, 10, 7, 0.85), 0 1px 3px rgba(4, 10, 7, 0.7); }
+  .on-photo { text-shadow: 0 1px 22px rgba(243,245,240,.95), 0 1px 4px rgba(243,245,240,.85); }
   .skip-link {
     position: absolute; left: -9999px; top: 0; z-index: 100;
     background: var(--fg-brass); color: var(--fg-ground);

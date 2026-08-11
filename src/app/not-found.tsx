@@ -12,7 +12,7 @@ export default function NotFound() {
           The link may be out of date. Everything we do is on the homepage, or call us and we will point you at it.
         </p>
         <div className="mt-11 flex flex-wrap gap-4">
-          <Link href="/" className="bg-brass px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-ground">Back to home</Link>
+          <Link href="/" className="bg-brass px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-brass">Back to home</Link>
           <a href={BUSINESS.phoneHref} className="border border-line px-8 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink">{BUSINESS.phone}</a>
         </div>
       </main>

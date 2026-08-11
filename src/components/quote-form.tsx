@@ -7,7 +7,7 @@ import { track } from "@/components/analytics";
 type Errors = Partial<Record<"name" | "email" | "phone" | "service" | "message" | "form", string>>;
 
 const field =
-  "w-full border border-line bg-transparent px-4 py-3.5 text-[15px] text-ink placeholder:text-mute/60 " +
+  "w-full border border-field bg-raise px-4 py-3.5 text-[15px] text-ink placeholder:text-mute " +
   "transition-colors focus:border-green focus:outline-none";
 const label = "u-data mb-2.5 block";
 
@@ -80,7 +80,7 @@ export function QuoteForm() {
             className={field} placeholder="Your full name"
             aria-invalid={!!errors.name} aria-describedby={errors.name ? "err-name" : undefined}
           />
-          {errors.name ? <p id="err-name" role="alert" className="mt-2 text-[13px] text-brass">{errors.name}</p> : null}
+          {errors.name ? <p id="err-name" role="alert" className="mt-2 text-[13px] text-brass-text">{errors.name}</p> : null}
         </div>
 
         <div>
@@ -90,7 +90,7 @@ export function QuoteForm() {
             className={field} placeholder="(786) 000-0000"
             aria-invalid={!!errors.phone} aria-describedby={errors.phone ? "err-phone" : undefined}
           />
-          {errors.phone ? <p id="err-phone" role="alert" className="mt-2 text-[13px] text-brass">{errors.phone}</p> : null}
+          {errors.phone ? <p id="err-phone" role="alert" className="mt-2 text-[13px] text-brass-text">{errors.phone}</p> : null}
         </div>
       </div>
 
@@ -101,7 +101,7 @@ export function QuoteForm() {
           className={field} placeholder="you@example.com"
           aria-invalid={!!errors.email} aria-describedby={errors.email ? "err-email" : undefined}
         />
-        {errors.email ? <p id="err-email" role="alert" className="mt-2 text-[13px] text-brass">{errors.email}</p> : null}
+        {errors.email ? <p id="err-email" role="alert" className="mt-2 text-[13px] text-brass-text">{errors.email}</p> : null}
       </div>
 
       <div>
@@ -123,7 +123,7 @@ export function QuoteForm() {
           aria-invalid={!!errors.message} aria-describedby={errors.message ? "err-message" : "help-message"}
         />
         {errors.message ? (
-          <p id="err-message" role="alert" className="mt-2 text-[13px] text-brass">{errors.message}</p>
+          <p id="err-message" role="alert" className="mt-2 text-[13px] text-brass-text">{errors.message}</p>
         ) : (
           <p id="help-message" className="mt-2 text-[13px] text-mute">
             A sentence or two is plenty — we will follow up with the detail.
@@ -140,7 +140,7 @@ export function QuoteForm() {
       <button
         type="submit"
         disabled={state === "sending"}
-        className="mt-2 self-start bg-brass px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-ground transition-opacity hover:opacity-90 disabled:opacity-50"
+        className="mt-2 self-start bg-brass px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-brass transition-opacity hover:opacity-90 disabled:opacity-50"
       >
         {state === "sending" ? "Sending…" : "Send request"}
       </button>

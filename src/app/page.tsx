@@ -47,11 +47,11 @@ export default function Home() {
               priority
               sizes="100vw"
               quality={72}
-              className="object-cover opacity-[0.86] [filter:saturate(.94)_contrast(1.04)]"
+              className="object-cover opacity-[0.96] [filter:saturate(1.02)_contrast(1.02)]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(8,19,14,.94)_0%,rgba(8,19,14,.42)_40%,rgba(8,19,14,.06)_100%)]" />
-            <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(to_top,var(--fg-ground)_2%,rgba(8,19,14,.86)_26%,transparent_100%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(70%_55%_at_90%_14%,rgba(30,107,79,.24),transparent_68%)] mix-blend-screen" />
+            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(243,245,240,.94)_0%,rgba(243,245,240,.42)_40%,rgba(243,245,240,.06)_100%)]" />
+            <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(to_top,var(--fg-ground)_2%,rgba(243,245,240,.86)_26%,transparent_100%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(70%_55%_at_90%_14%,rgba(39,107,74,.24),transparent_68%)] mix-blend-multiply" />
           </div>
 
           <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-end px-6 pb-14 pt-36 md:px-10 md:pb-16">
@@ -72,7 +72,7 @@ export default function Home() {
             <div className="mt-10 flex flex-wrap items-center gap-4">
                 <Link
                   href="/contact"
-                  className="bg-brass px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-ground transition-opacity hover:opacity-90"
+                  className="bg-brass px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-brass transition-opacity hover:opacity-90"
                 >
                   Request a quote
                 </Link>
@@ -89,7 +89,7 @@ export default function Home() {
           <div className="relative mx-auto w-full max-w-[1400px] border-t border-line/40 px-6 py-6 md:px-10">
               <ul className="flex flex-wrap items-center gap-x-10 gap-y-3">
                 <li className="on-photo flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
-                  <Star size={12} strokeWidth={1.5} className="text-brass" aria-hidden />
+                  <Star size={12} strokeWidth={0} fill="currentColor" className="text-brass-text" aria-hidden />
                   {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} Google reviews
                 </li>
                 <li className="on-photo font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
@@ -144,7 +144,7 @@ export default function Home() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
 
-                  <h3 className="text-[clamp(1.5rem,3.4vw,2.5rem)] text-ink transition-colors group-hover:text-brass">
+                  <h3 className="text-[clamp(1.5rem,3.4vw,2.5rem)] text-ink transition-colors group-hover:text-brass-text">
                     {s.name}
                   </h3>
 
@@ -152,7 +152,7 @@ export default function Home() {
                     {s.summary}
                   </p>
 
-                  <span className="flex justify-start text-mute transition-all group-hover:translate-x-1 group-hover:text-brass md:justify-end">
+                  <span className="flex justify-start text-mute transition-all group-hover:translate-x-1 group-hover:text-brass-text md:justify-end">
                     <ArrowUpRight size={20} strokeWidth={1.25} aria-hidden />
                   </span>
                 </Link>
@@ -169,10 +169,10 @@ export default function Home() {
               alt=""
               fill
               sizes="100vw"
-              quality={40}
-              className="object-cover opacity-[0.2] [filter:saturate(.7)]"
+              quality={55}
+              className="object-cover opacity-[0.28] [filter:saturate(.9)]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--fg-ground)_0%,rgba(8,19,14,.86)_45%,var(--fg-ground)_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--fg-ground)_0%,rgba(243,245,240,.86)_45%,var(--fg-ground)_100%)]" />
           </div>
 
           <div className="relative mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-40">
@@ -205,10 +205,10 @@ export default function Home() {
               alt=""
               fill
               sizes="100vw"
-              quality={36}
-              className="object-cover opacity-[0.16] [filter:grayscale(.4)]"
+              quality={45}
+              className="object-cover opacity-[0.22] [filter:grayscale(.25)]"
             />
-            <div className="absolute inset-0 bg-[radial-gradient(90%_80%_at_50%_50%,rgba(30,107,79,.22),transparent_70%)] mix-blend-screen" />
+            <div className="absolute inset-0 bg-[radial-gradient(90%_80%_at_50%_50%,rgba(39,107,74,.22),transparent_70%)] mix-blend-multiply" />
           </div>
 
           <div className="relative mx-auto max-w-[1400px] px-6 py-32 text-center md:px-10 md:py-48">
@@ -224,7 +224,7 @@ export default function Home() {
               <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="bg-brass px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-ground transition-opacity hover:opacity-90"
+                  className="bg-brass px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-brass transition-opacity hover:opacity-90"
                 >
                   Request a quote
                 </Link>

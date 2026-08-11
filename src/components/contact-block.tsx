@@ -112,7 +112,7 @@ export function ContactBlock({
               <p className="u-data mb-3">Call us</p>
               <a
                 href={BUSINESS.phoneHref}
-                className="font-display text-[clamp(1.25rem,2.4vw,1.625rem)] uppercase text-ink transition-colors hover:text-brass"
+                className="font-display text-[clamp(1.25rem,2.4vw,1.625rem)] uppercase text-ink transition-colors hover:text-brass-text"
               >
                 {BUSINESS.phone}
               </a>
@@ -155,7 +155,7 @@ export function ContactBlock({
                 quality={82}
                 className="object-cover [filter:saturate(.9)_contrast(1.04)]"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,19,14,.5)_0%,rgba(8,19,14,.1)_38%,rgba(8,19,14,.85)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(243,245,240,.5)_0%,rgba(243,245,240,.1)_38%,rgba(243,245,240,.85)_100%)]" />
             </motion.div>
           </AnimatePresence>
 
@@ -176,7 +176,7 @@ export function ContactBlock({
 
           <div className="absolute inset-x-5 bottom-5 flex items-center justify-between gap-4 sm:inset-x-7 sm:bottom-7">
             <p className="on-photo flex items-center gap-2 font-data text-[11px] uppercase tracking-[0.1em] text-ink-2 tabular-nums">
-              <Star size={12} strokeWidth={1.5} className="text-brass" aria-hidden />
+              <Star size={12} strokeWidth={0} fill="currentColor" className="text-brass-text" aria-hidden />
               {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} reviews
             </p>
 
@@ -196,7 +196,7 @@ export function ContactBlock({
                 type="button"
                 onClick={() => paginate(1)}
                 aria-label="Next project"
-                className="flex h-11 w-11 items-center justify-center bg-brass text-ground transition-opacity hover:opacity-90"
+                className="flex h-11 w-11 items-center justify-center bg-brass text-on-brass transition-opacity hover:opacity-90"
               >
                 <ArrowRight className="h-4 w-4" strokeWidth={1.75} aria-hidden />
               </button>

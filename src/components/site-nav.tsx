@@ -29,13 +29,22 @@ export function SiteNav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        solid ? "bg-ground/95 backdrop-blur-sm border-b border-line/40" : "bg-transparent"
+        solid ? "bg-ground/95 backdrop-blur-sm border-b border-line" : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-5 md:px-10">
+      {/* Over a bright photograph the dark nav text has nothing to sit on —
+          the phone number vanished into the sky. A soft bone scrim gives it a
+          floor without reading as a bar. Hidden once the nav goes solid. */}
+      {!solid ? (
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-[linear-gradient(to_bottom,rgba(243,245,240,.92),rgba(243,245,240,.55)_45%,transparent)]"
+        />
+      ) : null}
+      <nav className="relative mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-5 md:px-10">
         <Link
           href="/"
-          className="font-data text-[11px] uppercase tracking-[0.09em] text-ink transition-opacity hover:opacity-70"
+          className="on-photo relative font-data text-[11px] uppercase tracking-[0.09em] text-ink transition-opacity hover:opacity-70"
         >
           Florida Green
         </Link>
@@ -45,7 +54,7 @@ export function SiteNav() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="font-data text-[12px] uppercase tracking-[0.08em] text-mute transition-colors hover:text-ink"
+                className="on-photo font-data text-[12px] uppercase tracking-[0.08em] text-ink-2 transition-colors hover:text-ink"
               >
                 {item.label}
               </Link>
@@ -57,7 +66,7 @@ export function SiteNav() {
           <a
             href={BUSINESS.phoneHref}
             onClick={() => track("phone_click", { location: "nav" })}
-            className="hidden font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:text-brass sm:inline"
+            className="on-photo relative hidden font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:text-brass-text sm:inline"
           >
             {BUSINESS.phone}
           </a>
@@ -128,7 +137,7 @@ export function CallBar() {
       </a>
       <a
         href="/contact"
-        className="flex items-center justify-center bg-brass py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-ground"
+        className="flex items-center justify-center bg-brass py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-brass"
       >
         Request a quote
       </a>
