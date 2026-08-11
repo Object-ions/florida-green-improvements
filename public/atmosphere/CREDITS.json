@@ -1,0 +1,83 @@
+{
+  "license": "Unsplash License — https://unsplash.com/license",
+  "usage": "ATMOSPHERE ONLY. Never captioned or implied to be a Florida Green Improvements project. See IMG-01 in PROJECT_LOG.md.",
+  "photos": [
+    {
+      "file": "/atmosphere/roof-lines.jpg",
+      "use": "Section ground — architectural metal lines",
+      "unsplashId": "Mu9uo42SXEY",
+      "photographer": "Ryunosuke Kikuno",
+      "photographerUrl": "https://unsplash.com/@ryunosuke_kikuno",
+      "photoUrl": "https://unsplash.com/photos/black-and-white-glass-building-Mu9uo42SXEY",
+      "width": 6016,
+      "height": 4016,
+      "alt": "black and white glass building"
+    },
+    {
+      "file": "/atmosphere/glass-facade.jpg",
+      "use": "Section ground — glass facade",
+      "unsplashId": "T0iFfJw-rB0",
+      "photographer": "Christian Ladewig",
+      "photographerUrl": "https://unsplash.com/@dozy_de",
+      "photoUrl": "https://unsplash.com/photos/architectural-photography-of-glass-building-T0iFfJw-rB0",
+      "width": 4774,
+      "height": 3183,
+      "alt": "architectural photography of glass building"
+    },
+    {
+      "file": "/atmosphere/palm-shadow.jpg",
+      "use": "Texture — palm shadow on wall",
+      "unsplashId": "J9VbP8CAdcM",
+      "photographer": "Tim Mossholder",
+      "photographerUrl": "https://unsplash.com/@timmossholder",
+      "photoUrl": "https://unsplash.com/photos/a-close-up-of-a-wall-J9VbP8CAdcM",
+      "width": 8256,
+      "height": 5504,
+      "alt": "a close up of a wall"
+    },
+    {
+      "file": "/atmosphere/interior-dark.jpg",
+      "use": "Section ground — minimal interior",
+      "unsplashId": "RKi6pLKBayg",
+      "photographer": "krishna kumar c",
+      "photographerUrl": "https://unsplash.com/@krishna_147",
+      "photoUrl": "https://unsplash.com/photos/modern-black-kitchen-counter-with-sink-and-faucet-RKi6pLKBayg",
+      "width": 4000,
+      "height": 3396,
+      "alt": "Modern black kitchen counter with sink and faucet."
+    },
+    {
+      "file": "/atmosphere/pool-dusk.jpg",
+      "use": "Section ground — water at dusk",
+      "unsplashId": "YmuwgvkjRIs",
+      "photographer": "César Couto",
+      "photographerUrl": "https://unsplash.com/@xcrap",
+      "photoUrl": "https://unsplash.com/photos/black-framed-eyeglasses-on-brown-wooden-table-YmuwgvkjRIs",
+      "width": 5359,
+      "height": 3573,
+      "alt": "black framed eyeglasses on brown wooden table"
+    },
+    {
+      "file": "/atmosphere/hero-house-dusk.jpg",
+      "use": "Hero — modern luxury home at dusk",
+      "unsplashId": "q6eSeT3euLU",
+      "photographer": "Michael Brown",
+      "photographerUrl": "https://unsplash.com/@vettexan",
+      "photoUrl": "https://unsplash.com/photos/modern-luxury-home-with-swimming-pools-at-dusk-q6eSeT3euLU",
+      "width": 8256,
+      "height": 5504,
+      "alt": "Modern luxury home with swimming pools at dusk"
+    },
+    {
+      "file": "/atmosphere/hero-alt-glow.jpg",
+      "use": "Alt hero — modern house exterior glowing",
+      "unsplashId": "4vioYQ9Nn9Y",
+      "photographer": "Arthur BAUDRY",
+      "photographerUrl": "https://unsplash.com/@bipow",
+      "photoUrl": "https://unsplash.com/photos/modern-house-exterior-glows-with-lights-4vioYQ9Nn9Y",
+      "width": 6912,
+      "height": 5376,
+      "alt": "Modern house exterior glows with lights."
+    }
+  ]
+}
