@@ -18,7 +18,7 @@ Built by [Switch Case Studio](https://switchcasestudio.com).
 | Components | shadcn/ui + React Bits Pro |
 | Email | Resend |
 | Analytics | Google Analytics 4 · Microsoft Clarity · Google Search Console |
-| Hosting | Vercel |
+| Hosting | Netlify |
 
 ---
 
@@ -54,6 +54,7 @@ Copy `.env.example` to `.env.local`. Nothing here is committed.
 | `NEXT_PUBLIC_CLARITY_PROJECT_ID` | optional | Microsoft Clarity heatmaps and session recordings. |
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | optional | Emits the Search Console verification meta tag. |
 | `NEXT_PUBLIC_SITE_URL` | yes | Canonical origin. Drives `sitemap.xml`, `robots.txt`, canonicals and OG URLs. |
+| `NEXT_PUBLIC_INDEXABLE` | **yes at launch** | `"true"` allows search engines to index the site. Any other value emits `noindex, nofollow`. Deliberately `"false"` on the review copy so Google cannot index a duplicate competing with the client's live site. **Set it to `"true"` at DNS cutover or the site will never rank.** |
 
 `NEXT_PUBLIC_*` variables are exposed to the browser. That is correct for the two analytics IDs and
 the site URL — they are public identifiers by design. Never prefix a secret with `NEXT_PUBLIC_`.
@@ -112,27 +113,36 @@ should replace atmosphere backgrounds wherever the section is about actual work.
 
 ## Design system
 
-Single committed dark theme — no light mode and no toggle. The palette is "Emerald & Brass": green
-is structural, carried by the near-black ground itself rather than by buttons, and brass is the only
-accent, used once per screen.
+Single committed light theme — no dark mode and no toggle. The palette is "Emerald & Brass" on
+bone: green is structural, carried by the ground itself rather than by buttons, and brass is the
+only accent, used once per screen.
+
+The ground is a bone with a deliberate green bias, never a neutral grey.
 
 Tokens are defined in [`src/app/globals.css`](src/app/globals.css) and exposed as Tailwind
 utilities (`bg-ground`, `text-brass`, `border-line`, …).
 
 | Token | Hex | Contrast on ground | Use |
 |---|---|---|---|
-| `ground` | `#08130E` | — | Page ground — an emerald black, not a neutral one |
-| `raise` | `#0E2119` | — | Cards and raised surfaces |
-| `ink` | `#F1EEE4` | 16.30:1 | Primary text |
-| `mute` | `#93A199` | 7.03:1 | Secondary text |
-| `brass` | `#C6A14A` | 7.75:1 | Primary calls to action. **Once per screen.** |
-| `green` | `#4FB88C` | 7.72:1 | Links and eyebrows |
-| `green-deep` | `#1E6B4F` | 2.95:1 | **Fills and borders only — never text** |
+| `ground` | `#F3F5F0` | — | Page ground — bone with a green bias, not a neutral grey |
+| `raise` | `#FFFFFF` | — | Cards, panels, form fields |
+| `sink` | `#E7EBE2` | — | Footer and recessed areas |
+| `ink` | `#0C1611` | 16.80:1 | Primary text |
+| `ink-2` | `#38443C` | 9.29:1 | Secondary text |
+| `mute` | `#5E6D65` | 4.97:1 | Tertiary text |
+| `brass` | `#C6A14A` | 2.22:1 | **Fill only — cannot carry text.** Primary CTAs, once per screen. |
+| `brass-text` | `#7A5E18` | 5.56:1 | Brass when it must be text, e.g. hover states |
+| `on-brass` | `#0C1611` | 7.55:1 on brass | Text sitting on a brass fill |
+| `green` | `#276B4A` | 5.82:1 | Links and eyebrows |
+| `green-deep` | `#1F5C3F` | 7.19:1 | Fills, borders — safe as text too |
+| `line` | `#D5DAD0` | — | Decorative hairlines |
+| `field` | `#7F8B7A` | — | Form borders. Fields are UI controls and need 3:1; hairlines do not. |
 
 Every ratio above is measured, and every text pairing meets WCAG AA.
 
-**Type** — Archivo (variable, condensed to `wdth 84`) for display, Newsreader for body, JetBrains
-Mono for licence numbers, eyebrows and metrics.
+**Type** — two widths of one superfamily. Archivo condensed to `wdth 84` for display, Archivo at
+normal width for labels, eyebrows and metrics, and Newsreader for body copy. A tracked monospace
+was tried for the utility role and abandoned: at 10px and 0.28em it was unreadable.
 
 **Motion** — one idea, applied everywhere: content arrives slowly from below, once. The hiding is
 gated behind a `.js` class set before first paint, so a visitor without JavaScript sees the whole
@@ -149,12 +159,18 @@ page rather than a blank one. `prefers-reduced-motion` disables it entirely.
 
 ### Before going live
 
-1. Point `NEXT_PUBLIC_SITE_URL` at the production origin.
-2. Verify the Search Console property — the meta tag ships automatically once the site is on the
+1. **Set `NEXT_PUBLIC_INDEXABLE` to `"true"`.** Until this is done every page emits
+   `noindex, nofollow` and the site cannot rank. This is the single easiest launch step to forget
+   and the most damaging to miss.
+2. Point `NEXT_PUBLIC_SITE_URL` at the production origin.
+3. Point `LEAD_NOTIFICATION_EMAIL` at the client. On preview contexts it deliberately routes
+   elsewhere so test submissions never reach them.
+4. Verify the client's sending domain with Resend and update `RESEND_FROM_EMAIL`.
+5. Verify the Search Console property — the meta tag ships automatically once the site is on the
    domain. Then submit `/sitemap.xml`.
-3. Confirm GA4 is receiving events in Realtime.
-4. Verify the Resend sending domain and send one live test through `/contact`.
-5. Spot-check the redirects: `/roofing`, `/about-us`, `/kitchen` should all 301.
+6. Confirm GA4 is receiving events in Realtime.
+7. Send one live test through `/contact`.
+8. Spot-check the redirects: `/roofing`, `/about-us`, `/kitchen` should all 301.
 
 ---
 
