@@ -4,15 +4,29 @@
 .env*.local
 .env.production
 
-# ── Internal / not for the client or the public repo ─────────
-PROJECT_LOG.md
+# ── Internal — never publish ─────────────────────────────────
+# This repo is PUBLIC. These files carry the fee, refund exposure,
+# timeline strategy, upsell pricing and critiques of the client's own
+# material. Ignored by directory AND by name, so moving one to the
+# repo root does not quietly expose it.
 /internal/
+PROJECT_LOG.md
 PLAN.md
+UPSELL.md
+AUDIT.md
+BEFORE-AFTER.*
+BEFORE_AFTER.*
 phase1-*.html
 phase2-*.html
+*-directions.html
+*-palette.html
+agreement.*
+*.pdf
+
+# Baseline capture + the client's original media. Large, and the
+# "before" data is unrecoverable once DNS cuts over — keep it local.
 /baseline/
 /assets/original/
-*.pdf
 
 # ── Dependencies ─────────────────────────────────────────────
 node_modules/
