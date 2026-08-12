@@ -31,8 +31,8 @@ export default function AboutPage() {
           <div className="absolute inset-0">
             <Image src="/showcase/about.jpg" alt="" fill priority sizes="100vw" quality={74}
               className="object-cover opacity-[1] [filter:saturate(1.04)_contrast(1.03)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(243,245,240,.88)_0%,rgba(243,245,240,.3)_40%,transparent_80%)]" />
-            <div className="absolute inset-x-0 bottom-0 h-[46%] bg-[linear-gradient(to_top,rgba(243,245,240,.9)_0%,rgba(243,245,240,.55)_34%,transparent_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(250,250,248,.76)_0%,rgba(250,250,248,.18)_38%,transparent_72%)]" />
+            <div className="absolute inset-x-0 bottom-0 h-[44%] bg-[linear-gradient(to_top,rgba(250,250,248,.86)_0%,rgba(250,250,248,.46)_32%,transparent_100%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(100%_75%_at_80%_20%,rgba(39,107,74,.13),transparent_66%)] mix-blend-multiply" />
           </div>
           <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24">
@@ -54,8 +54,9 @@ export default function AboutPage() {
               </p>
               <p className="mt-8 max-w-[60ch] text-[17px] leading-relaxed text-mute md:text-[18px]">
                 We are a licensed Florida general contractor, which means one company carries the permit, the
-                schedule and the responsibility for the whole job — roofing, impact glazing, air conditioning,
-                solar and full interior renovation. You are not managing five trades. You are calling one number.
+                schedule and the responsibility for the whole job — impact glazing, full interior
+                renovation and everything outside the walls. You are not managing five trades. You
+                are calling one number.
               </p>
             </Reveal>
           </div>
@@ -87,8 +88,8 @@ export default function AboutPage() {
             <Reveal>
               <h2 className="mx-auto max-w-[18ch] text-[clamp(2rem,5.5vw,4rem)] text-ink">Ready to transform your living space?</h2>
               <div className="mt-11 flex flex-wrap items-center justify-center gap-4">
-                <Link href="/contact" className="bg-brass px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-brass transition-opacity hover:opacity-90">Request a quote</Link>
-                <a href={BUSINESS.phoneHref} className="border border-line px-9 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink">{BUSINESS.phone}</a>
+                <Link href="/contact" className="bg-amber px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber transition-opacity hover:opacity-90">Request a quote</Link>
+                <a href={BUSINESS.phoneHref} className="border border-ink/40 px-9 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink">{BUSINESS.phone}</a>
               </div>
             </Reveal>
           </div>

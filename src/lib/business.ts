@@ -65,37 +65,18 @@ export type Service = {
    * inset plate below, at a size where it is genuinely sharp. See IMG-01.
    */
   hero: string;
+  /** Indoor work happens inside the house; outdoor is the envelope and the grounds. */
+  category: "indoor" | "outdoor";
   /** Old WordPress path, for the 301 map. */
   legacyPath: string;
 };
 
+export const CATEGORIES = [
+  { id: "indoor" as const, label: "Indoor", blurb: "Interior renovation, room by room." },
+  { id: "outdoor" as const, label: "Outdoor", blurb: "The envelope, the grounds and everything the season tests." },
+];
+
 export const SERVICES: Service[] = [
-  {
-    slug: "roofing",
-    name: "Roofing",
-    title: "Roof Replacement & Repair in North Miami Beach",
-    description:
-      "Tile, metal, asphalt shingle and flat roof replacement across Miami-Dade and Broward. Licensed general contractor CGC1529180, rated 5.0 from 44 reviews.",
-    summary: "Tile, metal, shingle and flat roof replacement.",
-    intro:
-      "We specialise in a variety of roof replacement services to suit your needs. Whether you require asphalt shingle, metal, tile or flat roof replacement, we have the expertise to deliver. Our team ensures high-quality workmanship and uses premium materials for lasting results.",
-    points: [
-      {
-        title: "Tile roof",
-        body: "Tiles serve as thermal and acoustic insulators, offering waterproof and fireproof properties while maintaining roof ventilation. Their thermal design facilitates airflow through their curves.",
-      },
-      {
-        title: "Metal roof",
-        body: "Durable, lightweight and built for the Florida season, with a lifespan well beyond conventional materials.",
-      },
-      {
-        title: "Flat roof",
-        body: "Modern membrane systems installed to withstand standing water, sun exposure and storm load.",
-      },
-    ],
-    hero: "/atmosphere/roof-lines.jpg",
-    legacyPath: "/roofing/",
-  },
   {
     slug: "impact-window-hurricane-protection",
     name: "Impact Windows & Hurricane Protection",
@@ -120,6 +101,7 @@ export const SERVICES: Service[] = [
       },
     ],
     hero: "/atmosphere/glass-facade.jpg",
+    category: "outdoor",
     legacyPath: "/impact-window-hurricane-protection/",
   },
   {
@@ -146,6 +128,7 @@ export const SERVICES: Service[] = [
       },
     ],
     hero: "/atmosphere/glass-facade.jpg",
+    category: "indoor",
     legacyPath: "/windows-and-doors/",
   },
   {
@@ -172,6 +155,7 @@ export const SERVICES: Service[] = [
       },
     ],
     hero: "/atmosphere/interior-dark.jpg",
+    category: "indoor",
     legacyPath: "/kitchen/",
   },
   {
@@ -189,6 +173,7 @@ export const SERVICES: Service[] = [
       { title: "One trade list", body: "Tiling, plumbing and finishing coordinated under a single contract." },
     ],
     hero: "/atmosphere/interior-dark.jpg",
+    category: "indoor",
     legacyPath: "/bathroom/",
   },
   {
@@ -209,6 +194,7 @@ export const SERVICES: Service[] = [
       { title: "One contractor", body: "A single licensed GC carrying the permit, the schedule and the responsibility." },
     ],
     hero: "/atmosphere/interior-dark.jpg",
+    category: "indoor",
     legacyPath: "/remodeling/",
   },
   {
@@ -229,50 +215,8 @@ export const SERVICES: Service[] = [
       { title: "Built to last", body: "Premium materials and current construction technique, for longevity in Florida conditions." },
     ],
     hero: "/atmosphere/pool-dusk.jpg",
+    category: "outdoor",
     legacyPath: "/pool/",
-  },
-  {
-    slug: "air-conditioning",
-    name: "Air Conditioning",
-    title: "Air Conditioning Installation & Replacement | Miami",
-    description:
-      "A/C installation and replacement that improves indoor air quality and cuts running costs. Licensed contractor serving Miami-Dade and Broward. Free estimates.",
-    summary: "Cooler, cleaner air — and a lower bill.",
-    intro:
-      "A well-specified air conditioning system does more than hold a temperature. It filters pollutants and allergens out of the air you breathe at home, and an efficient unit lowers running costs enough to matter across a Florida year.",
-    points: [
-      {
-        title: "Improved air quality",
-        body: "New A/C units remove more humidity from the air in operation, which measurably improves indoor air quality.",
-      },
-      { title: "Energy savings", body: "Efficient systems cut utility bills — the saving compounds over a South Florida summer." },
-      { title: "Comfort", body: "A stable indoor environment through the hottest part of the year." },
-    ],
-    hero: "/atmosphere/hero-alt-glow.jpg",
-    legacyPath: "/air-conditioning/",
-  },
-  {
-    slug: "solar-panels",
-    name: "Solar Panels",
-    title: "Solar Panel Installation in Miami-Dade & Broward",
-    description:
-      "Residential solar installation that lowers electricity bills, raises property value and qualifies for federal tax credits. Licensed Florida general contractor.",
-    summary: "Lower bills, higher property value, federal credits.",
-    intro:
-      "Solar reduces electricity bills by generating renewable energy, contributes to lower carbon emissions, increases property value, and qualifies for government incentives — which together make it a financially sound investment for homeowners and businesses alike.",
-    points: [
-      {
-        title: "Renewable energy",
-        body: "Generate your own power and reduce what you draw from the grid, permanently.",
-      },
-      {
-        title: "Tax credits and rebates",
-        body: "By purchasing your own home solar system outright you become eligible for federal tax credits, which can significantly reduce the cost of installation.",
-      },
-      { title: "Property value", body: "An owned solar system is an improvement that stays with the house." },
-    ],
-    hero: "/atmosphere/hero-alt-glow.jpg",
-    legacyPath: "/solar-panels/",
   },
   {
     slug: "landscape",
@@ -292,6 +236,7 @@ export const SERVICES: Service[] = [
       },
     ],
     hero: "/atmosphere/palm-shadow.jpg",
+    category: "outdoor",
     legacyPath: "/landscape/",
   },
   {
@@ -318,11 +263,15 @@ export const SERVICES: Service[] = [
       { title: "Supporting local pros", body: "The crews on your job are local trades, not a subcontracted travelling team." },
     ],
     hero: "/atmosphere/palm-shadow.jpg",
+    category: "outdoor",
     legacyPath: "/artaficial-turf/",
   },
 ];
 
 export const getService = (slug: string) => SERVICES.find((s) => s.slug === slug);
+
+export const servicesByCategory = (id: "indoor" | "outdoor") =>
+  SERVICES.filter((s) => s.category === id);
 
 /** Nav is intentionally short — The Vault withholds. Full list lives in the footer. */
 export const PRIMARY_NAV = [
@@ -339,5 +288,18 @@ export const PRIMARY_NAV = [
 export const LEGACY_REDIRECTS: { from: string; to: string }[] = [
   { from: "/about-us", to: "/about" },
   { from: "/finance", to: "/contact" },
+  /**
+   * Roofing, air conditioning and solar were retired at the client's request.
+   * Those pages carry whatever ranking the old site earned, so they must land
+   * somewhere real rather than 404 — the service list is the honest
+   * destination. Both the WordPress paths and the short-lived /services/ URLs
+   * are covered, since the review copy was shared before the cut.
+   */
+  { from: "/roofing", to: "/#services" },
+  { from: "/air-conditioning", to: "/#services" },
+  { from: "/solar-panels", to: "/#services" },
+  { from: "/services/roofing", to: "/#services" },
+  { from: "/services/air-conditioning", to: "/#services" },
+  { from: "/services/solar-panels", to: "/#services" },
   ...SERVICES.map((s) => ({ from: s.legacyPath.replace(/\/$/, ""), to: `/services/${s.slug}` })),
 ];

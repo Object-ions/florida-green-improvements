@@ -25,7 +25,7 @@ export default function ContactPage() {
           <div className="absolute inset-0">
             <Image src="/atmosphere/interior-dark.jpg" alt="" fill priority sizes="100vw" quality={62}
               className="object-cover opacity-[0.5] [filter:saturate(.95)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(243,245,240,.82),var(--fg-ground))]" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(250,250,248,.82),var(--fg-ground))]" />
           </div>
           <div className="relative mx-auto max-w-[1400px] px-6 pb-20 pt-40 md:px-10 md:pb-28 md:pt-48">
             

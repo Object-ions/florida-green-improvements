@@ -65,8 +65,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               quality={74}
               className="object-cover opacity-[1] [filter:saturate(1.04)_contrast(1.03)]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(243,245,240,.88)_0%,rgba(243,245,240,.3)_40%,transparent_80%)]" />
-            <div className="absolute inset-x-0 bottom-0 h-[46%] bg-[linear-gradient(to_top,rgba(243,245,240,.9)_0%,rgba(243,245,240,.55)_34%,transparent_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(250,250,248,.76)_0%,rgba(250,250,248,.18)_38%,transparent_72%)]" />
+            <div className="absolute inset-x-0 bottom-0 h-[44%] bg-[linear-gradient(to_top,rgba(250,250,248,.86)_0%,rgba(250,250,248,.46)_32%,transparent_100%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(100%_75%_at_82%_18%,rgba(39,107,74,.13),transparent_66%)] mix-blend-multiply" />
           </div>
 
@@ -169,7 +169,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   Talk to us about your {service.name.toLowerCase()} project
                 </h2>
                 <p className="mt-7 flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-mute">
-                  <Star size={12} strokeWidth={0} fill="currentColor" className="text-brass-text" aria-hidden />
+                  <Star size={12} strokeWidth={0} fill="currentColor" className="text-amber-text" aria-hidden />
                   {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} Google reviews ·
                   Licence {BUSINESS.license}
                 </p>
@@ -178,13 +178,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <div className="flex flex-wrap gap-4">
                   <Link
                     href="/contact"
-                    className="bg-brass px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-brass transition-opacity hover:opacity-90"
+                    className="bg-amber px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber transition-opacity hover:opacity-90"
                   >
                     Request a quote
                   </Link>
                   <a
                     href={BUSINESS.phoneHref}
-                    className="border border-line px-8 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink"
+                    className="border border-ink/40 px-8 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink"
                   >
                     {BUSINESS.phone}
                   </a>
@@ -207,14 +207,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                     href={`/services/${s.slug}`}
                     className="group flex items-center justify-between gap-6 border-b border-line/40 py-6"
                   >
-                    <span className="text-[clamp(1.25rem,2.6vw,1.875rem)] font-display uppercase text-ink transition-colors group-hover:text-brass-text">
+                    <span className="text-[clamp(1.25rem,2.6vw,1.875rem)] font-display uppercase text-ink transition-colors group-hover:text-amber-text">
                       {s.name}
                     </span>
                     <ArrowUpRight
                       size={18}
                       strokeWidth={1.25}
                       aria-hidden
-                      className="shrink-0 text-mute transition-all group-hover:translate-x-1 group-hover:text-brass-text"
+                      className="shrink-0 text-mute transition-all group-hover:translate-x-1 group-hover:text-amber-text"
                     />
                   </Link>
                 </Reveal>

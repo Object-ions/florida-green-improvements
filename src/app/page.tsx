@@ -5,7 +5,7 @@ import { SiteNav, CallBar } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { ContactBlock } from "@/components/contact-block";
-import { BUSINESS, SERVICES } from "@/lib/business";
+import { BUSINESS, SERVICES, CATEGORIES, servicesByCategory } from "@/lib/business";
 import { businessSchema, JsonLd } from "@/lib/schema";
 
 /* ── THE VAULT ────────────────────────────────────────────────────────
@@ -49,8 +49,8 @@ export default function Home() {
               quality={72}
               className="object-cover opacity-[1] [filter:saturate(1.04)_contrast(1.03)]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(243,245,240,.82)_0%,rgba(243,245,240,.26)_38%,transparent_78%)]" />
-            <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(to_top,var(--fg-ground)_2%,rgba(243,245,240,.86)_26%,transparent_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(250,250,248,.72)_0%,rgba(250,250,248,.14)_36%,transparent_70%)]" />
+            <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(to_top,var(--fg-ground)_2%,rgba(250,250,248,.86)_26%,transparent_100%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(70%_55%_at_90%_14%,rgba(39,107,74,.24),transparent_68%)] mix-blend-multiply" />
           </div>
 
@@ -65,20 +65,20 @@ export default function Home() {
               </h1>
 
             <p className="on-photo mt-7 max-w-[42ch] text-[17px] leading-relaxed text-ink-2 md:text-[19px]">
-                Roofing, impact windows and full remodels for South Florida homes that have to
+                Impact windows, kitchens and full remodels for South Florida homes that have to
                 survive the season and still look like this.
               </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
                 <Link
                   href="/contact"
-                  className="bg-brass px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-brass transition-opacity hover:opacity-90"
+                  className="bg-amber px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber transition-opacity hover:opacity-90"
                 >
                   Request a quote
                 </Link>
                 <a
                   href={BUSINESS.phoneHref}
-                  className="border border-line px-8 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink"
+                  className="on-photo border border-ink/40 bg-ground/50 px-8 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink backdrop-blur-[2px] transition-colors hover:border-ink"
                 >
                   {BUSINESS.phone}
                 </a>
@@ -89,7 +89,7 @@ export default function Home() {
           <div className="relative mx-auto w-full max-w-[1400px] border-t border-line/40 px-6 py-6 md:px-10">
               <ul className="flex flex-wrap items-center gap-x-10 gap-y-3">
                 <li className="on-photo flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
-                  <Star size={12} strokeWidth={0} fill="currentColor" className="text-brass-text" aria-hidden />
+                  <Star size={12} strokeWidth={0} fill="currentColor" className="text-amber-text" aria-hidden />
                   {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} Google reviews
                 </li>
                 <li className="on-photo font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
@@ -117,48 +117,61 @@ export default function Home() {
                 One contractor for the whole job.
               </h2>
               <p className="mt-10 max-w-[62ch] text-[17px] leading-relaxed text-mute md:text-[18px]">
-                Florida Green Improvements is a licensed general contractor working across roofing,
-                impact glazing, air conditioning, solar, and full interior renovation. One permit,
-                one schedule, one point of contact — from the first drawing to the final inspection.
+                Florida Green Improvements is a licensed general contractor working across impact
+                glazing, full interior renovation and outdoor living. One permit, one schedule, one
+                point of contact — from the first drawing to the final inspection.
               </p>
             </Reveal>
           </div>
         </section>
 
-        {/* ── SERVICES ───────────────────────────────────────────── */}
-        <section id="services" className="border-t border-line/40">
+        {/* ── SERVICES, split indoor / outdoor ──────────────────── */}
+        <section id="services" className="border-t border-line">
           <div className="mx-auto max-w-[1400px] px-6 pt-24 md:px-10 md:pt-32">
             <Reveal>
               <h2 className="u-data">Services · {SERVICES.length}</h2>
             </Reveal>
           </div>
 
-          <ul id="work" className="mx-auto max-w-[1400px] px-6 pb-24 md:px-10 md:pb-32">
-            {SERVICES.map((s, i) => (
-              <Reveal as="li" key={s.slug} delay={(i % 3) * 90}>
-                <Link
-                  href={`/services/${s.slug}`}
-                  className="group grid items-center gap-6 border-b border-line/40 py-8 md:grid-cols-[86px_1fr_1.1fr_44px] md:gap-10 md:py-10"
-                >
-                  <span className="on-photo font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+          <div id="work" className="mx-auto max-w-[1400px] px-6 pb-24 md:px-10 md:pb-32">
+            {CATEGORIES.map((cat, ci) => (
+              <div key={cat.id} className={ci ? "mt-20 md:mt-28" : "mt-12"}>
+                <Reveal>
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 border-b border-ink pb-5">
+                    <h3 className="text-[clamp(1.75rem,4vw,3rem)] text-ink">{cat.label}</h3>
+                    <p className="max-w-[42ch] text-[15px] text-mute md:text-[16px]">{cat.blurb}</p>
+                  </div>
+                </Reveal>
 
-                  <h3 className="text-[clamp(1.5rem,3.4vw,2.5rem)] text-ink transition-colors group-hover:text-brass-text">
-                    {s.name}
-                  </h3>
+                <ul>
+                  {servicesByCategory(cat.id).map((s, i) => (
+                    <Reveal as="li" key={s.slug} delay={(i % 3) * 90}>
+                      <Link
+                        href={`/services/${s.slug}`}
+                        className="group grid items-center gap-6 border-b border-line py-8 md:grid-cols-[86px_1fr_1.1fr_44px] md:gap-10 md:py-10"
+                      >
+                        <span className="font-data text-[12px] uppercase tracking-[0.1em] text-mute">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
 
-                  <p className="max-w-[46ch] text-[15px] leading-relaxed text-mute md:text-[16px]">
-                    {s.summary}
-                  </p>
+                        <h4 className="text-[clamp(1.375rem,3vw,2.25rem)] text-ink transition-colors group-hover:text-amber-text">
+                          {s.name}
+                        </h4>
 
-                  <span className="flex justify-start text-mute transition-all group-hover:translate-x-1 group-hover:text-brass-text md:justify-end">
-                    <ArrowUpRight size={20} strokeWidth={1.25} aria-hidden />
-                  </span>
-                </Link>
-              </Reveal>
+                        <p className="max-w-[46ch] text-[15px] leading-relaxed text-mute md:text-[16px]">
+                          {s.summary}
+                        </p>
+
+                        <span className="flex justify-start text-mute transition-all group-hover:translate-x-1 group-hover:text-amber-text md:justify-end">
+                          <ArrowUpRight size={20} strokeWidth={1.25} aria-hidden />
+                        </span>
+                      </Link>
+                    </Reveal>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
         </section>
 
         {/* ── PROCESS, over photography ──────────────────────────── */}
@@ -172,7 +185,7 @@ export default function Home() {
               quality={55}
               className="object-cover opacity-[0.28] [filter:saturate(.9)]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--fg-ground)_0%,rgba(243,245,240,.86)_45%,var(--fg-ground)_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--fg-ground)_0%,rgba(250,250,248,.86)_45%,var(--fg-ground)_100%)]" />
           </div>
 
           <div className="relative mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-40">
@@ -224,13 +237,13 @@ export default function Home() {
               <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="bg-brass px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-brass transition-opacity hover:opacity-90"
+                  className="bg-amber px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber transition-opacity hover:opacity-90"
                 >
                   Request a quote
                 </Link>
                 <a
                   href={BUSINESS.phoneHref}
-                  className="border border-line px-9 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink"
+                  className="border border-ink/40 px-9 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink"
                 >
                   {BUSINESS.phone}
                 </a>

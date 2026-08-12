@@ -82,15 +82,22 @@ and the contact-form dropdown all read from it — so a change there propagates 
   summary: "…",                 // one line, used on the homepage list
   intro: "…",                   // lead paragraph
   points: [{ title, body }],    // three detail blocks
-  hero: "/atmosphere/roof-lines.jpg",
-  legacyPath: "/roofing/",      // old WordPress URL, for the redirect
+  hero: "/atmosphere/glass-facade.jpg",
+  category: "indoor",           // "indoor" | "outdoor" — drives the homepage grouping
+  legacyPath: "/kitchen/",      // old WordPress URL, for the redirect
 }
 ```
 
 Removing a service also removes its page, its sitemap entry and its structured data. Add a redirect
 in `LEGACY_REDIRECTS` so the old URL still lands somewhere.
 
-**A new service needs a photograph** at `public/work/<slug>.jpg`.
+**A new service needs a photograph** at `public/showcase/<slug>.jpg`, and a `category` so it
+appears under Indoor or Outdoor on the homepage.
+
+**Retiring a service** means deleting its entry *and* adding a redirect in `LEGACY_REDIRECTS` for
+both its old WordPress path and its `/services/<slug>` URL — otherwise whatever ranking that page
+earned turns into a 404. Also check `SHOWCASE` in `contact-block.tsx`, which lists services
+independently.
 
 ---
 
@@ -120,30 +127,30 @@ directory, and only then may an image carry a caption or alt text describing it 
 
 ## Design system
 
-Single committed light theme — no dark mode and no toggle. The palette is "Emerald & Brass" on
-bone: green is structural, carried by the ground itself rather than by buttons, and brass is the
-only accent, used once per screen.
+Single committed light theme — no dark mode and no toggle.
 
-The ground is a bone with a deliberate green bias, never a neutral grey.
+The palette is taken from the client's own stationery, sampled rather than guessed: white,
+charcoal `#383838` and amber `#F8B858`. Green appears only in the logo wordmark, so it is a
+secondary here rather than the lead. Amber is used once per screen and never for text.
 
 Tokens are defined in [`src/app/globals.css`](src/app/globals.css) and exposed as Tailwind
 utilities (`bg-ground`, `text-brass`, `border-line`, …).
 
 | Token | Hex | Contrast on ground | Use |
 |---|---|---|---|
-| `ground` | `#F3F5F0` | — | Page ground — bone with a green bias, not a neutral grey |
+| `ground` | `#FAFAF8` | — | Page ground |
 | `raise` | `#FFFFFF` | — | Cards, panels, form fields |
-| `sink` | `#E7EBE2` | — | Footer and recessed areas |
-| `ink` | `#0C1611` | 16.80:1 | Primary text |
-| `ink-2` | `#38443C` | 9.29:1 | Secondary text |
-| `mute` | `#5E6D65` | 4.97:1 | Tertiary text |
-| `brass` | `#C6A14A` | 2.22:1 | **Fill only — cannot carry text.** Primary CTAs, once per screen. |
-| `brass-text` | `#7A5E18` | 5.56:1 | Brass when it must be text, e.g. hover states |
-| `on-brass` | `#0C1611` | 7.55:1 on brass | Text sitting on a brass fill |
-| `green` | `#276B4A` | 5.82:1 | Links and eyebrows |
-| `green-deep` | `#1F5C3F` | 7.19:1 | Fills, borders — safe as text too |
-| `line` | `#D5DAD0` | — | Decorative hairlines |
-| `field` | `#7F8B7A` | — | Form borders. Fields are UI controls and need 3:1; hairlines do not. |
+| `sink` | `#F0F0EC` | — | Footer and recessed areas |
+| `ink` | `#383838` | 11.22:1 | Primary text — the brand charcoal, exactly |
+| `ink-2` | `#575757` | 6.91:1 | Secondary text |
+| `mute` | `#696969` | 5.25:1 | Tertiary text. Chosen to clear AA on ground **and** on the darker footer surface — `#6E6E6E` passed on ground but failed at 4.46:1 on `sink`. |
+| `amber` | `#F8B858` | 1.68:1 | **Fill only — cannot carry text.** The stationery accent, once per screen. |
+| `amber-text` | `#8A6212` | 5.24:1 | Amber when it must be text, e.g. hover states |
+| `on-amber` | `#383838` | 6.69:1 on amber | Text sitting on an amber fill |
+| `green` | `#457F28` | 4.65:1 | Links and eyebrows — from the logo wordmark |
+| `green-deep` | `#3D7223` | 5.54:1 | Fills and borders |
+| `line` | `#E4E4E0` | — | Decorative hairlines |
+| `field` | `#8E8E88` | 3.15:1 | Form borders. Fields are UI controls and need 3:1; hairlines do not. |
 
 Every ratio above is measured, and every text pairing meets WCAG AA.
 

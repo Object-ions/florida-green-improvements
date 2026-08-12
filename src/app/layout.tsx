@@ -35,11 +35,11 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.floridagreenimprov
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: `${BUSINESS.name} | Roofing, Impact Windows & Remodeling in North Miami Beach`,
+    default: `${BUSINESS.name} | Impact Windows, Kitchens & Outdoor Living`,
     template: `%s | ${BUSINESS.name}`,
   },
   description:
-    "Licensed general contractor serving Miami-Dade and Broward. Roofing, impact windows and hurricane protection, kitchens, baths, pools and full remodels. Rated 5.0 from 44 Google reviews. Licence CGC1529180.",
+    "Licensed general contractor serving Miami-Dade and Broward. Impact windows and hurricane protection, kitchens, bathrooms, full remodels, pools, landscaping and turf. Rated 5.0 from 44 Google reviews. Licence CGC1529180.",
   applicationName: BUSINESS.name,
   authors: [{ name: BUSINESS.name }],
   creator: BUSINESS.name,
@@ -49,13 +49,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE,
     siteName: BUSINESS.name,
-    title: `${BUSINESS.name} | Roofing, Impact Windows & Remodeling`,
+    title: `${BUSINESS.name} | Impact Windows, Kitchens & Outdoor Living`,
     description:
       "Licensed general contractor in North Miami Beach. Rated 5.0 from 44 Google reviews. Licence CGC1529180.",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${BUSINESS.name} | Roofing, Impact Windows & Remodeling`,
+    title: `${BUSINESS.name} | Impact Windows, Kitchens & Outdoor Living`,
     description:
       "Licensed general contractor in North Miami Beach. Rated 5.0 from 44 Google reviews.",
   },
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F3F5F0",
+  themeColor: "#FAFAF8",
   colorScheme: "light",
   width: "device-width",
   initialScale: 1,

@@ -90,7 +90,7 @@ function ConsentBanner({ onChoose }: { onChoose: (v: "granted" | "denied") => vo
           <button
             type="button"
             onClick={() => onChoose("granted")}
-            className="bg-brass px-7 py-3.5 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-brass transition-opacity hover:opacity-90"
+            className="bg-amber px-7 py-3.5 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber transition-opacity hover:opacity-90"
           >
             Accept
           </button>

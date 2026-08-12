@@ -12,8 +12,8 @@ export function SiteFooter() {
               Florida Green Improvements
             </p>
             <p className="mt-6 max-w-[34ch] text-[15px] leading-relaxed text-mute">
-              A licensed Florida general contractor working across roofing, impact glazing and
-              full interior renovation in Miami-Dade and Broward.
+              A licensed Florida general contractor working across impact glazing, interior
+              renovation and outdoor living in Miami-Dade and Broward.
             </p>
             <p className="u-data mt-8">
               Licence {BUSINESS.license} · {BUSINESS.licenseLabel}
@@ -41,7 +41,7 @@ export function SiteFooter() {
             <address className="not-italic">
               <a
                 href={BUSINESS.phoneHref}
-                className="block text-[15px] text-ink transition-colors hover:text-brass-text"
+                className="block text-[15px] text-ink transition-colors hover:text-amber-text"
               >
                 {BUSINESS.phone}
               </a>
@@ -95,7 +95,7 @@ export function SiteFooter() {
               href="https://switchcasestudio.com"
               target="_blank"
               rel="noopener"
-              className="text-ink-2 underline decoration-line underline-offset-4 transition-colors hover:text-brass-text hover:decoration-brass-text"
+              className="text-ink-2 underline decoration-line underline-offset-4 transition-colors hover:text-amber-text hover:decoration-amber-text"
             >
               Switch Case Studio
             </a>

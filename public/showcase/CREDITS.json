@@ -3,14 +3,6 @@
   "usage": "Licensed aspirational photography. NOT Florida Green Improvements project work. Never captioned, labelled, alt-tagged or otherwise implied to be a completed client project.",
   "photos": [
     {
-      "file": "/showcase/roofing.jpg",
-      "unsplashId": "hHz4yrvxwlA",
-      "photographer": "Avi Werde",
-      "photographerUrl": "https://unsplash.com/@aviwerde",
-      "photoUrl": "https://unsplash.com/photos/white-and-brown-concrete-building-hHz4yrvxwlA",
-      "alt": "white and brown concrete building"
-    },
-    {
       "file": "/showcase/impact-window-hurricane-protection.jpg",
       "unsplashId": "AI5VFAQK7lA",
       "photographer": "GoodLifeConstruction",
@@ -57,22 +49,6 @@
       "photographerUrl": "https://unsplash.com/@johnfo",
       "photoUrl": "https://unsplash.com/photos/white-and-blue-swimming-pool-Id7u0EkTjBE",
       "alt": "white and blue swimming pool"
-    },
-    {
-      "file": "/showcase/air-conditioning.jpg",
-      "unsplashId": "ztWpwTEx728",
-      "photographer": "Zac Gudakov",
-      "photographerUrl": "https://unsplash.com/@zacgudakov",
-      "photoUrl": "https://unsplash.com/photos/white-and-brown-living-room-set-ztWpwTEx728",
-      "alt": "white and brown living room set"
-    },
-    {
-      "file": "/showcase/solar-panels.jpg",
-      "unsplashId": "Ja8t8nJN2I4",
-      "photographer": "Watt A Lot",
-      "photographerUrl": "https://unsplash.com/@wattalot",
-      "photoUrl": "https://unsplash.com/photos/a-house-with-solar-panels-Ja8t8nJN2I4",
-      "alt": "a house with solar panels"
     },
     {
       "file": "/showcase/landscape.jpg",

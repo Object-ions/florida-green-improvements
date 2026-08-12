@@ -28,8 +28,8 @@ import { BUSINESS } from "@/lib/business";
  * See CREDITS.json and IMG-01 in the project log.
  */
 const SHOWCASE = [
-  { label: "Roofing", src: "/showcase/roofing.jpg" },
   { label: "Kitchens", src: "/showcase/kitchen.jpg" },
+  { label: "Bathrooms", src: "/showcase/bathroom.jpg" },
   { label: "Remodeling", src: "/showcase/remodeling.jpg" },
   { label: "Pools", src: "/showcase/pool.jpg" },
   { label: "Landscaping", src: "/showcase/landscape.jpg" },
@@ -118,7 +118,7 @@ export function ContactBlock({
               <p className="u-data mb-3">Call us</p>
               <a
                 href={BUSINESS.phoneHref}
-                className="font-display text-[clamp(1.25rem,2.4vw,1.625rem)] uppercase text-ink transition-colors hover:text-brass-text"
+                className="font-display text-[clamp(1.25rem,2.4vw,1.625rem)] uppercase text-ink transition-colors hover:text-amber-text"
               >
                 {BUSINESS.phone}
               </a>
@@ -161,7 +161,7 @@ export function ContactBlock({
                 quality={82}
                 className="object-cover [filter:saturate(.9)_contrast(1.04)]"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(243,245,240,.5)_0%,rgba(243,245,240,.1)_38%,rgba(243,245,240,.85)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(250,250,248,.5)_0%,rgba(250,250,248,.1)_38%,rgba(250,250,248,.85)_100%)]" />
             </motion.div>
           </AnimatePresence>
 
@@ -182,7 +182,7 @@ export function ContactBlock({
 
           <div className="absolute inset-x-5 bottom-5 flex items-center justify-between gap-4 sm:inset-x-7 sm:bottom-7">
             <p className="on-photo flex items-center gap-2 font-data text-[11px] uppercase tracking-[0.1em] text-ink-2 tabular-nums">
-              <Star size={12} strokeWidth={0} fill="currentColor" className="text-brass-text" aria-hidden />
+              <Star size={12} strokeWidth={0} fill="currentColor" className="text-amber-text" aria-hidden />
               {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} reviews
             </p>
 
@@ -202,7 +202,7 @@ export function ContactBlock({
                 type="button"
                 onClick={() => paginate(1)}
                 aria-label="Next image"
-                className="flex h-11 w-11 items-center justify-center bg-brass text-on-brass transition-opacity hover:opacity-90"
+                className="flex h-11 w-11 items-center justify-center bg-amber text-on-amber transition-opacity hover:opacity-90"
               >
                 <ArrowRight className="h-4 w-4" strokeWidth={1.75} aria-hidden />
               </button>

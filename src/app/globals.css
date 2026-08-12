@@ -13,9 +13,9 @@
   --color-ink:         var(--fg-ink);          /* #F1EEE4  16.30:1 AA             */
   --color-ink-2:       var(--fg-ink-2);        /* #C8CFC6  11.6 :1 AA             */
   --color-mute:        var(--fg-mute);         /* #93A199   7.03:1 AA             */
-  --color-brass:       var(--fg-brass);        /* FILL ONLY on a light ground     */
-  --color-brass-text:  var(--fg-brass-text);   /* 5.56:1 — brass used as text     */
-  --color-on-brass:    var(--fg-on-brass);     /* 7.55:1 — text on a brass fill   */
+  --color-amber:       var(--fg-amber);        /* stationery accent — FILL ONLY   */
+  --color-amber-text:  var(--fg-amber-text);   /* 5.24:1 — amber used as text     */
+  --color-on-amber:    var(--fg-on-amber);     /* 6.69:1 — text on an amber fill  */
   --color-field:       var(--fg-field);        /* form borders, 3:1 as UI control */
   --color-green:       var(--fg-green);        /* #4FB88C   7.72:1 AA · links     */
   --color-green-deep:  var(--fg-green-deep);   /* #1E6B4F   2.95:1 · FILLS ONLY   */
@@ -66,36 +66,33 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* ══ VAULT PALETTE — LIGHT ════════════════════════════════════════════
-   Client feedback: the dark build read as too dark. Rebuilt light rather
-   than lifted — a dark design nudged brighter reads muddy, not airy.
+/* ══ BRAND PALETTE ════════════════════════════════════════════════════
+   Taken from the client's own stationery, sampled rather than guessed:
+   white, charcoal #383838 and amber #F8B858. Green appears only in the
+   logo wordmark, so it is a secondary here, not the lead — the earlier
+   green-led palette was reading further from his brand than it should.
 
-   The direction is unchanged: photography as the ground of every section,
-   sparse condensed type, one accent used once per screen. Only the tonal
-   world inverted. Green still lives in the ground rather than in buttons —
-   this bone is biased green, not a neutral grey.
-
-   Every ratio below is measured, not estimated.                        */
+   Every ratio below is measured.                                       */
 :root {
-  --fg-ground:#F3F5F0;   /* bone, faint green bias — never neutral grey  */
-  --fg-raise:#FFFFFF;    /* cards and panels                             */
-  --fg-sink:#E7EBE2;     /* footer and recessed areas                    */
+  --fg-ground:#FAFAF8;   /* barely-warm white, so panels can still read as raised */
+  --fg-raise:#FFFFFF;
+  --fg-sink:#F0F0EC;
 
-  --fg-ink:#0C1611;      /* 16.80:1 on ground                            */
-  --fg-ink-2:#38443C;    /*  9.29:1                                      */
-  --fg-mute:#5E6D65;     /*  4.97:1                                      */
+  --fg-ink:#383838;      /* 11.22:1 — the brand charcoal, exactly            */
+  --fg-ink-2:#575757;    /*  6.91:1                                          */
+  --fg-mute:#696969;     /*  5.25 on ground · 4.80 on sink · 5.49 on white   */
 
-  /* Brass is a FILL. At 2.22:1 it cannot carry text on a light ground,
-     so brass-text is the darker cut for when it must.                   */
-  --fg-brass:#C6A14A;
-  --fg-brass-text:#7A5E18;   /* 5.56:1                                   */
-  --fg-on-brass:#0C1611;     /* 7.55:1 on the brass fill                 */
+  /* Amber is the stationery accent and a FILL. At 1.68:1 it cannot carry
+     text; amber-text is the darker cut for when it must.                */
+  --fg-amber:#F8B858;
+  --fg-amber-text:#8A6212;   /* 5.24:1 */
+  --fg-on-amber:#383838;     /* 6.69:1 on the amber fill                     */
 
-  --fg-green:#276B4A;        /* 5.82:1 — links, eyebrows                 */
-  --fg-green-deep:#1F5C3F;   /* 7.19:1 — safe as text too                */
+  --fg-green:#457F28;        /* 4.65:1 — from the logo wordmark              */
+  --fg-green-deep:#3D7223;   /* 5.54:1                                       */
 
-  --fg-line:#D5DAD0;         /* decorative hairlines                     */
-  --fg-field:#7F8B7A;        /* form borders — UI controls need 3:1      */
+  --fg-line:#E4E4E0;         /* decorative hairlines                         */
+  --fg-field:#8E8E88;        /* 3.15:1 — form borders are UI controls        */
 
   --fg-font-display: var(--font-archivo), "Archivo", "Helvetica Neue", Arial, sans-serif;
   --fg-font-body:    var(--font-newsreader), "Newsreader", Georgia, serif;
@@ -103,17 +100,16 @@
 
   color-scheme: light;
 
-  /* shadcn semantics remapped onto the light Vault */
-  --background:#F3F5F0;          --foreground:#0C1611;
-  --card:#FFFFFF;                --card-foreground:#0C1611;
-  --popover:#FFFFFF;             --popover-foreground:#0C1611;
-  --primary:#C6A14A;             --primary-foreground:#0C1611;
-  --secondary:#E7EBE2;           --secondary-foreground:#0C1611;
-  --muted:#E7EBE2;               --muted-foreground:#5E6D65;
-  --accent:#276B4A;              --accent-foreground:#FFFFFF;
+  --background:#FAFAF8;          --foreground:#383838;
+  --card:#FFFFFF;                --card-foreground:#383838;
+  --popover:#FFFFFF;             --popover-foreground:#383838;
+  --primary:#F8B858;             --primary-foreground:#383838;
+  --secondary:#F0F0EC;           --secondary-foreground:#383838;
+  --muted:#F0F0EC;               --muted-foreground:#696969;
+  --accent:#457F28;              --accent-foreground:#FFFFFF;
   --destructive:oklch(0.55 0.20 27);
-  --border:#D5DAD0;              --input:#7F8B7A;  --ring:#276B4A;
-  --radius:0.125rem;             /* The Vault does not do rounded corners. */
+  --border:#E4E4E0;              --input:#8E8E88;  --ring:#457F28;
+  --radius:0.125rem;
 }
 
 @layer base {
@@ -133,7 +129,7 @@
     line-height: 0.94;
     text-wrap: balance;
   }
-  ::selection { background: var(--fg-brass); color: var(--fg-ground); }
+  ::selection { background: var(--fg-amber); color: var(--fg-on-amber); }
   :focus-visible { outline: 2px solid var(--fg-green); outline-offset: 3px; }
 }
 
@@ -163,10 +159,10 @@
 
   /* Text sitting directly on a photograph needs its own floor, or it depends
      entirely on whatever happens to be behind it in that particular crop. */
-  .on-photo { text-shadow: 0 1px 22px rgba(243,245,240,.95), 0 1px 4px rgba(243,245,240,.85); }
+  .on-photo { text-shadow: 0 1px 22px rgba(250,250,248,.95), 0 1px 4px rgba(250,250,248,.85); }
   .skip-link {
     position: absolute; left: -9999px; top: 0; z-index: 100;
-    background: var(--fg-brass); color: var(--fg-ground);
+    background: var(--fg-amber); color: var(--fg-on-amber);
     padding: 0.75rem 1.25rem; font-family: var(--fg-font-data);
     font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
   }

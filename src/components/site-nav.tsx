@@ -38,7 +38,7 @@ export function SiteNav() {
       {!solid ? (
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-[linear-gradient(to_bottom,rgba(243,245,240,.92),rgba(243,245,240,.55)_45%,transparent)]"
+          className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-[linear-gradient(to_bottom,rgba(250,250,248,.92),rgba(250,250,248,.55)_45%,transparent)]"
         />
       ) : null}
       <nav className="relative mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-5 md:px-10">
@@ -66,7 +66,7 @@ export function SiteNav() {
           <a
             href={BUSINESS.phoneHref}
             onClick={() => track("phone_click", { location: "nav" })}
-            className="on-photo relative hidden font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:text-brass-text sm:inline"
+            className="on-photo relative hidden font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:text-amber-text sm:inline"
           >
             {BUSINESS.phone}
           </a>
@@ -137,7 +137,7 @@ export function CallBar() {
       </a>
       <a
         href="/contact"
-        className="flex items-center justify-center bg-brass py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-brass"
+        className="flex items-center justify-center bg-amber py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber"
       >
         Request a quote
       </a>
