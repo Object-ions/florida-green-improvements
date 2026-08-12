@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { SiteNav, CallBar } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { ContactBlock } from "@/components/contact-block";
+import { CinematicList } from "@/components/ui/cinematic-list";
 import { BUSINESS, SERVICES, CATEGORIES, servicesByCategory } from "@/lib/business";
 import { businessSchema, JsonLd } from "@/lib/schema";
 
@@ -137,38 +138,23 @@ export default function Home() {
             {CATEGORIES.map((cat, ci) => (
               <div key={cat.id} className={ci ? "mt-20 md:mt-28" : "mt-12"}>
                 <Reveal>
-                  <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 border-b border-ink pb-5">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 pb-6">
                     <h3 className="text-[clamp(1.75rem,4vw,3rem)] text-ink">{cat.label}</h3>
                     <p className="max-w-[42ch] text-[15px] text-mute md:text-[16px]">{cat.blurb}</p>
                   </div>
                 </Reveal>
 
-                <ul>
-                  {servicesByCategory(cat.id).map((s, i) => (
-                    <Reveal as="li" key={s.slug} delay={(i % 3) * 90}>
-                      <Link
-                        href={`/services/${s.slug}`}
-                        className="group grid items-center gap-6 border-b border-line py-8 md:grid-cols-[86px_1fr_1.1fr_44px] md:gap-10 md:py-10"
-                      >
-                        <span className="font-data text-[12px] uppercase tracking-[0.1em] text-mute">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-
-                        <h4 className="text-[clamp(1.375rem,3vw,2.25rem)] text-ink transition-colors group-hover:text-amber-text">
-                          {s.name}
-                        </h4>
-
-                        <p className="max-w-[46ch] text-[15px] leading-relaxed text-mute md:text-[16px]">
-                          {s.summary}
-                        </p>
-
-                        <span className="flex justify-start text-mute transition-all group-hover:translate-x-1 group-hover:text-amber-text md:justify-end">
-                          <ArrowUpRight size={20} strokeWidth={1.25} aria-hidden />
-                        </span>
-                      </Link>
-                    </Reveal>
-                  ))}
-                </ul>
+                <Reveal delay={120}>
+                  <CinematicList
+                    items={servicesByCategory(cat.id).map((s, i) => ({
+                      id: String(i + 1).padStart(2, "0"),
+                      title: s.name,
+                      meta: cat.label,
+                      href: `/services/${s.slug}`,
+                      src: `/showcase/${s.slug}.jpg`,
+                    }))}
+                  />
+                </Reveal>
               </div>
             ))}
           </div>

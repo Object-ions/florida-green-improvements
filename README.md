@@ -217,6 +217,8 @@ src/
 │   ├── sitemap.ts · robots.ts  generated at build
 │   └── globals.css             design tokens
 ├── components/
+│   ├── ui/
+│   │   └── cinematic-list.tsx  expanding hover list used for the services grid
 │   ├── site-nav.tsx            header + mobile menu + sticky call bar
 │   ├── site-footer.tsx
 │   ├── quote-form.tsx
