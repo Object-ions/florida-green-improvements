@@ -50,9 +50,9 @@ export default function Home() {
               quality={72}
               className="object-cover opacity-[1] [filter:saturate(1.04)_contrast(1.03)]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(250,250,248,.72)_0%,rgba(250,250,248,.14)_36%,transparent_70%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(250,250,248,.9)_0%,rgba(250,250,248,.5)_22%,rgba(250,250,248,.1)_45%,transparent_62%)]" />
             <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(to_top,var(--fg-ground)_2%,rgba(250,250,248,.86)_26%,transparent_100%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(70%_55%_at_90%_14%,rgba(39,107,74,.24),transparent_68%)] mix-blend-multiply" />
+            <div className="absolute inset-0 bg-[radial-gradient(60%_45%_at_92%_10%,rgba(39,107,74,.1),transparent_70%)] mix-blend-multiply" />
           </div>
 
           <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-end px-6 pb-14 pt-36 md:px-10 md:pb-16">
@@ -73,13 +73,13 @@ export default function Home() {
             <div className="mt-10 flex flex-wrap items-center gap-4">
                 <Link
                   href="/contact"
-                  className="bg-amber px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber transition-opacity hover:opacity-90"
+                  className="rounded-md bg-amber px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber shadow-sm transition-all hover:brightness-105"
                 >
                   Request a quote
                 </Link>
                 <a
                   href={BUSINESS.phoneHref}
-                  className="on-photo border border-ink/40 bg-ground/50 px-8 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink backdrop-blur-[2px] transition-colors hover:border-ink"
+                  className="rounded-md border border-ink/20 bg-ground/70 px-8 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink backdrop-blur-[3px] transition-colors hover:border-ink/45"
                 >
                   {BUSINESS.phone}
                 </a>
@@ -95,9 +95,6 @@ export default function Home() {
                 </li>
                 <li className="on-photo font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
                   Licensed &amp; insured
-                </li>
-                <li className="on-photo font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
-                  BBB {BUSINESS.bbb}
                 </li>
                 <li className="on-photo font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
                   Miami-Dade &amp; Broward
@@ -223,13 +220,13 @@ export default function Home() {
               <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   href="/contact"
-                  className="bg-amber px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber transition-opacity hover:opacity-90"
+                  className="rounded-md bg-amber px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber shadow-sm transition-all hover:brightness-105"
                 >
                   Request a quote
                 </Link>
                 <a
                   href={BUSINESS.phoneHref}
-                  className="border border-ink/40 px-9 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink"
+                  className="rounded-md border border-ink/20 px-9 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink/45"
                 >
                   {BUSINESS.phone}
                 </a>

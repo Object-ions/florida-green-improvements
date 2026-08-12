@@ -86,8 +86,7 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {BUSINESS.legalName}
           </p>
           <p className="u-data">
-            {BUSINESS.rating.value.toFixed(1)} ★ · {BUSINESS.rating.count} Google reviews · BBB{" "}
-            {BUSINESS.bbb}
+            {BUSINESS.rating.value.toFixed(1)} ★ · {BUSINESS.rating.count} Google reviews
           </p>
           <p className="u-data">
             Site by{" "}

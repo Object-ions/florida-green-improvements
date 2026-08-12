@@ -178,13 +178,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <div className="flex flex-wrap gap-4">
                   <Link
                     href="/contact"
-                    className="bg-amber px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber transition-opacity hover:opacity-90"
+                    className="rounded-md bg-amber px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber shadow-sm transition-all hover:brightness-105"
                   >
                     Request a quote
                   </Link>
                   <a
                     href={BUSINESS.phoneHref}
-                    className="border border-ink/40 px-8 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink"
+                    className="rounded-md border border-ink/20 px-8 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink/45"
                   >
                     {BUSINESS.phone}
                   </a>

@@ -6,7 +6,7 @@
  * one-line edit in this file (see Q-01 in the project log).
  *
  * Facts verified 2026-08-10 against the live site, Google Business Profile,
- * Florida Sunbiz and BBB. Per agreement §1.2 we do not fact-check the client's
+ * and Florida Sunbiz. Per agreement §1.2 we do not fact-check the client's
  * details — these are carried over as published, not independently confirmed.
  */
 
@@ -34,7 +34,6 @@ export const BUSINESS = {
   areaServed: ["Miami-Dade County", "Broward County", "North Miami Beach", "Miami", "Aventura"],
 
   rating: { value: 5.0, count: 44, source: "Google" },
-  bbb: "A+",
 
   social: {
     instagram: "https://www.instagram.com/florida_green_improvements/",

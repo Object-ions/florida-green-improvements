@@ -157,9 +157,11 @@
   }
   .font-data { font-variation-settings: "wdth" 100; font-weight: 500; }
 
-  /* Text sitting directly on a photograph needs its own floor, or it depends
-     entirely on whatever happens to be behind it in that particular crop. */
-  .on-photo { text-shadow: 0 1px 22px rgba(250,250,248,.95), 0 1px 4px rgba(250,250,248,.85); }
+  /* `.on-photo` used to paint a halo behind text sitting on a photograph. It
+     was removed at the client's request — the legibility floor is now the
+     section gradient itself, which is the correct place for it. The class is
+     kept as a no-op hook so the markup still says which text sits on imagery. */
+  .on-photo { }
   .skip-link {
     position: absolute; left: -9999px; top: 0; z-index: 100;
     background: var(--fg-amber); color: var(--fg-on-amber);
