@@ -83,14 +83,14 @@ function ConsentBanner({ onChoose }: { onChoose: (v: "granted" | "denied") => vo
           <button
             type="button"
             onClick={() => onChoose("denied")}
-            className="rounded-md border border-ink/20 px-7 py-3.5 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink/45"
+            className="btn btn-ghost"
           >
             Decline
           </button>
           <button
             type="button"
             onClick={() => onChoose("granted")}
-            className="rounded-md bg-amber px-7 py-3.5 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber shadow-sm transition-all hover:brightness-105"
+            className="btn btn-amber"
           >
             Accept
           </button>

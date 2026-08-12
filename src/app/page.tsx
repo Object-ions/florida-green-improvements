@@ -13,20 +13,27 @@ import { businessSchema, JsonLd } from "@/lib/schema";
    Photography is the ground of every section. Type sits small and wide
    over it, never bold. Brass appears once per screen and nowhere else. */
 
+/* Imagery here is illustrative of the stage, never of a Florida Green project.
+   Deliberately no people and no third-party branding: a photograph of a crew
+   sitting under "How it works" reads as *his* crew, which is exactly the claim
+   the licensing note in public/process/CREDITS.json forbids. */
 const PROCESS = [
   {
     n: "01",
     title: "Plan",
+    img: "/process/plan.jpg",
     body: "Permits, construction approval and material scheduling are handled before anyone starts work — so the timeline you are given is the timeline you get.",
   },
   {
     n: "02",
     title: "Design",
+    img: "/process/design.jpg",
     body: "We work through layout, materials, fixtures and finishes with you, with visual aids so you can see the room before it is built. At no additional cost.",
   },
   {
     n: "03",
     title: "Build",
+    img: "/process/build.jpg",
     body: "One licensed general contractor carries the permit, the schedule and the responsibility from demolition through final inspection.",
   },
 ];
@@ -73,13 +80,13 @@ export default function Home() {
             <div className="mt-10 flex flex-wrap items-center gap-4">
                 <Link
                   href="/contact"
-                  className="rounded-md bg-amber px-8 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber shadow-sm transition-all hover:brightness-105"
+                  className="btn btn-amber"
                 >
                   Request a quote
                 </Link>
                 <a
                   href={BUSINESS.phoneHref}
-                  className="rounded-md border border-ink/20 bg-ground/70 px-8 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink backdrop-blur-[3px] transition-colors hover:border-ink/45"
+                  className="btn btn-ghost btn-tel bg-ground/70 backdrop-blur-[3px]"
                 >
                   {BUSINESS.phone}
                 </a>
@@ -110,16 +117,40 @@ export default function Home() {
             <Reveal>
               <p className="u-data md:pt-3">About</p>
             </Reveal>
-            <Reveal delay={120}>
-              <h2 className="max-w-[24ch] text-[clamp(1.75rem,4vw,3.25rem)] font-display uppercase leading-[0.98] text-ink">
-                One contractor for the whole job.
-              </h2>
-              <p className="mt-10 max-w-[62ch] text-[17px] leading-relaxed text-mute md:text-[18px]">
-                Florida Green Improvements is a licensed general contractor working across impact
-                glazing, full interior renovation and outdoor living. One permit, one schedule, one
-                point of contact — from the first drawing to the final inspection.
-              </p>
-            </Reveal>
+
+            <div className="grid gap-12 lg:grid-cols-[1fr_minmax(260px,400px)] lg:items-center lg:gap-16">
+              <Reveal delay={120}>
+                <h2 className="max-w-[24ch] text-[clamp(1.75rem,4vw,3.25rem)] font-display uppercase leading-[0.98] text-ink">
+                  One contractor for the whole job.
+                </h2>
+                <p className="mt-10 max-w-[62ch] text-[17px] leading-relaxed text-mute md:text-[18px]">
+                  Florida Green Improvements is a licensed general contractor working across impact
+                  glazing, full interior renovation and outdoor living. One permit, one schedule, one
+                  point of contact — from the first drawing to the final inspection.
+                </p>
+                {/* Ghost rather than amber on purpose: the brass fill is the
+                    page's one loud CTA and it already appears in the hero and
+                    the closing block. A third would flatten all three. */}
+                <div className="mt-10">
+                  <Link href="/about" className="btn btn-ghost">
+                    About the company
+                  </Link>
+                </div>
+              </Reveal>
+
+              <Reveal delay={240}>
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[6px]">
+                  <Image
+                    src="/atmosphere/whole-home.jpg"
+                    alt=""
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                    quality={72}
+                    className="object-cover"
+                  />
+                </div>
+              </Reveal>
+            </div>
           </div>
         </section>
 
@@ -178,6 +209,16 @@ export default function Home() {
             <div className="grid gap-14 md:grid-cols-3 md:gap-12">
               {PROCESS.map((step, i) => (
                 <Reveal key={step.n} delay={i * 140}>
+                  <div className="relative mb-8 aspect-[4/3] overflow-hidden rounded-[6px]">
+                    <Image
+                      src={step.img}
+                      alt=""
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      quality={70}
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="border-t border-line pt-7">
                     <p className="font-data text-[12px] uppercase tracking-[0.08em] text-green">
                       {step.n}
@@ -195,41 +236,50 @@ export default function Home() {
 
         {/* ── CTA ────────────────────────────────────────────────── */}
         <section className="relative overflow-hidden border-t border-line/40">
+          {/* Was palm-shadow at 22% — a wall texture, effectively invisible.
+              Now the dusk house, which is the strongest photograph in the set
+              and had been sitting unused.
+
+              It runs at full strength rather than washed out, which forces the
+              copy onto its own panel: charcoal body text over a real photograph
+              measures about 2.9:1 at any opacity that leaves the picture worth
+              looking at. The panel keeps the photograph and keeps the type
+              legible instead of trading one against the other. */}
           <div className="absolute inset-0">
             <Image
-              src="/atmosphere/palm-shadow.jpg"
+              src="/atmosphere/hero-house-dusk.jpg"
               alt=""
               fill
               sizes="100vw"
-              quality={45}
-              className="object-cover opacity-[0.22] [filter:grayscale(.25)]"
+              quality={68}
+              className="object-cover [filter:saturate(1.03)]"
             />
-            <div className="absolute inset-0 bg-[radial-gradient(90%_80%_at_50%_50%,rgba(39,107,74,.22),transparent_70%)] mix-blend-multiply" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(250,250,248,.62)_0%,rgba(250,250,248,.14)_42%,rgba(250,250,248,.62)_100%)]" />
           </div>
 
-          <div className="relative mx-auto max-w-[1400px] px-6 py-32 text-center md:px-10 md:py-48">
+          <div className="relative mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-36">
             <Reveal>
-              <p className="u-data mb-8">Free estimates</p>
-              <h2 className="mx-auto max-w-[16ch] text-[clamp(2.25rem,6.5vw,5rem)] text-ink">
-                Ready to transform your living space?
-              </h2>
-              <p className="mx-auto mt-8 max-w-[46ch] text-[17px] leading-relaxed text-mute">
-                Tell us what you are planning. We will come out, look at it properly, and give you a
-                number you can rely on.
-              </p>
-              <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-                <Link
-                  href="/contact"
-                  className="rounded-md bg-amber px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber shadow-sm transition-all hover:brightness-105"
-                >
-                  Request a quote
-                </Link>
-                <a
-                  href={BUSINESS.phoneHref}
-                  className="rounded-md border border-ink/20 px-9 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink/45"
-                >
-                  {BUSINESS.phone}
-                </a>
+              {/* ground/95 measured, not picked: over the darkest pixel in this
+                  photograph the muted body copy still reads 4.76:1. */}
+              <div className="mx-auto max-w-[840px] rounded-[6px] bg-ground/95 px-7 py-14 text-center shadow-[0_20px_70px_-28px_rgba(56,56,56,.5)] backdrop-blur-[6px] md:px-16 md:py-20">
+                <p className="u-data mb-8">Free estimates</p>
+                {/* Was clamped to 5rem against the full 1400px container. Inside
+                    a 720px panel that overflowed the card on desktop. */}
+                <h2 className="mx-auto max-w-[20ch] text-[clamp(2rem,5vw,3.5rem)] text-ink">
+                  Ready to transform your living space?
+                </h2>
+                <p className="mx-auto mt-8 max-w-[46ch] text-[17px] leading-relaxed text-mute">
+                  Tell us what you are planning. We will come out, look at it properly, and give you
+                  a number you can rely on.
+                </p>
+                <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+                  <Link href="/contact" className="btn btn-amber">
+                    Request a quote
+                  </Link>
+                  <a href={BUSINESS.phoneHref} className="btn btn-ghost btn-tel">
+                    {BUSINESS.phone}
+                  </a>
+                </div>
               </div>
             </Reveal>
           </div>

@@ -45,6 +45,11 @@
     Cache-Control = "public, max-age=2592000"
 
 [[headers]]
+  for = "/process/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
   for = "/work/*"
   [headers.values]
     Cache-Control = "public, max-age=2592000"

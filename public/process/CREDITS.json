@@ -1,0 +1,39 @@
+{
+  "license": "Unsplash License — https://unsplash.com/license",
+  "usage": "ILLUSTRATIVE OF THE PROCESS STAGE ONLY. Never captioned, labelled, alt-tagged or otherwise implied to be Florida Green Improvements project work, staff or equipment. Images with identifiable people or third-party company branding were deliberately rejected for this set: a crew photograph under \"How it works\" reads as *his* crew. See IMG-01 in PROJECT_LOG.md.",
+  "photos": [
+    {
+      "file": "/process/plan.jpg",
+      "use": "Step 01 Plan — permit drawings and scheduling",
+      "unsplashId": "fteR0e2BzKo",
+      "photographer": "Sven Mieke",
+      "photographerUrl": "https://unsplash.com/@sxoxm",
+      "photoUrl": "https://unsplash.com/photos/brown-pencil-on-white-printing-paper-fteR0e2BzKo",
+      "width": 6000,
+      "height": 4000,
+      "alt": "brown pencil on white printing paper"
+    },
+    {
+      "file": "/process/design.jpg",
+      "use": "Step 02 Design — material and finish samples",
+      "unsplashId": "ST-QAmN8BIk",
+      "photographer": "Declan Sun",
+      "photographerUrl": "https://unsplash.com/@declansun",
+      "photoUrl": "https://unsplash.com/photos/various-textures-and-patterns-are-displayed-up-close-ST-QAmN8BIk",
+      "width": 9504,
+      "height": 6336,
+      "alt": "Various textures and patterns are displayed up close."
+    },
+    {
+      "file": "/process/build.jpg",
+      "use": "Step 03 Build — interior mid-renovation",
+      "unsplashId": "biRt6RXejuk",
+      "photographer": "Stefan Lehner",
+      "photographerUrl": "https://unsplash.com/@st_lehner",
+      "photoUrl": "https://unsplash.com/photos/a-room-that-has-some-tools-in-it-biRt6RXejuk",
+      "width": 4889,
+      "height": 3259,
+      "alt": "a room that has some tools in it"
+    }
+  ]
+}

@@ -95,7 +95,7 @@
   --fg-field:#8E8E88;        /* 3.15:1 — form borders are UI controls        */
 
   --fg-font-display: var(--font-archivo), "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --fg-font-body:    var(--font-newsreader), "Newsreader", Georgia, serif;
+  --fg-font-body:    var(--font-inter), "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --fg-font-data:    var(--font-archivo), "Archivo", "Helvetica Neue", Arial, sans-serif;
 
   color-scheme: light;
@@ -169,6 +169,73 @@
     font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
   }
   .skip-link:focus { left: 0; }
+
+  /* ── BUTTONS ────────────────────────────────────────────────────────
+     Was copy-pasted inline across six files with three different paddings
+     (px-7 / px-8 / px-9), so no two CTA pairs on the site actually matched.
+     One definition now, and tighter than before:
+
+       tracking  0.10em -> 0.055em   (0.10em on 12px is 1.2px between every
+                                      letter — it was inflating the width by
+                                      about a character and a half per word)
+       padding   32px   -> 22px      sides
+       height    ~50px  -> 44px      set once, so a pair can never mismatch
+
+     Radius is stated in px on purpose. `rounded-md` resolves through
+     --radius (0.125rem) to 1.6px, which is why the "2px -> 6px" softening
+     recorded in the log never actually appeared on screen.                */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding-inline: 1.375rem;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-family: var(--fg-font-data);
+    font-variation-settings: "wdth" 100;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: border-color .2s ease, filter .2s ease, background-color .2s ease;
+  }
+  .btn-amber {
+    background: var(--fg-amber);
+    color: var(--fg-on-amber);
+    box-shadow: 0 1px 2px rgb(56 56 56 / 0.10);
+  }
+  .btn-amber:hover { filter: brightness(1.05); }
+
+  .btn-ghost {
+    border-color: rgb(56 56 56 / 0.20);
+    color: var(--fg-ink);
+  }
+  .btn-ghost:hover { border-color: rgb(56 56 56 / 0.45); }
+
+  /* A phone number is digits, not a word. Uppercase tracking is there to
+     stop capitals colliding; applied to numerals it just pulls them apart
+     and makes the button ride wider than the one beside it. */
+  .btn-tel {
+    text-transform: none;
+    letter-spacing: 0.01em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Square icon controls — the carousel arrows and the service-row chevron.
+     Same 44px box and the same 6px radius as .btn. These were hard-cornered
+     while the buttons beside them were soft, which read as two different
+     design systems on one page. */
+  .btn-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2.75rem; height: 2.75rem;
+    flex-shrink: 0;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: border-color .2s ease, background-color .2s ease,
+                color .2s ease, filter .2s ease;
+  }
 }
 
 /* ── REVEAL ───────────────────────────────────────────────────────────

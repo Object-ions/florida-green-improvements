@@ -87,8 +87,8 @@ export default function AboutPage() {
             <Reveal>
               <h2 className="mx-auto max-w-[18ch] text-[clamp(2rem,5.5vw,4rem)] text-ink">Ready to transform your living space?</h2>
               <div className="mt-11 flex flex-wrap items-center justify-center gap-4">
-                <Link href="/contact" className="rounded-md bg-amber px-9 py-4 font-data text-[12px] font-medium uppercase tracking-[0.1em] text-on-amber shadow-sm transition-all hover:brightness-105">Request a quote</Link>
-                <a href={BUSINESS.phoneHref} className="rounded-md border border-ink/20 px-9 py-4 font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:border-ink/45">{BUSINESS.phone}</a>
+                <Link href="/contact" className="btn btn-amber">Request a quote</Link>
+                <a href={BUSINESS.phoneHref} className="btn btn-ghost btn-tel">{BUSINESS.phone}</a>
               </div>
             </Reveal>
           </div>

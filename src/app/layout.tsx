@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Newsreader } from "next/font/google";
+import { Archivo, Inter } from "next/font/google";
 import { Analytics } from "@/components/analytics";
 import { ConsentProvider } from "@/components/consent";
 import { BUSINESS } from "@/lib/business";
@@ -8,7 +8,11 @@ import "./globals.css";
 /* ── TYPE ─────────────────────────────────────────────────────────────
    Display : Archivo variable — width axis pulled to condensed, set light
              and huge. The Vault never uses weight to shout.
-   Body    : Newsreader — editorial serif, holds up on a dark ground.
+   Body    : Inter — replaced Newsreader (editorial serif) at the client's
+             request. The serif was a holdover from the dark "Vault" palette
+             and read literary rather than trade. Inter is deliberately
+             characterless: it lets the condensed Archivo headings carry the
+             personality and does not compete with them.
    Data    : Archivo at normal width — labels, eyebrows, metrics. A tracked
              monospace at 10px was unreadable; this is the same superfamily
              as the display, differentiated by width rather than by face.   */
@@ -19,10 +23,9 @@ const display = Archivo({
   display: "swap",
 });
 
-const body = Newsreader({
+const body = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-newsreader",
+  variable: "--font-inter",
   display: "swap",
   // Not preloaded on purpose. The LCP element is the headline, set in Archivo;
   // preloading both fonts made them compete for bandwidth on throttled mobile

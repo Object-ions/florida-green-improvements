@@ -194,7 +194,7 @@ export function ContactBlock({
                 type="button"
                 onClick={() => paginate(-1)}
                 aria-label="Previous image"
-                className="flex h-11 w-11 items-center justify-center border border-line/70 bg-ground/60 text-ink backdrop-blur-sm transition-colors hover:border-ink"
+                className="btn-icon btn-ghost bg-ground/60 backdrop-blur-sm hover:border-ink"
               >
                 <ArrowLeft className="h-4 w-4" strokeWidth={1.5} aria-hidden />
               </button>
@@ -202,7 +202,7 @@ export function ContactBlock({
                 type="button"
                 onClick={() => paginate(1)}
                 aria-label="Next image"
-                className="flex h-11 w-11 items-center justify-center bg-amber text-on-amber transition-opacity hover:opacity-90"
+                className="btn-icon btn-amber"
               >
                 <ArrowRight className="h-4 w-4" strokeWidth={1.75} aria-hidden />
               </button>

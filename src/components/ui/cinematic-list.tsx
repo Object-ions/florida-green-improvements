@@ -23,8 +23,8 @@ import { cn } from "@/lib/utils";
  *  - Hardcoded neutrals and pure black swapped for the brand tokens. The hover
  *    scrim is the brand charcoal rather than black, so the dark moment still
  *    belongs to the palette.
- *  - The rounded-full icon chip is square: this design system uses a 2px radius
- *    throughout, and the sibling carousel controls are already square.
+ *  - The rounded-full icon chip is now `.btn-icon` — the same 44px box and 6px
+ *    radius as every other control on the site, rather than its own shape.
  *  - Expansion is disabled under `prefers-reduced-motion`, where a 700ms
  *    height animation is exactly what the setting exists to prevent.
  */
@@ -70,23 +70,37 @@ function CinematicListItem({ id, title, meta, href, src, alt = "" }: CinematicIt
           fill
           sizes="(max-width: 768px) 100vw, 1400px"
           quality={78}
-          className="scale-110 object-cover transition-transform duration-1000 ease-out group-hover:scale-100 group-focus-visible:scale-100 motion-reduce:transition-none motion-reduce:scale-100"
+          className="scale-110 object-cover [filter:brightness(.62)] transition-transform duration-1000 ease-out group-hover:scale-100 group-focus-visible:scale-100 motion-reduce:transition-none motion-reduce:scale-100"
         />
         {/*
           Brand charcoal rather than black, so the dark moment stays on-palette.
-          The alpha is set by measurement, not taste: this photography is
-          uniformly bright — white marble, pale stone, sunlit water — and a
-          white label over a pure-white pixel needs the scrim at ~.76 before it
-          clears the 3:1 large-text bar. At the original .35 it measured
-          1.17:1 and was genuinely unreadable. .84 in the band behind the label
-          buys headroom for the brightest image in the set.
+
+          The scrim used to be a flat .76–.90 veil, which cleared contrast with
+          room to spare (7.1:1) but hid the photograph — the section read as a
+          grey panel with a picture somewhere behind it. Lowered at the client's
+          request. Two levers do the work instead of one:
+
+            1. brightness(.62) on the image itself. This photography is
+               uniformly bright — white marble, pale stone, sunlit water — so
+               the problem was always the near-white pixel. Dimming highlights
+               is far more efficient per unit of lost image than veiling
+               everything: a pure-white pixel lands at #9E9E9E before any
+               scrim is applied at all.
+            2. a much lighter charcoal scrim, .40 → .52.
+
+          Worst case is still a pure-white source pixel. Composite maths:
+            .40 band -> #757575 -> white on it = 4.59:1
+            .52 band -> #696969 -> white on it = 5.50:1
+          Both clear 4.5:1 normal text, which matters because the small meta
+          label sits in the same band as the large title. Roughly three times
+          more of the photograph is visible than before.
         */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(56,56,56,.9)_0%,rgba(56,56,56,.84)_55%,rgba(56,56,56,.76)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(56,56,56,.52)_0%,rgba(56,56,56,.46)_55%,rgba(56,56,56,.40)_100%)]" />
       </div>
 
       <div className="relative z-10 flex w-full items-center justify-between gap-6 px-4 sm:px-8 md:px-12">
         <div className="flex items-center gap-6 md:gap-12">
-          <span className="font-data text-[12px] font-medium uppercase tracking-[0.1em] text-mute transition-colors duration-500 group-hover:text-white/75 group-focus-visible:text-white/75">
+          <span className="font-data text-[12px] font-medium uppercase tracking-[0.1em] text-mute transition-colors duration-500 group-hover:text-white group-focus-visible:text-white">
             {id}
           </span>
 
@@ -102,7 +116,7 @@ function CinematicListItem({ id, title, meta, href, src, alt = "" }: CinematicIt
             >
               {title}
             </h4>
-            <span className="mt-1 font-data text-[11px] font-medium uppercase tracking-[0.1em] text-mute transition-colors duration-500 group-hover:text-white/80 md:hidden">
+            <span className="mt-1 font-data text-[11px] font-medium uppercase tracking-[0.1em] text-mute transition-colors duration-500 group-hover:text-white md:hidden">
               {meta}
             </span>
           </div>
@@ -116,7 +130,7 @@ function CinematicListItem({ id, title, meta, href, src, alt = "" }: CinematicIt
           <span
             aria-hidden
             className={cn(
-              "flex h-11 w-11 shrink-0 items-center justify-center border transition-all duration-500",
+              "btn-icon transition-all duration-500",
               "border-ink/25 text-mute",
               "group-hover:border-white group-hover:bg-white group-hover:text-ink",
               "group-focus-visible:border-white group-focus-visible:bg-white group-focus-visible:text-ink",
