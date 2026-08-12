@@ -1,8 +1,8 @@
 # Florida Green Improvements
 
 Website for [Florida Green Improvements](https://www.floridagreenimprovements.com) — a licensed
-Florida general contractor (CGC1529180) in North Miami Beach, working across roofing, impact
-glazing, air conditioning, solar, and full interior renovation in Miami-Dade and Broward.
+Florida general contractor (CGC1529180) in North Miami Beach, working across impact glazing,
+interior renovation and outdoor living in Miami-Dade and Broward.
 
 Built by [Switch Case Studio](https://switchcasestudio.com).
 
@@ -75,8 +75,8 @@ and the contact-form dropdown all read from it — so a change there propagates 
 
 ```ts
 {
-  slug: "roofing",              // the URL: /services/roofing
-  name: "Roofing",              // display name
+  slug: "kitchen",              // the URL: /services/kitchen
+  name: "Kitchen",              // display name
   title: "…",                   // <title>, ideally under 60 characters
   description: "…",             // meta description, 140–160 characters
   summary: "…",                 // one line, used on the homepage list
