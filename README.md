@@ -96,18 +96,25 @@ in `LEGACY_REDIRECTS` so the old URL still lands somewhere.
 
 ## Photography
 
-Two directories, and the distinction matters.
+**Every image on this site is licensed stock. None of it is client project work**, at the client's
+own request. That constraint is deliberate and load-bearing:
 
-**`public/work/`** — the client's own photography, migrated from the previous site. This is the only
-imagery that may appear in any context implying it is their work. It is presented at inset scale
-because the source files are 342–1050 px wide.
+> **No image may be captioned, labelled, alt-tagged or otherwise implied to be a completed
+> Florida Green Improvements project.**
 
-**`public/atmosphere/`** — licensed Unsplash photography used as full-bleed section grounds.
-**It is never captioned, labelled or implied to be a Florida Green project.** Attribution and the
-licence are recorded in [`public/atmosphere/CREDITS.json`](public/atmosphere/CREDITS.json).
+Alt text on showcase imagery is intentionally empty (`alt=""`) because the images are decorative
+rather than informational — describing them would imply provenance the business cannot claim.
+Carousel labels name the **service**, never a project.
 
-If higher-resolution originals become available from the client, they belong in `public/work/` and
-should replace atmosphere backgrounds wherever the section is about actual work.
+| Directory | Role |
+|---|---|
+| `public/showcase/` | Aspirational photography, one per service plus the About hero |
+| `public/atmosphere/` | Full-bleed section grounds — heroes, textures, CTA backdrops |
+
+Attribution and licence terms are recorded in each directory's `CREDITS.json`.
+
+If the client later supplies his own project photography, it should go in a new `public/work/`
+directory, and only then may an image carry a caption or alt text describing it as their work.
 
 ---
 

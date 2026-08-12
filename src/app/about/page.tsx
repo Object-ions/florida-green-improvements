@@ -29,10 +29,11 @@ export default function AboutPage() {
       <main id="main">
         <section className="relative flex min-h-[62svh] items-end overflow-hidden">
           <div className="absolute inset-0">
-            <Image src="/work/about.jpg" alt="" fill priority sizes="100vw" quality={74}
-              className="object-cover opacity-[0.9] [filter:saturate(1.02)_contrast(1.02)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(105deg,var(--fg-ground)_4%,rgba(243,245,240,.78)_52%,rgba(243,245,240,.3)_100%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(110%_80%_at_78%_22%,rgba(39,107,74,.24),transparent_64%)] mix-blend-multiply" />
+            <Image src="/showcase/about.jpg" alt="" fill priority sizes="100vw" quality={74}
+              className="object-cover opacity-[1] [filter:saturate(1.04)_contrast(1.03)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(243,245,240,.88)_0%,rgba(243,245,240,.3)_40%,transparent_80%)]" />
+            <div className="absolute inset-x-0 bottom-0 h-[46%] bg-[linear-gradient(to_top,rgba(243,245,240,.9)_0%,rgba(243,245,240,.55)_34%,transparent_100%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(100%_75%_at_80%_20%,rgba(39,107,74,.13),transparent_66%)] mix-blend-multiply" />
           </div>
           <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24">
             

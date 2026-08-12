@@ -1,0 +1,102 @@
+{
+  "license": "Unsplash License — https://unsplash.com/license",
+  "usage": "Licensed aspirational photography. NOT Florida Green Improvements project work. Never captioned, labelled, alt-tagged or otherwise implied to be a completed client project.",
+  "photos": [
+    {
+      "file": "/showcase/roofing.jpg",
+      "unsplashId": "hHz4yrvxwlA",
+      "photographer": "Avi Werde",
+      "photographerUrl": "https://unsplash.com/@aviwerde",
+      "photoUrl": "https://unsplash.com/photos/white-and-brown-concrete-building-hHz4yrvxwlA",
+      "alt": "white and brown concrete building"
+    },
+    {
+      "file": "/showcase/impact-window-hurricane-protection.jpg",
+      "unsplashId": "AI5VFAQK7lA",
+      "photographer": "GoodLifeConstruction",
+      "photographerUrl": "https://unsplash.com/@goodlifeconstruction",
+      "photoUrl": "https://unsplash.com/photos/modern-dining-room-with-large-windows-and-chandelier-AI5VFAQK7lA",
+      "alt": "Modern dining room with large windows and chandelier"
+    },
+    {
+      "file": "/showcase/windows-and-doors.jpg",
+      "unsplashId": "cyPTV1MY844",
+      "photographer": "Salvo Media LLC",
+      "photographerUrl": "https://unsplash.com/@salvomedia",
+      "photoUrl": "https://unsplash.com/photos/empty-modern-room-with-wood-floors-and-a-sputnik-chandelier-cyPTV1MY844",
+      "alt": "Empty modern room with wood floors and a sputnik chandelier."
+    },
+    {
+      "file": "/showcase/kitchen.jpg",
+      "unsplashId": "yFsop3bwYoA",
+      "photographer": "Franco Debartolo",
+      "photographerUrl": "https://unsplash.com/@francotheshooter",
+      "photoUrl": "https://unsplash.com/photos/modern-kitchen-island-with-decorative-vases-and-faucet-yFsop3bwYoA",
+      "alt": "Modern kitchen island with decorative vases and faucet."
+    },
+    {
+      "file": "/showcase/bathroom.jpg",
+      "unsplashId": "PibraWHb4h8",
+      "photographer": "Jared Rice",
+      "photographerUrl": "https://unsplash.com/@jareddrice",
+      "photoUrl": "https://unsplash.com/photos/white-ceramic-bathtub-PibraWHb4h8",
+      "alt": "white ceramic bathtub"
+    },
+    {
+      "file": "/showcase/remodeling.jpg",
+      "unsplashId": "vIbxvHj9m9g",
+      "photographer": "Prydumano Design",
+      "photographerUrl": "https://unsplash.com/@prydumanodesign",
+      "photoUrl": "https://unsplash.com/photos/a-modern-living-room-with-a-large-window-vIbxvHj9m9g",
+      "alt": "A modern living room with a large window"
+    },
+    {
+      "file": "/showcase/pool.jpg",
+      "unsplashId": "Id7u0EkTjBE",
+      "photographer": "John Fornander",
+      "photographerUrl": "https://unsplash.com/@johnfo",
+      "photoUrl": "https://unsplash.com/photos/white-and-blue-swimming-pool-Id7u0EkTjBE",
+      "alt": "white and blue swimming pool"
+    },
+    {
+      "file": "/showcase/air-conditioning.jpg",
+      "unsplashId": "ztWpwTEx728",
+      "photographer": "Zac Gudakov",
+      "photographerUrl": "https://unsplash.com/@zacgudakov",
+      "photoUrl": "https://unsplash.com/photos/white-and-brown-living-room-set-ztWpwTEx728",
+      "alt": "white and brown living room set"
+    },
+    {
+      "file": "/showcase/solar-panels.jpg",
+      "unsplashId": "Ja8t8nJN2I4",
+      "photographer": "Watt A Lot",
+      "photographerUrl": "https://unsplash.com/@wattalot",
+      "photoUrl": "https://unsplash.com/photos/a-house-with-solar-panels-Ja8t8nJN2I4",
+      "alt": "a house with solar panels"
+    },
+    {
+      "file": "/showcase/landscape.jpg",
+      "unsplashId": "eLG6MsOeupk",
+      "photographer": "RETRATO INMOBILIARIO",
+      "photographerUrl": "https://unsplash.com/@retratoinmobiliario",
+      "photoUrl": "https://unsplash.com/photos/modern-white-house-with-illuminated-pathway-at-dusk-eLG6MsOeupk",
+      "alt": "Modern white house with illuminated pathway at dusk"
+    },
+    {
+      "file": "/showcase/artaficial-turf.jpg",
+      "unsplashId": "-atd5-2ciHc",
+      "photographer": "Salvo Media LLC",
+      "photographerUrl": "https://unsplash.com/@salvomedia",
+      "photoUrl": "https://unsplash.com/photos/contemporary-house-with-swimming-pool-and-lush-green-lawn--atd5-2ciHc",
+      "alt": "Contemporary house with swimming pool and lush green lawn."
+    },
+    {
+      "file": "/showcase/about.jpg",
+      "unsplashId": "WaC-JFfF21M",
+      "photographer": "Salman Saqib",
+      "photographerUrl": "https://unsplash.com/@salmansaqib",
+      "photoUrl": "https://unsplash.com/photos/a-modern-house-with-a-pool-and-lounge-chairs-WaC-JFfF21M",
+      "alt": "a modern house with a pool and lounge chairs"
+    }
+  ]
+}

@@ -47,9 +47,9 @@ export default function Home() {
               priority
               sizes="100vw"
               quality={72}
-              className="object-cover opacity-[0.96] [filter:saturate(1.02)_contrast(1.02)]"
+              className="object-cover opacity-[1] [filter:saturate(1.04)_contrast(1.03)]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(243,245,240,.94)_0%,rgba(243,245,240,.42)_40%,rgba(243,245,240,.06)_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(243,245,240,.82)_0%,rgba(243,245,240,.26)_38%,transparent_78%)]" />
             <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(to_top,var(--fg-ground)_2%,rgba(243,245,240,.86)_26%,transparent_100%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(70%_55%_at_90%_14%,rgba(39,107,74,.24),transparent_68%)] mix-blend-multiply" />
           </div>

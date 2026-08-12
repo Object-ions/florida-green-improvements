@@ -21,12 +21,18 @@ import { BUSINESS } from "@/lib/business";
  *  - the carousel now shows the client's own work rather than stock interiors
  */
 
-const WORK = [
-  { label: "Roofing", src: "/work/roofing.jpg" },
-  { label: "Kitchen", src: "/work/kitchen.jpg" },
-  { label: "Remodeling", src: "/work/remodeling.jpg" },
-  { label: "Windows & Doors", src: "/work/windows-and-doors.jpg" },
-  { label: "Landscape", src: "/work/landscape.jpg" },
+/**
+ * Licensed aspirational photography, not client project work. The labels name
+ * the SERVICE, never a project, and the images carry no attribution — the
+ * client asked for imported high-end imagery rather than his own photographs.
+ * See CREDITS.json and IMG-01 in the project log.
+ */
+const SHOWCASE = [
+  { label: "Roofing", src: "/showcase/roofing.jpg" },
+  { label: "Kitchens", src: "/showcase/kitchen.jpg" },
+  { label: "Remodeling", src: "/showcase/remodeling.jpg" },
+  { label: "Pools", src: "/showcase/pool.jpg" },
+  { label: "Landscaping", src: "/showcase/landscape.jpg" },
 ];
 
 export function ContactBlock({
@@ -41,7 +47,7 @@ export function ContactBlock({
 
   const paginate = (dir: number) => {
     setDirection(dir);
-    setIndex((prev) => (prev + dir + WORK.length) % WORK.length);
+    setIndex((prev) => (prev + dir + SHOWCASE.length) % SHOWCASE.length);
   };
 
   const container: Variants = {
@@ -148,8 +154,8 @@ export function ContactBlock({
               className="absolute inset-0"
             >
               <Image
-                src={WORK[index].src}
-                alt={`${WORK[index].label} by ${BUSINESS.name}`}
+                src={SHOWCASE[index].src}
+                alt=""
                 fill
                 sizes="(max-width: 1024px) 100vw, 560px"
                 quality={82}
@@ -162,14 +168,14 @@ export function ContactBlock({
           <div aria-live="polite" className="absolute left-5 top-5 sm:left-7 sm:top-7">
             <AnimatePresence mode="wait">
               <motion.span
-                key={WORK[index].label}
+                key={SHOWCASE[index].label}
                 initial={{ opacity: 0, y: reduce ? 0 : 6 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: reduce ? 0 : -6 }}
                 transition={{ duration: 0.25 }}
                 className="on-photo inline-flex items-center border border-line/70 bg-ground/60 px-3.5 py-2 font-data text-[11px] font-medium uppercase tracking-[0.1em] text-ink backdrop-blur-sm"
               >
-                {WORK[index].label}
+                {SHOWCASE[index].label}
               </motion.span>
             </AnimatePresence>
           </div>
@@ -182,12 +188,12 @@ export function ContactBlock({
 
             <div className="flex items-center gap-2.5">
               <span className="on-photo mr-2 font-data text-[11px] tabular-nums text-ink-2">
-                {String(index + 1).padStart(2, "0")} / {String(WORK.length).padStart(2, "0")}
+                {String(index + 1).padStart(2, "0")} / {String(SHOWCASE.length).padStart(2, "0")}
               </span>
               <button
                 type="button"
                 onClick={() => paginate(-1)}
-                aria-label="Previous project"
+                aria-label="Previous image"
                 className="flex h-11 w-11 items-center justify-center border border-line/70 bg-ground/60 text-ink backdrop-blur-sm transition-colors hover:border-ink"
               >
                 <ArrowLeft className="h-4 w-4" strokeWidth={1.5} aria-hidden />
@@ -195,7 +201,7 @@ export function ContactBlock({
               <button
                 type="button"
                 onClick={() => paginate(1)}
-                aria-label="Next project"
+                aria-label="Next image"
                 className="flex h-11 w-11 items-center justify-center bg-brass text-on-brass transition-opacity hover:opacity-90"
               >
                 <ArrowRight className="h-4 w-4" strokeWidth={1.75} aria-hidden />

@@ -63,10 +63,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               priority
               sizes="100vw"
               quality={74}
-              className="object-cover opacity-[0.9] [filter:saturate(1.02)_contrast(1.02)]"
+              className="object-cover opacity-[1] [filter:saturate(1.04)_contrast(1.03)]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(105deg,var(--fg-ground)_4%,rgba(243,245,240,.78)_50%,rgba(243,245,240,.35)_100%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(110%_80%_at_80%_20%,rgba(39,107,74,.26),transparent_64%)] mix-blend-multiply" />
+            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(243,245,240,.88)_0%,rgba(243,245,240,.3)_40%,transparent_80%)]" />
+            <div className="absolute inset-x-0 bottom-0 h-[46%] bg-[linear-gradient(to_top,rgba(243,245,240,.9)_0%,rgba(243,245,240,.55)_34%,transparent_100%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(100%_75%_at_82%_18%,rgba(39,107,74,.13),transparent_66%)] mix-blend-multiply" />
           </div>
 
           <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24">
@@ -102,7 +103,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
 
-        {/* ── HIS OWN PHOTOGRAPH, at a size where it is actually sharp ── */}
+        {/* ── Licensed aspirational photography. Deliberately carries no
+             caption or alt text implying it is a completed client project. ── */}
         <section className="border-t border-line/40">
           <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
             <Reveal>
@@ -110,8 +112,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <figcaption className="u-data md:pt-2">{service.name}</figcaption>
                 <div className="relative aspect-[16/10] w-full overflow-hidden border border-line/60">
                   <Image
-                    src={`/work/${service.slug}.jpg`}
-                    alt={`${service.name} work by ${BUSINESS.name}`}
+                    src={`/showcase/${service.slug}.jpg`}
+                    alt=""
                     fill
                     sizes="(max-width: 768px) 100vw, 900px"
                     quality={82}
