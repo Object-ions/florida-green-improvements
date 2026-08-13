@@ -23,7 +23,7 @@ export default function ContactPage() {
       <main id="main">
         <section className="relative overflow-hidden border-b border-line/40">
           <div className="absolute inset-0">
-            <Image src="/atmosphere/interior-dark.jpg" alt="" fill priority sizes="100vw" quality={62}
+            <Image src="/atmosphere/interior-dark.webp" alt="" fill priority sizes="100vw" quality={62}
               className="object-cover opacity-[0.5] [filter:saturate(.95)]" />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(250,250,248,.82),var(--fg-ground))]" />
           </div>

@@ -28,7 +28,7 @@ export default function AboutPage() {
       <main id="main">
         <section className="relative flex min-h-[62svh] items-end overflow-hidden">
           <div className="absolute inset-0">
-            <Image src="/showcase/about.jpg" alt="" fill priority sizes="100vw" quality={74}
+            <Image src="/showcase/about.webp" alt="" fill priority sizes="100vw" quality={74}
               className="object-cover opacity-[1] [filter:saturate(1.04)_contrast(1.03)]" />
             <div className="hero-wash-compact" />
             <div className="absolute inset-0 bg-[radial-gradient(100%_75%_at_80%_20%,rgba(39,107,74,.13),transparent_66%)] mix-blend-multiply" />
@@ -78,7 +78,7 @@ export default function AboutPage() {
 
         <section className="relative overflow-hidden border-t border-line/40">
           <div className="absolute inset-0">
-            <Image src="/atmosphere/pool-dusk.jpg" alt="" fill sizes="100vw" quality={45}
+            <Image src="/atmosphere/pool-dusk.webp" alt="" fill sizes="100vw" quality={45}
               className="object-cover opacity-[0.22] [filter:saturate(.95)]" />
             <div className="absolute inset-0 bg-[radial-gradient(90%_80%_at_50%_50%,rgba(39,107,74,.2),transparent_70%)] mix-blend-multiply" />
           </div>

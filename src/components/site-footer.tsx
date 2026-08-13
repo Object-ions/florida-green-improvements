@@ -73,7 +73,7 @@ export function SiteFooter() {
             <address className="not-italic">
               <a
                 href={BUSINESS.phoneHref}
-                className="block py-1.5 text-[15px] text-ink transition-colors hover:text-amber-text"
+                className="block py-1.5 text-[15px] text-ink transition-colors hover:text-brand-yellow"
               >
                 {BUSINESS.phone}
               </a>
@@ -133,7 +133,7 @@ export function SiteFooter() {
               href="https://switchcasestudio.com"
               target="_blank"
               rel="noopener"
-              className="text-ink-2 underline decoration-line underline-offset-4 transition-colors hover:text-amber-text hover:decoration-amber-text"
+              className="text-ink-2 underline decoration-line underline-offset-4 transition-colors hover:text-brand-yellow hover:decoration-brand-yellow"
             >
               Switch Case Studio
             </a>

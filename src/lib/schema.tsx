@@ -18,7 +18,7 @@ export function businessSchema() {
     legalName: BUSINESS.legalName,
     url: SITE,
     telephone: BUSINESS.phone,
-    image: `${SITE}/atmosphere/hero-house-dusk.jpg`,
+    image: `${SITE}/atmosphere/hero-house-dusk.webp`,
     priceRange: "$$-$$$",
     address: {
       "@type": "PostalAddress",

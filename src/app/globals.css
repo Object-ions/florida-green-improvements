@@ -14,6 +14,7 @@
   --color-ink-2:       var(--fg-ink-2);        /* #C8CFC6  11.6 :1 AA             */
   --color-mute:        var(--fg-mute);         /* #93A199   7.03:1 AA             */
   --color-amber:       var(--fg-amber);        /* stationery accent — FILL ONLY   */
+  --color-brand-yellow: var(--fg-brand-yellow);
   --color-amber-text:  var(--fg-amber-text);   /* 5.24:1 — amber used as text     */
   --color-on-amber:    var(--fg-on-amber);     /* 6.69:1 — text on an amber fill  */
   --color-field:       var(--fg-field);        /* form borders, 3:1 as UI control */
@@ -85,6 +86,11 @@
   /* Amber is the stationery accent and a FILL. At 1.68:1 it cannot carry
      text; amber-text is the darker cut for when it must.                */
   --fg-amber:#F8B858;
+  /* The client asked for #F7B858 specifically on hover text, the review star
+     and the process numerals. It is the stationery yellow and it is 1.68:1 on
+     the ground — see the note in PROJECT_LOG. Kept as its own token so the
+     places that use it are greppable rather than scattered hex. */
+  --fg-brand-yellow:#F7B858;
   /* Was #8A6212, which read as gold/brown rather than the brand amber. This
      is hue-shifted toward orange (h 27 vs 43) so it reads as the same family
      as the #F8B858 fill. 4.81:1 on ground — still AA for normal text. */
@@ -306,26 +312,26 @@
     background: linear-gradient(
       to top,
       var(--fg-ground)        0%,
-      rgba(250,250,248,.94)  24%,
-      rgba(250,250,248,.82)  40%,
-      rgba(250,250,248,.56)  56%,
-      rgba(250,250,248,.22)  72%,
-      transparent            88%);
+      rgba(250,250,248,.55)  20%,
+      rgba(250,250,248,.36)  36%,
+      rgba(250,250,248,.20)  52%,
+      rgba(250,250,248,.08)  70%,
+      transparent            86%);
   }
   @media (min-width: 768px) {
     .hero-wash-light {
       background:
         linear-gradient(to top,
           var(--fg-ground)        0%,
-          rgba(250,250,248,.92)  20%,
-          rgba(250,250,248,.70)  36%,
-          rgba(250,250,248,.34)  52%,
-          transparent            72%),
+          rgba(250,250,248,.52)  18%,
+          rgba(250,250,248,.32)  34%,
+          rgba(250,250,248,.14)  50%,
+          transparent            70%),
         linear-gradient(100deg,
-          rgba(250,250,248,.86)   0%,
-          rgba(250,250,248,.64)  24%,
-          rgba(250,250,248,.30)  44%,
-          transparent            64%);
+          rgba(250,250,248,.46)   0%,
+          rgba(250,250,248,.30)  24%,
+          rgba(250,250,248,.12)  44%,
+          transparent            62%);
     }
   }
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion, type Variants } from "motion/react";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import { QuoteForm } from "@/components/quote-form";
@@ -32,11 +32,11 @@ import { BUSINESS } from "@/lib/business";
    read as a plain house elevation and the bathroom as a blank wall. Each image
    now names the point that must survive the crop. */
 const SHOWCASE = [
-  { label: "Kitchens", src: "/showcase/kitchen.jpg", pos: "50% 50%" },
-  { label: "Bathrooms", src: "/showcase/bathroom.jpg", pos: "50% 60%" },
-  { label: "Remodeling", src: "/showcase/remodeling.jpg", pos: "50% 50%" },
-  { label: "Pools", src: "/showcase/pool.jpg", pos: "50% 72%" },
-  { label: "Landscaping", src: "/showcase/landscape.jpg", pos: "50% 62%" },
+  { label: "Kitchens", src: "/showcase/kitchen.webp", pos: "50% 50%" },
+  { label: "Bathrooms", src: "/showcase/bathroom.webp", pos: "50% 60%" },
+  { label: "Remodeling", src: "/showcase/remodeling.webp", pos: "50% 50%" },
+  { label: "Pools", src: "/showcase/pool.webp", pos: "50% 72%" },
+  { label: "Landscaping", src: "/showcase/landscape.webp", pos: "50% 62%" },
 ];
 
 export function ContactBlock({
@@ -53,6 +53,20 @@ export function ContactBlock({
     setDirection(dir);
     setIndex((prev) => (prev + dir + SHOWCASE.length) % SHOWCASE.length);
   };
+
+  /* Advance on its own every 30s. The timer is keyed on `index`, so any manual
+     click restarts the full 30s rather than leaving a half-spent timer about to
+     yank the slide out from under the visitor. Paused entirely under
+     prefers-reduced-motion — an unattended auto-advancing carousel is exactly
+     what that setting is for. */
+  useEffect(() => {
+    if (reduce) return;
+    const id = window.setTimeout(() => {
+      setDirection(1);
+      setIndex((prev) => (prev + 1) % SHOWCASE.length);
+    }, 30_000);
+    return () => window.clearTimeout(id);
+  }, [index, reduce]);
 
   const container: Variants = {
     hidden: {},
@@ -122,7 +136,7 @@ export function ContactBlock({
               <p className="u-data mb-3">Call us</p>
               <a
                 href={BUSINESS.phoneHref}
-                className="font-display text-[clamp(1.25rem,2.4vw,1.625rem)] uppercase text-ink transition-colors hover:text-amber-text"
+                className="font-display text-[clamp(1.25rem,2.4vw,1.625rem)] uppercase text-ink transition-colors hover:text-brand-yellow"
               >
                 {BUSINESS.phone}
               </a>
@@ -169,7 +183,7 @@ export function ContactBlock({
               {/* Was .5 top / .85 bottom, which flattened the whole picture to
                   carry two small labels. Now it only darkens the two bands the
                   labels actually sit in and leaves the middle alone. */}
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(250,250,248,.34)_0%,rgba(250,250,248,.04)_26%,rgba(250,250,248,0)_58%,rgba(250,250,248,.52)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(250,250,248,.26)_0%,rgba(250,250,248,.02)_24%,rgba(250,250,248,0)_60%,rgba(250,250,248,.40)_100%)]" />
             </motion.div>
           </AnimatePresence>
 
@@ -190,7 +204,7 @@ export function ContactBlock({
 
           <div className="absolute inset-x-5 bottom-5 flex items-center justify-between gap-4 sm:inset-x-7 sm:bottom-7">
             <p className="on-photo flex items-center gap-2 font-data text-[11px] uppercase tracking-[0.1em] text-ink-2 tabular-nums">
-              <Star size={12} strokeWidth={0} fill="currentColor" className="text-amber-text" aria-hidden />
+              <Star size={12} strokeWidth={0} fill="currentColor" className="text-brand-yellow" aria-hidden />
               {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} reviews
             </p>
 

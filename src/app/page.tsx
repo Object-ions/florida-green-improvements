@@ -29,10 +29,10 @@ import { businessSchema, JsonLd } from "@/lib/schema";
 
    Whatever goes here must clear IMG-01: atmosphere only, never captioned
    or implied to be a Florida Green project. */
-const HERO_POSTER = "/atmosphere/hero-luxury.jpg";
+const HERO_POSTER = "/atmosphere/hero-luxury.webp";
 const HERO_VIDEO: HeroSource[] | null = [
-  { src: "/atmosphere/hero.webm", type: "video/webm" },
-  { src: "/atmosphere/hero.mp4", type: "video/mp4" },
+  { src: "/atmosphere/hero-v2.webm", type: "video/webm" },
+  { src: "/atmosphere/hero-v2.mp4", type: "video/mp4" },
 ];
 
 /* Imagery here is illustrative of the stage, never of a Florida Green project.
@@ -43,19 +43,19 @@ const PROCESS = [
   {
     n: "01",
     title: "Plan",
-    img: "/process/plan.jpg",
+    img: "/process/plan.webp",
     body: "Permits, construction approval and material scheduling are handled before anyone starts work — so the timeline you are given is the timeline you get.",
   },
   {
     n: "02",
     title: "Design",
-    img: "/process/design.jpg",
+    img: "/process/design.webp",
     body: "We work through layout, materials, fixtures and finishes with you, with visual aids so you can see the room before it is built. At no additional cost.",
   },
   {
     n: "03",
     title: "Build",
-    img: "/process/build.jpg",
+    img: "/process/build.webp",
     body: "One licensed general contractor carries the permit, the schedule and the responsibility from demolition through final inspection.",
   },
 ];
@@ -121,40 +121,47 @@ export default function Home() {
                 the pool, the lawn, the roofline and the sky at full strength,
                 so it reads as light falling on the picture rather than fog
                 over it. */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_82%_72%_at_50%_50%,rgba(250,250,248,.84)_0%,rgba(250,250,248,.80)_38%,rgba(250,250,248,.70)_62%,rgba(250,250,248,.40)_82%,transparent_95%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_86%_76%_at_50%_50%,rgba(250,250,248,.15)_0%,rgba(250,250,248,.13)_50%,rgba(250,250,248,.08)_78%,transparent_96%)]" />
           </div>
 
-          {/* Centred on both axes, per the client: justify-center +
-              items-center + text-center. */}
-          <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col items-center justify-center px-6 py-28 text-center md:px-10">
-            <p className="u-data mb-6 text-ink">
-              <span className="text-ink" aria-hidden>&#9679;</span>{" "}
-              {BUSINESS.address.locality}, Florida &middot; Licence {BUSINESS.license}
-            </p>
+          {/* Centred on both axes, per the client. The copy sits on a frosted
+              glass panel rather than on a full-frame wash: the veil the type
+              needs is confined to a ~760px card, so the photograph outside it
+              stays at the 15% the client asked for and the words still have a
+              floor. backdrop-blur does most of the work — blurring the
+              backdrop collapses the local extremes that were measuring 1.1:1,
+              before any tint is applied at all. */}
+          <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col items-center justify-center px-6 py-24 text-center md:px-10">
+            <div className="w-full max-w-[820px] rounded-[10px] border border-white/30 bg-ground/46 px-6 py-12 shadow-[0_24px_80px_-44px_rgba(56,56,56,.45)] backdrop-blur-[64px] backdrop-saturate-[1.4] md:px-14 md:py-16">
+              <p className="u-data mb-6 text-ink">
+                <span className="text-ink" aria-hidden>&#9679;</span>{" "}
+                {BUSINESS.address.locality}, Florida &middot; Licence {BUSINESS.license}
+              </p>
 
-            <h1 className="max-w-[15ch] text-[clamp(2.5rem,7vw,5.25rem)] text-ink">
-              {BUSINESS.tagline}
-            </h1>
+              <h1 className="mx-auto max-w-[15ch] text-[clamp(2.25rem,6vw,4.5rem)] text-ink">
+                {BUSINESS.tagline}
+              </h1>
 
-            <p className="mt-7 max-w-[46ch] text-[17px] leading-relaxed text-ink md:text-[19px]">
-              Impact windows, kitchens and full remodels for South Florida homes that have to
-              survive the season and still look like this.
-            </p>
+              <p className="mx-auto mt-7 max-w-[46ch] text-[17px] leading-relaxed text-ink md:text-[19px]">
+                Impact windows, kitchens and full remodels for South Florida homes that have to
+                survive the season and still look like this.
+              </p>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Link href="/contact" className="btn btn-amber">
-                Request a quote
-              </Link>
-              <a href={BUSINESS.phoneHref} className="btn btn-ghost btn-tel bg-ground/70 backdrop-blur-[3px]">
-                {BUSINESS.phone}
-              </a>
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+                <Link href="/contact" className="btn btn-amber">
+                  Request a quote
+                </Link>
+                <a href={BUSINESS.phoneHref} className="btn btn-ghost btn-tel bg-ground/70 backdrop-blur-[3px]">
+                  {BUSINESS.phone}
+                </a>
+              </div>
             </div>
           </div>
 
           <div className="relative mx-auto w-full max-w-[1400px] border-t border-line/50 bg-ground/85 px-6 py-6 backdrop-blur-[2px] md:px-10">
             <ul className="flex flex-wrap items-center gap-x-10 gap-y-3">
               <li className="flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
-                <Star size={12} strokeWidth={0} fill="currentColor" className="text-amber-text" aria-hidden />
+                <Star size={12} strokeWidth={0} fill="currentColor" className="text-brand-yellow" aria-hidden />
                 {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} Google reviews
               </li>
               <li className="font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
@@ -197,7 +204,7 @@ export default function Home() {
               <Reveal delay={240}>
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[6px]">
                   <Image
-                    src="/atmosphere/whole-home.jpg"
+                    src="/atmosphere/whole-home.webp"
                     alt=""
                     fill
                     sizes="(max-width: 1024px) 100vw, 400px"
@@ -235,7 +242,7 @@ export default function Home() {
                       title: s.name,
                       meta: cat.label,
                       href: `/services/${s.slug}`,
-                      src: `/showcase/${s.slug}.jpg`,
+                      src: `/showcase/${s.slug}.webp`,
                     }))}
                   />
                 </Reveal>
@@ -248,7 +255,7 @@ export default function Home() {
         <section className="relative overflow-hidden border-t border-line/40">
           <div className="absolute inset-0">
             <Image
-              src="/atmosphere/roof-lines.jpg"
+              src="/atmosphere/roof-lines.webp"
               alt=""
               fill
               sizes="100vw"
@@ -265,24 +272,26 @@ export default function Home() {
             <div className="grid gap-14 md:grid-cols-3 md:gap-12">
               {PROCESS.map((step, i) => (
                 <Reveal key={step.n} delay={i * 140}>
-                  <div className="relative mb-8 aspect-[4/3] overflow-hidden rounded-[6px]">
-                    <Image
-                      src={step.img}
-                      alt=""
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      quality={70}
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="border-t border-line pt-7">
-                    <p className="font-data text-[12px] uppercase tracking-[0.08em] text-green">
+                  <div className="group">
+                    <div className="relative mb-8 aspect-[4/3] overflow-hidden rounded-[6px]">
+                      <Image
+                        src={step.img}
+                        alt=""
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        quality={70}
+                        className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,0.68,0.32,1)] group-hover:scale-[1.06] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                      />
+                    </div>
+                    <div className="border-t border-line pt-7 transition-colors duration-500 group-hover:border-brand-yellow">
+                    <p className="font-data text-[12px] uppercase tracking-[0.08em] text-brand-yellow">
                       {step.n}
                     </p>
                     <h3 className="mt-5 text-[clamp(1.5rem,2.6vw,2rem)] text-ink">{step.title}</h3>
                     <p className="mt-5 max-w-[38ch] text-[15px] leading-relaxed text-mute md:text-[16px]">
                       {step.body}
                     </p>
+                    </div>
                   </div>
                 </Reveal>
               ))}
@@ -311,7 +320,7 @@ export default function Home() {
               legible instead of trading one against the other. */}
           <div className="absolute inset-0">
             <Image
-              src="/atmosphere/free-estimate.jpg"
+              src="/atmosphere/free-estimate.webp"
               alt=""
               fill
               sizes="100vw"
@@ -325,7 +334,7 @@ export default function Home() {
             <Reveal>
               {/* ground/95 measured, not picked: over the darkest pixel in this
                   photograph the muted body copy still reads 4.76:1. */}
-              <div className="mx-auto max-w-[840px] rounded-[6px] bg-ground/95 px-7 py-14 text-center shadow-[0_20px_70px_-28px_rgba(56,56,56,.5)] backdrop-blur-[6px] md:px-16 md:py-20">
+              <div className="mx-auto max-w-[840px] rounded-[6px] bg-ground/20 px-7 py-14 text-center shadow-[0_20px_70px_-28px_rgba(56,56,56,.5)] backdrop-blur-[6px] md:px-16 md:py-20">
                 <p className="u-data mb-8">Free estimates</p>
                 {/* Was clamped to 5rem against the full 1400px container. Inside
                     a 720px panel that overflowed the card on desktop. */}

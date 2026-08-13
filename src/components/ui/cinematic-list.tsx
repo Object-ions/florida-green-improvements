@@ -73,7 +73,7 @@ function CinematicListItem({ id, title, meta, href, src, alt = "" }: CinematicIt
           fill
           sizes="(max-width: 768px) 100vw, 1400px"
           quality={78}
-          className="scale-110 object-cover [filter:brightness(.62)] transition-transform duration-1000 ease-out group-hover:scale-100 group-focus-visible:scale-100 motion-reduce:transition-none motion-reduce:scale-100"
+          className="scale-110 object-cover transition-transform duration-1000 ease-out group-hover:scale-100 group-focus-visible:scale-100 motion-reduce:transition-none motion-reduce:scale-100"
         />
         {/*
           Brand charcoal rather than black, so the dark moment stays on-palette.
@@ -98,7 +98,7 @@ function CinematicListItem({ id, title, meta, href, src, alt = "" }: CinematicIt
           label sits in the same band as the large title. Roughly three times
           more of the photograph is visible than before.
         */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(56,56,56,.52)_0%,rgba(56,56,56,.46)_55%,rgba(56,56,56,.40)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(56,56,56,.18)_0%,rgba(56,56,56,.15)_55%,rgba(56,56,56,.13)_100%)]" />
       </div>
 
       <div className="relative z-10 flex w-full items-center justify-between gap-6 px-4 sm:px-8 md:px-12">

@@ -3,7 +3,7 @@
   "usage": "ILLUSTRATIVE OF THE PROCESS STAGE ONLY. Never captioned, labelled, alt-tagged or otherwise implied to be Florida Green Improvements project work, staff or equipment. Images with identifiable people or third-party company branding were deliberately rejected for this set: a crew photograph under \"How it works\" reads as *his* crew. See IMG-01 in PROJECT_LOG.md.",
   "photos": [
     {
-      "file": "/process/plan.jpg",
+      "file": "/process/plan.webp",
       "use": "Step 01 Plan — permit drawings and scheduling",
       "unsplashId": "fteR0e2BzKo",
       "photographer": "Sven Mieke",
@@ -14,7 +14,7 @@
       "alt": "brown pencil on white printing paper"
     },
     {
-      "file": "/process/design.jpg",
+      "file": "/process/design.webp",
       "use": "Step 02 Design — material and finish samples",
       "unsplashId": "ST-QAmN8BIk",
       "photographer": "Declan Sun",
@@ -25,7 +25,7 @@
       "alt": "Various textures and patterns are displayed up close."
     },
     {
-      "file": "/process/build.jpg",
+      "file": "/process/build.webp",
       "use": "Step 03 Build — interior mid-renovation",
       "unsplashId": "biRt6RXejuk",
       "photographer": "Stefan Lehner",

@@ -70,9 +70,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
 
           <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24">
-            
-              <nav aria-label="Breadcrumb" className="mb-7">
-                <ol className="flex items-center gap-3 font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
+            <nav aria-label="Breadcrumb" className="mb-7">
+                <ol className="flex items-center gap-3 font-data text-[12px] uppercase tracking-[0.1em] text-ink">
                   <li>
                     <Link href="/" className="transition-colors hover:text-ink">Home</Link>
                   </li>
@@ -82,9 +81,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </nav>
             
             <h1 className="max-w-[16ch] text-[clamp(2.25rem,7vw,5.5rem)] text-ink">
-                {service.name}
-              </h1>
-            
+              {service.name}
+            </h1>
           </div>
         </section>
 
@@ -111,7 +109,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <figcaption className="u-data md:pt-2">{service.name}</figcaption>
                 <div className="relative aspect-[16/10] w-full overflow-hidden border border-line/60">
                   <Image
-                    src={`/showcase/${service.slug}.jpg`}
+                    src={`/showcase/${service.slug}.webp`}
                     alt=""
                     fill
                     sizes="(max-width: 768px) 100vw, 900px"
@@ -133,8 +131,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <div className="grid gap-14 md:grid-cols-3 md:gap-12">
               {service.points.map((p, i) => (
                 <Reveal key={p.title} delay={i * 140}>
-                  <div className="group border-t border-line pt-7 transition-colors duration-300 hover:border-amber">
-                    <p className="font-data text-[12px] uppercase tracking-[0.08em] text-green transition-colors duration-300 group-hover:text-amber-text">
+                  <div className="group border-t border-line pt-7 transition-colors duration-300 hover:border-brand-yellow">
+                    <p className="font-data text-[12px] uppercase tracking-[0.08em] text-brand-yellow transition-colors duration-300">
                       {String(i + 1).padStart(2, "0")}
                     </p>
                     <h2 className="mt-5 text-[clamp(1.375rem,2.4vw,1.875rem)] text-ink">{p.title}</h2>
@@ -152,23 +150,26 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <section className="relative overflow-hidden border-t border-line/40">
           <div className="absolute inset-0">
             <Image
-              src="/atmosphere/glass-facade.jpg"
+              src="/atmosphere/service-cta.webp"
               alt=""
               fill
               sizes="100vw"
               quality={45}
-              className="object-cover opacity-[0.2] [filter:grayscale(.3)]"
+              className="object-cover opacity-[0.85]"
             />
           </div>
-          <div className="relative mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-40">
-            <div className="grid gap-12 md:grid-cols-[1fr_auto] md:items-end">
+          <div className="relative mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
+            {/* Translucent panel, matching the homepage free-estimate block.
+                The photograph behind this runs at 85% and the charcoal copy was
+                sitting straight on it. */}
+            <div className="grid gap-12 rounded-[6px] bg-ground/20 px-6 py-12 backdrop-blur-[3px] md:grid-cols-[1fr_auto] md:items-end md:px-12 md:py-14">
               <Reveal>
                 <p className="u-data mb-6">Free estimate</p>
                 <h2 className="max-w-[18ch] text-[clamp(1.875rem,5vw,3.75rem)] text-ink">
                   Talk to us about your {service.name.toLowerCase()} project
                 </h2>
                 <p className="mt-7 flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-mute">
-                  <Star size={12} strokeWidth={0} fill="currentColor" className="text-amber-text" aria-hidden />
+                  <Star size={12} strokeWidth={0} fill="currentColor" className="text-brand-yellow" aria-hidden />
                   {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} Google reviews ·
                   Licence {BUSINESS.license}
                 </p>
@@ -206,14 +207,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                     href={`/services/${s.slug}`}
                     className="group flex items-center justify-between gap-6 border-b border-line/40 py-6"
                   >
-                    <span className="text-[clamp(1.25rem,2.6vw,1.875rem)] font-display uppercase text-ink transition-colors group-hover:text-amber-text">
+                    <span className="text-[clamp(1.25rem,2.6vw,1.875rem)] font-display uppercase text-ink transition-colors group-hover:text-brand-yellow">
                       {s.name}
                     </span>
                     <ArrowUpRight
                       size={18}
                       strokeWidth={1.25}
                       aria-hidden
-                      className="shrink-0 text-mute transition-all group-hover:translate-x-1 group-hover:text-amber-text"
+                      className="shrink-0 text-mute transition-all group-hover:translate-x-1 group-hover:text-brand-yellow"
                     />
                   </Link>
                 </Reveal>

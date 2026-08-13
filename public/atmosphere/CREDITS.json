@@ -3,7 +3,7 @@
   "usage": "ATMOSPHERE ONLY. Never captioned or implied to be a Florida Green Improvements project. See IMG-01 in PROJECT_LOG.md.",
   "photos": [
     {
-      "file": "/atmosphere/roof-lines.jpg",
+      "file": "/atmosphere/roof-lines.webp",
       "use": "Section ground — architectural metal lines",
       "unsplashId": "Mu9uo42SXEY",
       "photographer": "Ryunosuke Kikuno",
@@ -14,7 +14,7 @@
       "alt": "black and white glass building"
     },
     {
-      "file": "/atmosphere/glass-facade.jpg",
+      "file": "/atmosphere/glass-facade.webp",
       "use": "Section ground — glass facade",
       "unsplashId": "T0iFfJw-rB0",
       "photographer": "Christian Ladewig",
@@ -25,7 +25,7 @@
       "alt": "architectural photography of glass building"
     },
     {
-      "file": "/atmosphere/palm-shadow.jpg",
+      "file": "/atmosphere/palm-shadow.webp",
       "use": "Texture — palm shadow on wall",
       "unsplashId": "J9VbP8CAdcM",
       "photographer": "Tim Mossholder",
@@ -36,7 +36,7 @@
       "alt": "a close up of a wall"
     },
     {
-      "file": "/atmosphere/interior-dark.jpg",
+      "file": "/atmosphere/interior-dark.webp",
       "use": "Section ground — minimal interior",
       "unsplashId": "RKi6pLKBayg",
       "photographer": "krishna kumar c",
@@ -47,7 +47,7 @@
       "alt": "Modern black kitchen counter with sink and faucet."
     },
     {
-      "file": "/atmosphere/pool-dusk.jpg",
+      "file": "/atmosphere/pool-dusk.webp",
       "use": "Section ground — water at dusk",
       "unsplashId": "YmuwgvkjRIs",
       "photographer": "César Couto",
@@ -58,7 +58,7 @@
       "alt": "black framed eyeglasses on brown wooden table"
     },
     {
-      "file": "/atmosphere/hero-house-dusk.jpg",
+      "file": "/atmosphere/hero-house-dusk.webp",
       "use": "Hero — modern luxury home at dusk",
       "unsplashId": "q6eSeT3euLU",
       "photographer": "Michael Brown",
@@ -69,7 +69,7 @@
       "alt": "Modern luxury home with swimming pools at dusk"
     },
     {
-      "file": "/atmosphere/hero-alt-glow.jpg",
+      "file": "/atmosphere/hero-alt-glow.webp",
       "use": "Alt hero — modern house exterior glowing",
       "unsplashId": "4vioYQ9Nn9Y",
       "photographer": "Arthur BAUDRY",
@@ -80,7 +80,7 @@
       "alt": "Modern house exterior glows with lights."
     },
     {
-      "file": "/atmosphere/whole-home.jpg",
+      "file": "/atmosphere/whole-home.webp",
       "use": "Statement section — open-plan living and kitchen in one frame",
       "unsplashId": "RbbZn_M5fgU",
       "photographer": "Bailey Alexander",
@@ -91,7 +91,7 @@
       "alt": "a living room filled with furniture and a kitchen"
     },
     {
-      "file": "/atmosphere/hero-white-house.jpg",
+      "file": "/atmosphere/hero-white-house.webp",
       "use": "Homepage hero — chosen by measurement, not taste: of 21 candidates it was the only one whose bright region coincides with the text block, needing a .02 veil for charcoal type where every other candidate needed .57-.65.",
       "unsplashId": "RyRlvPU3MV4",
       "photographer": "Noelephants Flying",
@@ -102,7 +102,7 @@
       "alt": "A white house with a hedge in front of it"
     },
     {
-      "file": "/atmosphere/hero-luxury.jpg",
+      "file": "/atmosphere/hero-luxury.webp",
       "use": "Homepage hero — luxury house, centred type over a centred light scrim",
       "unsplashId": "-atd5-2ciHc",
       "photographer": "Salvo Media LLC",
@@ -113,7 +113,7 @@
       "alt": "Contemporary house with swimming pool and lush green lawn."
     },
     {
-      "file": "/atmosphere/free-estimate.jpg",
+      "file": "/atmosphere/free-estimate.webp",
       "use": "Free-estimate section",
       "unsplashId": "_ELoYrhi3ao",
       "photographer": "RETRATO INMOBILIARIO",
@@ -124,7 +124,7 @@
       "alt": "Modern home with pool and outdoor seating area."
     },
     {
-      "file": "/atmosphere/windows-hero.jpg",
+      "file": "/atmosphere/windows-hero.webp",
       "use": "Windows & Doors hero — villa with large glazing",
       "unsplashId": "e5b1RBCHP2w",
       "photographer": "Salvo Media LLC",
@@ -133,6 +133,113 @@
       "width": 6999,
       "height": 4666,
       "alt": "A modern house with a swimming pool and green lawn."
+    },
+    {
+      "slug": "impact-window-hurricane-protection",
+      "file": "/atmosphere/hero-impact-window-hurricane-protection.webp",
+      "unsplashId": "hHz4yrvxwlA",
+      "photographer": "Avi Werde",
+      "photographerUrl": "https://unsplash.com/@aviwerde",
+      "photoUrl": "https://unsplash.com/photos/white-and-brown-concrete-building-hHz4yrvxwlA",
+      "width": 5969,
+      "height": 3979,
+      "alt": "white and brown concrete building",
+      "use": "Service hero — impact-window-hurricane-protection"
+    },
+    {
+      "slug": "windows-and-doors",
+      "file": "/atmosphere/hero-windows-and-doors.webp",
+      "unsplashId": "XC4hf0FAt40",
+      "photographer": "Timur Seyfelmlyukov",
+      "photographerUrl": "https://unsplash.com/@timurse",
+      "photoUrl": "https://unsplash.com/photos/modern-building-with-a-bar-and-ocean-view-XC4hf0FAt40",
+      "width": 6240,
+      "height": 4160,
+      "alt": "Modern building with a bar and ocean view",
+      "use": "Service hero — windows-and-doors"
+    },
+    {
+      "slug": "kitchen",
+      "file": "/atmosphere/hero-kitchen.webp",
+      "unsplashId": "o-uPDNNSsDA",
+      "photographer": "Zac Gudakov",
+      "photographerUrl": "https://unsplash.com/@zacgudakov",
+      "photoUrl": "https://unsplash.com/photos/a-large-kitchen-with-a-marble-island-and-white-cabinets-o-uPDNNSsDA",
+      "width": 6240,
+      "height": 4160,
+      "alt": "a large kitchen with a marble island and white cabinets",
+      "use": "Service hero — kitchen"
+    },
+    {
+      "slug": "bathroom",
+      "file": "/atmosphere/hero-bathroom.webp",
+      "unsplashId": "f8rXXuctnSw",
+      "photographer": "Justin Wolff",
+      "photographerUrl": "https://unsplash.com/@jayphoto",
+      "photoUrl": "https://unsplash.com/photos/a-bathroom-with-a-tub-sink-and-mirror-f8rXXuctnSw",
+      "width": 8055,
+      "height": 5370,
+      "alt": "a bathroom with a tub, sink, and mirror",
+      "use": "Service hero — bathroom"
+    },
+    {
+      "slug": "remodeling",
+      "file": "/atmosphere/hero-remodeling.webp",
+      "unsplashId": "pkIJXMezi_E",
+      "photographer": "Bailey Alexander",
+      "photographerUrl": "https://unsplash.com/@baileyal3xander",
+      "photoUrl": "https://unsplash.com/photos/a-living-room-filled-with-furniture-and-a-fire-place-pkIJXMezi_E",
+      "width": 5000,
+      "height": 3333,
+      "alt": "a living room filled with furniture and a fire place",
+      "use": "Service hero — remodeling"
+    },
+    {
+      "slug": "pool",
+      "file": "/atmosphere/hero-pool.webp",
+      "unsplashId": "K76E3nttJFE",
+      "photographer": "Marty O’Neill",
+      "photographerUrl": "https://unsplash.com/@marty_made_it",
+      "photoUrl": "https://unsplash.com/photos/a-swimming-pool-with-a-building-in-the-background-K76E3nttJFE",
+      "width": 4960,
+      "height": 3307,
+      "alt": "a swimming pool with a building in the background",
+      "use": "Service hero — pool"
+    },
+    {
+      "slug": "landscape",
+      "file": "/atmosphere/hero-landscape.webp",
+      "unsplashId": "Sjo_R0_qv3I",
+      "photographer": "Asep Rendi",
+      "photographerUrl": "https://unsplash.com/@aseprendi12",
+      "photoUrl": "https://unsplash.com/photos/a-couple-of-palm-trees-sitting-next-to-a-building-Sjo_R0_qv3I",
+      "width": 6000,
+      "height": 4000,
+      "alt": "a couple of palm trees sitting next to a building",
+      "use": "Service hero — landscape"
+    },
+    {
+      "slug": "artaficial-turf",
+      "file": "/atmosphere/hero-artaficial-turf.webp",
+      "unsplashId": "5tcXJV5rNX4",
+      "photographer": "Shoham Avisrur",
+      "photographerUrl": "https://unsplash.com/@shoham_avisrur",
+      "photoUrl": "https://unsplash.com/photos/swimming-pool-ladder-with-lounge-chairs-on-grass-5tcXJV5rNX4",
+      "width": 6960,
+      "height": 4640,
+      "alt": "Swimming pool ladder with lounge chairs on grass",
+      "use": "Service hero — artaficial-turf"
+    },
+    {
+      "file": "/atmosphere/service-cta.webp",
+      "use": "Service page CTA band",
+      "unsplashId": "G48h926L2qo",
+      "photographer": "Michael Brown",
+      "photographerUrl": "https://unsplash.com/@vettexan",
+      "photoUrl": "https://unsplash.com/photos/modern-luxury-home-with-large-windows-at-dusk-G48h926L2qo",
+      "width": 3822,
+      "height": 2156,
+      "alt": "Modern luxury home with large windows at dusk"
     }
   ],
   "derived": [
@@ -146,26 +253,26 @@
       "replaces": "An earlier ffmpeg zoompan on a single still — the client called it \"a shaking image, not a real video\", which was accurate.",
       "loop": "Seamless by construction: every animated value is a function of the circular distance from the frame to a fixed point, so all have period TOTAL. Measured seam 2.29/255 (encoder noise).",
       "derivedFrom": [
-        "/atmosphere/hero-luxury.jpg",
-        "/atmosphere/windows-hero.jpg",
-        "/atmosphere/free-estimate.jpg"
+        "/atmosphere/hero-luxury.webp",
+        "/atmosphere/windows-hero.webp",
+        "/atmosphere/free-estimate.webp"
       ],
       "note": "No new licence. Three already-licensed Unsplash photographs, motion only. ATMOSPHERE ONLY — never captioned or implied to be a Florida Green project.",
       "sources": [
         {
-          "file": "/atmosphere/hero-luxury.jpg",
+          "file": "/atmosphere/hero-luxury.webp",
           "photographer": "Salvo Media LLC",
           "photographerUrl": "https://unsplash.com/@salvomedia",
           "photoUrl": "https://unsplash.com/photos/contemporary-house-with-swimming-pool-and-lush-green-lawn--atd5-2ciHc"
         },
         {
-          "file": "/atmosphere/windows-hero.jpg",
+          "file": "/atmosphere/windows-hero.webp",
           "photographer": "Salvo Media LLC",
           "photographerUrl": "https://unsplash.com/@salvomedia",
           "photoUrl": "https://unsplash.com/photos/a-modern-house-with-a-swimming-pool-and-green-lawn-e5b1RBCHP2w"
         },
         {
-          "file": "/atmosphere/free-estimate.jpg",
+          "file": "/atmosphere/free-estimate.webp",
           "photographer": "RETRATO INMOBILIARIO",
           "photographerUrl": "https://unsplash.com/@retratoinmobiliario",
           "photoUrl": "https://unsplash.com/photos/modern-home-with-pool-and-outdoor-seating-area-_ELoYrhi3ao"
@@ -184,5 +291,6 @@
         }
       ]
     }
-  ]
+  ],
+  "format": "All stills are WebP. Sources converted 2026-08-12: 12.46 MB -> 6.89 MB across 25 files."
 }

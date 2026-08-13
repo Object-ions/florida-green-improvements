@@ -77,7 +77,7 @@ export function SiteNav({ overDark = false }: { overDark?: boolean } = {}) {
             href={BUSINESS.phoneHref}
             onClick={() => track("phone_click", { location: "nav" })}
             className={`relative hidden font-data text-[12px] uppercase tracking-[0.1em] transition-colors sm:inline ${
-              overDark && !solid ? "text-white hover:text-amber" : "text-ink hover:text-amber-text"
+              overDark && !solid ? "text-white hover:text-amber" : "text-ink hover:text-brand-yellow"
             }`}
           >
             {BUSINESS.phone}
