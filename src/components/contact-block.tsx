@@ -27,12 +27,16 @@ import { BUSINESS } from "@/lib/business";
  * client asked for imported high-end imagery rather than his own photographs.
  * See CREDITS.json and IMG-01 in the project log.
  */
+/* `pos` is object-position. The carousel frame is PORTRAIT and most of these
+   photographs are landscape, so a centre crop discards the subject — the pool
+   read as a plain house elevation and the bathroom as a blank wall. Each image
+   now names the point that must survive the crop. */
 const SHOWCASE = [
-  { label: "Kitchens", src: "/showcase/kitchen.jpg" },
-  { label: "Bathrooms", src: "/showcase/bathroom.jpg" },
-  { label: "Remodeling", src: "/showcase/remodeling.jpg" },
-  { label: "Pools", src: "/showcase/pool.jpg" },
-  { label: "Landscaping", src: "/showcase/landscape.jpg" },
+  { label: "Kitchens", src: "/showcase/kitchen.jpg", pos: "50% 50%" },
+  { label: "Bathrooms", src: "/showcase/bathroom.jpg", pos: "50% 60%" },
+  { label: "Remodeling", src: "/showcase/remodeling.jpg", pos: "50% 50%" },
+  { label: "Pools", src: "/showcase/pool.jpg", pos: "50% 72%" },
+  { label: "Landscaping", src: "/showcase/landscape.jpg", pos: "50% 62%" },
 ];
 
 export function ContactBlock({
@@ -159,9 +163,13 @@ export function ContactBlock({
                 fill
                 sizes="(max-width: 1024px) 100vw, 560px"
                 quality={82}
-                className="object-cover [filter:saturate(.9)_contrast(1.04)]"
+                style={{ objectPosition: SHOWCASE[index].pos }}
+                className="object-cover [filter:saturate(.96)_contrast(1.02)]"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(250,250,248,.5)_0%,rgba(250,250,248,.1)_38%,rgba(250,250,248,.85)_100%)]" />
+              {/* Was .5 top / .85 bottom, which flattened the whole picture to
+                  carry two small labels. Now it only darkens the two bands the
+                  labels actually sit in and leaves the middle alone. */}
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(250,250,248,.34)_0%,rgba(250,250,248,.04)_26%,rgba(250,250,248,0)_58%,rgba(250,250,248,.52)_100%)]" />
             </motion.div>
           </AnimatePresence>
 

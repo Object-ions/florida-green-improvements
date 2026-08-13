@@ -100,6 +100,39 @@
       "width": 4611,
       "height": 3264,
       "alt": "A white house with a hedge in front of it"
+    },
+    {
+      "file": "/atmosphere/hero-luxury.jpg",
+      "use": "Homepage hero — luxury house, centred type over a centred light scrim",
+      "unsplashId": "-atd5-2ciHc",
+      "photographer": "Salvo Media LLC",
+      "photographerUrl": "https://unsplash.com/@salvomedia",
+      "photoUrl": "https://unsplash.com/photos/contemporary-house-with-swimming-pool-and-lush-green-lawn--atd5-2ciHc",
+      "width": 6861,
+      "height": 4574,
+      "alt": "Contemporary house with swimming pool and lush green lawn."
+    },
+    {
+      "file": "/atmosphere/free-estimate.jpg",
+      "use": "Free-estimate section",
+      "unsplashId": "_ELoYrhi3ao",
+      "photographer": "RETRATO INMOBILIARIO",
+      "photographerUrl": "https://unsplash.com/@retratoinmobiliario",
+      "photoUrl": "https://unsplash.com/photos/modern-home-with-pool-and-outdoor-seating-area-_ELoYrhi3ao",
+      "width": 7952,
+      "height": 5304,
+      "alt": "Modern home with pool and outdoor seating area."
+    },
+    {
+      "file": "/atmosphere/windows-hero.jpg",
+      "use": "Windows & Doors hero — villa with large glazing",
+      "unsplashId": "e5b1RBCHP2w",
+      "photographer": "Salvo Media LLC",
+      "photographerUrl": "https://unsplash.com/@salvomedia",
+      "photoUrl": "https://unsplash.com/photos/a-modern-house-with-a-swimming-pool-and-green-lawn-e5b1RBCHP2w",
+      "width": 6999,
+      "height": 4666,
+      "alt": "A modern house with a swimming pool and green lawn."
     }
   ],
   "derived": [
@@ -109,22 +142,22 @@
         "/atmosphere/hero.webm"
       ],
       "use": "Homepage hero background video",
-      "derivedFrom": "/atmosphere/hero-white-house.jpg",
+      "derivedFrom": "/atmosphere/hero-luxury.jpg",
       "method": "12s seamless loop, slow cinematic push rendered with ffmpeg zoompan. The zoom curve is a sine over the full duration, so the last frame returns to the first and the loop point is invisible.",
       "note": "No separate licence. Same Unsplash photograph, same photographer, same attribution — motion only. Still ATMOSPHERE ONLY: never captioned or implied to be a Florida Green project.",
-      "photographer": "Noelephants Flying",
-      "photographerUrl": "https://unsplash.com/@noelephantsflying",
-      "photoUrl": "https://unsplash.com/photos/a-white-house-with-a-hedge-in-front-of-it-RyRlvPU3MV4",
+      "photographer": "Salvo Media LLC",
+      "photographerUrl": "https://unsplash.com/@salvomedia",
+      "photoUrl": "https://unsplash.com/photos/contemporary-house-with-swimming-pool-and-lush-green-lawn--atd5-2ciHc",
       "encodes": [
         {
           "file": "/atmosphere/hero.webm",
           "codec": "VP9",
-          "note": "preferred — ~831 KB"
+          "note": "preferred — ~1.1 MB"
         },
         {
           "file": "/atmosphere/hero.mp4",
           "codec": "H.264 high",
-          "note": "Safari fallback — ~1.6 MB"
+          "note": "Safari fallback — ~1.9 MB"
         }
       ]
     }

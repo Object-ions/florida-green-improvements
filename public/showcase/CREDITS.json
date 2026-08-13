@@ -28,11 +28,14 @@
     },
     {
       "file": "/showcase/bathroom.jpg",
-      "unsplashId": "PibraWHb4h8",
-      "photographer": "Jared Rice",
-      "photographerUrl": "https://unsplash.com/@jareddrice",
-      "photoUrl": "https://unsplash.com/photos/white-ceramic-bathtub-PibraWHb4h8",
-      "alt": "white ceramic bathtub"
+      "use": "Bathroom — PORTRAIT, fits the carousel frame",
+      "unsplashId": "Ns3T2jCfQFk",
+      "photographer": "Franco Debartolo",
+      "photographerUrl": "https://unsplash.com/@francotheshooter",
+      "photoUrl": "https://unsplash.com/photos/modern-bathroom-with-a-white-freestanding-bathtub-and-large-window-Ns3T2jCfQFk",
+      "width": 4000,
+      "height": 6000,
+      "alt": "Modern bathroom with a white freestanding bathtub and large window."
     },
     {
       "file": "/showcase/remodeling.jpg",
@@ -44,11 +47,14 @@
     },
     {
       "file": "/showcase/pool.jpg",
-      "unsplashId": "Id7u0EkTjBE",
-      "photographer": "John Fornander",
-      "photographerUrl": "https://unsplash.com/@johnfo",
-      "photoUrl": "https://unsplash.com/photos/white-and-blue-swimming-pool-Id7u0EkTjBE",
-      "alt": "white and blue swimming pool"
+      "use": "Pool — water clearly the subject",
+      "unsplashId": "K7aApdbJZcQ",
+      "photographer": "Oak + Motion",
+      "photographerUrl": "https://unsplash.com/@oakandmotion",
+      "photoUrl": "https://unsplash.com/photos/a-pool-surrounded-by-palm-trees-and-landscaping-K7aApdbJZcQ",
+      "width": 5472,
+      "height": 3648,
+      "alt": "a pool surrounded by palm trees and landscaping"
     },
     {
       "file": "/showcase/landscape.jpg",

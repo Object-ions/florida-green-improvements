@@ -82,6 +82,16 @@ export function SiteNav({ overDark = false }: { overDark?: boolean } = {}) {
           >
             {BUSINESS.phone}
           </a>
+          {/* Header CTA. Hidden below md — the phone bar already pins both
+              actions to the bottom of every mobile screen, and a third
+              control in a 375px bar would crowd the burger. */}
+          <Link
+            href="/contact"
+            onClick={() => track("cta_click", { location: "nav" })}
+            className="btn btn-sm btn-amber hidden md:inline-flex"
+          >
+            Free Consultation
+          </Link>
           <button
             type="button"
             onClick={() => setOpen(true)}

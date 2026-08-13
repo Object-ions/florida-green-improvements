@@ -48,8 +48,11 @@ function CinematicListItem({ id, title, meta, href, src, alt = "" }: CinematicIt
       aria-label={`${title} — ${meta}`}
       className={cn(
         "group relative flex w-full flex-col justify-center overflow-hidden border-b border-line",
-        "transition-[height] duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]",
+        "transition-[height,background-color] duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]",
         "h-24 md:hover:h-[400px] md:focus-visible:h-[400px]",
+        // Immediate feedback that does not wait on the 700ms expansion, and
+        // that still works below md where rows never expand at all.
+        "hover:bg-sink focus-visible:bg-sink md:hover:bg-transparent",
         "motion-reduce:transition-none motion-reduce:md:hover:h-24 motion-reduce:md:focus-visible:h-24",
       )}
     >
@@ -100,7 +103,7 @@ function CinematicListItem({ id, title, meta, href, src, alt = "" }: CinematicIt
 
       <div className="relative z-10 flex w-full items-center justify-between gap-6 px-4 sm:px-8 md:px-12">
         <div className="flex items-center gap-6 md:gap-12">
-          <span className="font-data text-[12px] font-medium uppercase tracking-[0.1em] text-mute transition-colors duration-500 group-hover:text-white group-focus-visible:text-white">
+          <span className="font-data text-[12px] font-medium uppercase tracking-[0.1em] text-mute transition-all duration-500 group-hover:translate-x-1 group-hover:text-white group-focus-visible:text-white">
             {id}
           </span>
 

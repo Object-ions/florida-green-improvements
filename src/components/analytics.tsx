@@ -78,7 +78,10 @@ type EventName =
   | "form_start"
   | "form_submit"
   | "quote_request"
-  | "service_view";
+  | "service_view"
+  /* Header + section CTAs added Aug 12. Tracked separately from
+     quote_request so we can see which entry point earns the lead. */
+  | "cta_click";
 
 /**
  * Fire a GA4 conversion event. These are the numbers that turn "the site looks

@@ -85,7 +85,10 @@
   /* Amber is the stationery accent and a FILL. At 1.68:1 it cannot carry
      text; amber-text is the darker cut for when it must.                */
   --fg-amber:#F8B858;
-  --fg-amber-text:#8A6212;   /* 5.24:1 */
+  /* Was #8A6212, which read as gold/brown rather than the brand amber. This
+     is hue-shifted toward orange (h 27 vs 43) so it reads as the same family
+     as the #F8B858 fill. 4.81:1 on ground — still AA for normal text. */
+  --fg-amber-text:#B45309;   /* 4.81:1 */
   --fg-on-amber:#383838;     /* 6.69:1 on the amber fill                     */
 
   --fg-green:#457F28;        /* 4.65:1 — from the logo wordmark              */
@@ -291,6 +294,38 @@
           rgba(250,250,248,.38)  46%,
           rgba(250,250,248,.10)  62%,
           transparent            74%);
+    }
+  }
+
+  /* Service and About heroes: the compact wash was tuned when those heroes
+     carried an eyebrow AND a title high in the frame. It buries the
+     photograph. This trims every stop by roughly a third — the type there is
+     a breadcrumb and a one-word title sitting low, so it does not need the
+     full strength. */
+  .hero-wash-light {
+    background: linear-gradient(
+      to top,
+      var(--fg-ground)        0%,
+      rgba(250,250,248,.94)  24%,
+      rgba(250,250,248,.82)  40%,
+      rgba(250,250,248,.56)  56%,
+      rgba(250,250,248,.22)  72%,
+      transparent            88%);
+  }
+  @media (min-width: 768px) {
+    .hero-wash-light {
+      background:
+        linear-gradient(to top,
+          var(--fg-ground)        0%,
+          rgba(250,250,248,.92)  20%,
+          rgba(250,250,248,.70)  36%,
+          rgba(250,250,248,.34)  52%,
+          transparent            72%),
+        linear-gradient(100deg,
+          rgba(250,250,248,.86)   0%,
+          rgba(250,250,248,.64)  24%,
+          rgba(250,250,248,.30)  44%,
+          transparent            64%);
     }
   }
 

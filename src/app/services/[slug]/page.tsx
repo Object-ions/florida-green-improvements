@@ -65,19 +65,19 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               quality={74}
               className="object-cover opacity-[1] [filter:saturate(1.04)_contrast(1.03)]"
             />
-            <div className="hero-wash-compact" />
+            <div className="hero-wash-compact hero-wash-light" />
             <div className="absolute inset-0 bg-[radial-gradient(100%_75%_at_82%_18%,rgba(39,107,74,.13),transparent_66%)] mix-blend-multiply" />
           </div>
 
           <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24">
             
               <nav aria-label="Breadcrumb" className="mb-7">
-                <ol className="flex items-center gap-3 font-data text-[12px] uppercase tracking-[0.1em] text-mute">
+                <ol className="flex items-center gap-3 font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
                   <li>
                     <Link href="/" className="transition-colors hover:text-ink">Home</Link>
                   </li>
                   <li aria-hidden>/</li>
-                  <li className="text-green-deep">{service.name}</li>
+                  <li className="text-ink">{service.name}</li>
                 </ol>
               </nav>
             
@@ -89,7 +89,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* ── INTRO ──────────────────────────────────────────────── */}
-        <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-36">
+        <section className="mx-auto max-w-[1400px] px-6 py-14 md:px-10 md:py-20">
           <div className="grid gap-14 md:grid-cols-[132px_1fr]">
             <Reveal>
               <p className="u-data md:pt-2">Overview</p>
@@ -105,7 +105,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         {/* ── Licensed aspirational photography. Deliberately carries no
              caption or alt text implying it is a completed client project. ── */}
         <section className="border-t border-line/40">
-          <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
+          <div className="mx-auto max-w-[1400px] px-6 py-12 md:px-10 md:py-16">
             <Reveal>
               <figure className="grid gap-8 md:grid-cols-[132px_1fr] md:gap-14">
                 <figcaption className="u-data md:pt-2">{service.name}</figcaption>
@@ -126,15 +126,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
         {/* ── POINTS ─────────────────────────────────────────────── */}
         <section className="border-t border-line/40">
-          <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+          <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-24">
             <Reveal>
               <p className="u-data mb-14">Detail</p>
             </Reveal>
             <div className="grid gap-14 md:grid-cols-3 md:gap-12">
               {service.points.map((p, i) => (
                 <Reveal key={p.title} delay={i * 140}>
-                  <div className="border-t border-line pt-7">
-                    <p className="font-data text-[12px] uppercase tracking-[0.08em] text-green">
+                  <div className="group border-t border-line pt-7 transition-colors duration-300 hover:border-amber">
+                    <p className="font-data text-[12px] uppercase tracking-[0.08em] text-green transition-colors duration-300 group-hover:text-amber-text">
                       {String(i + 1).padStart(2, "0")}
                     </p>
                     <h2 className="mt-5 text-[clamp(1.375rem,2.4vw,1.875rem)] text-ink">{p.title}</h2>

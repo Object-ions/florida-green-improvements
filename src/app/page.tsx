@@ -29,7 +29,7 @@ import { businessSchema, JsonLd } from "@/lib/schema";
 
    Whatever goes here must clear IMG-01: atmosphere only, never captioned
    or implied to be a Florida Green project. */
-const HERO_POSTER = "/atmosphere/hero-white-house.jpg";
+const HERO_POSTER = "/atmosphere/hero-luxury.jpg";
 const HERO_VIDEO: HeroSource[] | null = [
   { src: "/atmosphere/hero.webm", type: "video/webm" },
   { src: "/atmosphere/hero.mp4", type: "video/mp4" },
@@ -100,54 +100,48 @@ export default function Home() {
               fill
               priority
               sizes="100vw"
-              quality={80}
-              className="object-cover object-[50%_62%]"
+              quality={78}
+              className="object-cover"
             />
             {HERO_VIDEO ? <HeroVideo sources={HERO_VIDEO} /> : null}
 
-            {/* A light overlay, and a genuinely light one — .18 at the top
-                where the type sits, fading to nothing.
+            {/* A CENTRED light scrim, not a full-frame wash — and that
+                distinction is the whole design.
 
-                It can be this weak only because of the photograph. The type
-                sits over the white facade and sky, which measure p5 191
-                (desktop) and 159 (mobile); charcoal on that needs a veil of
-                .02 to clear 4.5:1 across most of the block.
+                The type is centred now, so it sits on the subject: measured
+                across 43 candidate photographs, charcoal type in the middle of
+                any luxury house shot needs a .52–.64 veil, because a dark
+                window, doorway or shadow always lands under it. This one needs
+                .61 (centre p5 21 desktop, 17 mobile -> composite must reach
+                rgb 160).
 
-                .38 at the very top is not for the facade — it is for the dark
-                roof diagonal that crosses the eyebrow line, which measured
-                3.08:1 at .18. Composite maths: that band sits at rgb 131, and
-                4.5:1 against charcoal needs rgb 160, so 29/119 = .244 of white
-                is the floor at 1440. The mobile crop puts a darker part of that diagonal
-                under the same line, so the top stop is .54 — measured, not
-                guessed. It fades to nothing by 88%, and the nav already lays
-                a .92 scrim over the top 112px anyway.
-
-                The previous dusk photograph needed .62 in the same position,
-                and .62 of white over a dark picture is the grey fog that got
-                rejected. The fix was never the gradient — it was picking a
-                photograph whose bright area is where the words go. */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(250,250,248,.54)_0%,rgba(250,250,248,.34)_24%,rgba(250,250,248,.12)_48%,rgba(250,250,248,.03)_70%,transparent_88%)]" />
+                A flat .61 over the whole frame is the grey fog that was
+                rejected. An ellipse that reaches .78 behind the words and is
+                gone by 80% of the radius costs the same contrast but leaves
+                the pool, the lawn, the roofline and the sky at full strength,
+                so it reads as light falling on the picture rather than fog
+                over it. */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_82%_72%_at_50%_50%,rgba(250,250,248,.84)_0%,rgba(250,250,248,.80)_38%,rgba(250,250,248,.70)_62%,rgba(250,250,248,.40)_82%,transparent_95%)]" />
           </div>
 
-          {/* Type sits at the TOP, not the bottom. On this photograph the
-              clean area is the facade and sky; the bottom is hedge and window
-              reveals and measures .54. */}
-          <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-start px-6 pb-10 pt-32 md:px-10 md:pt-36">
+          {/* Centred on both axes, per the client: justify-center +
+              items-center + text-center. */}
+          <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col items-center justify-center px-6 py-28 text-center md:px-10">
             <p className="u-data mb-6 text-ink">
               <span className="text-ink" aria-hidden>&#9679;</span>{" "}
               {BUSINESS.address.locality}, Florida &middot; Licence {BUSINESS.license}
             </p>
 
-            <h1 className="max-w-[15ch] text-[clamp(2.5rem,7.4vw,5.5rem)] text-ink">
+            <h1 className="max-w-[15ch] text-[clamp(2.5rem,7vw,5.25rem)] text-ink">
               {BUSINESS.tagline}
             </h1>
 
-            <p className="mt-7 max-w-[44ch] text-[17px] leading-relaxed text-ink-2 md:text-[19px]">
+            <p className="mt-7 max-w-[46ch] text-[17px] leading-relaxed text-ink md:text-[19px]">
               Impact windows, kitchens and full remodels for South Florida homes that have to
               survive the season and still look like this.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link href="/contact" className="btn btn-amber">
                 Request a quote
               </Link>
@@ -264,9 +258,9 @@ export default function Home() {
             <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--fg-ground)_0%,rgba(250,250,248,.86)_45%,var(--fg-ground)_100%)]" />
           </div>
 
-          <div className="relative mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-40">
+          <div className="relative mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-24">
             <Reveal>
-              <h2 className="u-data mb-14">How it works</h2>
+              <h2 className="u-data mb-10">How it works</h2>
             </Reveal>
             <div className="grid gap-14 md:grid-cols-3 md:gap-12">
               {PROCESS.map((step, i) => (
@@ -293,6 +287,14 @@ export default function Home() {
                 </Reveal>
               ))}
             </div>
+
+            <Reveal delay={420}>
+              <div className="mt-14 flex justify-center">
+                <Link href="/contact" className="btn btn-amber">
+                  Free Consultation
+                </Link>
+              </div>
+            </Reveal>
           </div>
         </section>
 
@@ -309,7 +311,7 @@ export default function Home() {
               legible instead of trading one against the other. */}
           <div className="absolute inset-0">
             <Image
-              src="/atmosphere/hero-house-dusk.jpg"
+              src="/atmosphere/free-estimate.jpg"
               alt=""
               fill
               sizes="100vw"
