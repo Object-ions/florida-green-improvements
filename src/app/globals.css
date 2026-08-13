@@ -214,9 +214,33 @@
   }
   .btn-ghost:hover { border-color: rgb(56 56 56 / 0.45); }
 
+  /* The ghost button reversed, for the dark hero. A charcoal-bordered
+     outline button is invisible on a dark ground; this is the same shape
+     with the values flipped. The faint fill keeps it readable if the video
+     behind it happens to be bright at that moment. */
+  .btn-on-dark {
+    border-color: rgb(255 255 255 / 0.45);
+    background: rgb(255 255 255 / 0.08);
+    color: #fff;
+    backdrop-filter: blur(3px);
+  }
+  .btn-on-dark:hover {
+    border-color: rgb(255 255 255 / 0.8);
+    background: rgb(255 255 255 / 0.14);
+  }
+
   /* A phone number is digits, not a word. Uppercase tracking is there to
      stop capitals colliding; applied to numerals it just pulls them apart
      and makes the button ride wider than the one beside it. */
+  /* Compact variant, for the cookie notice. Still 36px, which clears the
+     24px target minimum comfortably. */
+  .btn-sm {
+    min-height: 2.25rem;
+    padding-inline: 0.9375rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.05em;
+  }
+
   .btn-tel {
     text-transform: none;
     letter-spacing: 0.01em;

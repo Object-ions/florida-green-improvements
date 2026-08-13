@@ -6,12 +6,34 @@ import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { ContactBlock } from "@/components/contact-block";
 import { CinematicList } from "@/components/ui/cinematic-list";
+import { HeroVideo, type HeroSource } from "@/components/hero-video";
 import { BUSINESS, SERVICES, CATEGORIES, servicesByCategory } from "@/lib/business";
 import { businessSchema, JsonLd } from "@/lib/schema";
 
 /* ── THE VAULT ────────────────────────────────────────────────────────
    Photography is the ground of every section. Type sits small and wide
    over it, never bold. Brass appears once per screen and nowhere else. */
+
+/* ── HERO MEDIA ───────────────────────────────────────────────────────
+   HERO_POSTER is the fallback and the LCP element — always rendered.
+
+   HERO_VIDEO is a slow cinematic push rendered from that same licensed
+   photograph — a 12s loop whose zoom curve is a sine, so it returns to
+   exactly its first frame and the loop point is invisible. It is derived
+   from the still rather than sourced separately because no stock-video
+   provider is reachable without an API key, and it clears IMG-01 for free:
+   the licence, the subject and the attribution are all unchanged.
+
+   Set HERO_VIDEO to null to fall back to the photograph alone. Swapping in
+   real footage later is a one-line change here.
+
+   Whatever goes here must clear IMG-01: atmosphere only, never captioned
+   or implied to be a Florida Green project. */
+const HERO_POSTER = "/atmosphere/hero-alt-glow.jpg";
+const HERO_VIDEO: HeroSource[] | null = [
+  { src: "/atmosphere/hero.webm", type: "video/webm" },
+  { src: "/atmosphere/hero.mp4", type: "video/mp4" },
+];
 
 /* Imagery here is illustrative of the stage, never of a Florida Green project.
    Deliberately no people and no third-party branding: a photograph of a crew
@@ -42,82 +64,91 @@ export default function Home() {
   return (
     <>
       <JsonLd data={businessSchema()} />
-      <SiteNav />
+      <SiteNav overDark />
 
       <main id="main">
         {/* ── HERO ───────────────────────────────────────────────────────
-             Split, with nothing over the photograph.
+             Full bleed, type over the media, dark overlay, type reversed out.
 
-             This was a full-bleed image with charcoal type on top of it and a
-             white wash underneath the type. That never worked: measured across
-             five breakpoints, the headline ran as low as 1.0:1. Pushing the
-             wash up far enough to fix it turned the picture milky, which is
-             what the client then rejected — correctly.
+             Worth reading the history before changing this again, because
+             three of the four possible designs have now been tried:
 
-             It is not a tuning problem. Eleven candidate photographs were
-             scored by the veil alpha each would need for charcoal text to
-             clear 4.5:1 in the text zone; every one landed at .57–.64,
-             because any photograph of a building has dark window frames and
-             shadows somewhere under the headline. There is no image that
-             fixes it and no gradient that fixes it.
+             1. Full bleed + CHARCOAL type + white veil. Measured as low as
+                1.0:1 across five breakpoints. Raising the veil enough to fix
+                it turned the picture milky, and that was rejected.
+             2. Split — type beside the picture, no overlay. Measured clean,
+                but the client wanted the picture full bleed.
+             3. Full bleed + WHITE type + dark overlay. This one. It works
+                because reversing the type is what buys the headroom: white
+                on a .66 dark veil is 5.7:1, where charcoal under a .62 white
+                veil was still failing. Same veil strength, opposite result.
 
-             So the type comes off the photograph. Zero overlay: the picture
-             runs at full strength, the text sits on clean ground, and both
-             are better for it. */}
-        <section className="relative flex flex-col justify-between overflow-hidden bg-ground md:min-h-[94svh]">
-          <div className="mx-auto grid w-full max-w-[1400px] flex-1 grid-cols-1 items-center gap-8 px-6 pb-10 pt-28 md:grid-cols-[1.02fr_1fr] md:gap-12 md:px-10 md:pb-14 md:pt-32 lg:gap-16">
-            {/* Photograph first on a phone so the page still opens on an
-                image; second on desktop so reading order stays text-first. */}
-            <div className="relative order-1 h-[34svh] w-full overflow-hidden rounded-[6px] md:order-2 md:h-full md:min-h-[62svh]">
-              <Image
-                src="/atmosphere/hero-alt-glow.jpg"
-                alt=""
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                quality={78}
-                className="object-cover [filter:saturate(1.04)_contrast(1.03)]"
-              />
-            </div>
+             The rule underneath it: dark type over a photograph is the
+             expensive direction. Light type is cheap. If this ever has to go
+             back to charcoal, it has to leave the photograph too. */}
+        <section className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden bg-[#141414]">
+          <div className="absolute inset-0">
+            {/* The fallback, and the LCP element. Always rendered, always
+                painted first; the video layers on top of it. */}
+            <Image
+              src={HERO_POSTER}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              quality={74}
+              className="object-cover [filter:saturate(1.02)]"
+            />
+            {HERO_VIDEO ? <HeroVideo sources={HERO_VIDEO} /> : null}
 
-            <div className="order-2 md:order-1">
-              <p className="u-data mb-6 text-ink">
-                <span className="text-green-deep" aria-hidden>&#9679;</span>{" "}
-                {BUSINESS.address.locality}, Florida &middot; Licence {BUSINESS.license}
-              </p>
+            {/* Overlay. Dark, not white — that is the whole point. A white
+                veil heavy enough to carry charcoal type turns the picture
+                milky, which is what was rejected; a dark veil at the same
+                strength reads as cinematic and the picture survives it.
+                Reversing the type out is what buys the headroom.
 
-              {/* Smaller ceiling than the old full-bleed setting: 5.75rem was
-                  sized against the whole viewport and overflows half of it. */}
-              <h1 className="max-w-[14ch] text-[clamp(2.5rem,5.2vw,4.5rem)] text-ink">
-                {BUSINESS.tagline}
-              </h1>
+                Measured against a pure-white source pixel, worst case:
+                  .84 band -> white text 8.7:1
+                  .66 band -> white text 5.7:1
+                  .46 band -> white text 3.4:1  (nothing sits this high) */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(16,16,16,.86)_0%,rgba(16,16,16,.78)_28%,rgba(16,16,16,.66)_48%,rgba(16,16,16,.46)_68%,rgba(16,16,16,.3)_86%,rgba(16,16,16,.22)_100%)]" />
+          </div>
 
-              <p className="mt-7 max-w-[44ch] text-[17px] leading-relaxed text-ink-2 md:text-[19px]">
-                Impact windows, kitchens and full remodels for South Florida homes that have to
-                survive the season and still look like this.
-              </p>
+          <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-end px-6 pb-14 pt-36 md:px-10 md:pb-16">
+            <p className="u-data mb-6 !text-white/90">
+              <span className="text-amber" aria-hidden>&#9679;</span>{" "}
+              {BUSINESS.address.locality}, Florida &middot; Licence {BUSINESS.license}
+            </p>
 
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link href="/contact" className="btn btn-amber">
-                  Request a quote
-                </Link>
-                <a href={BUSINESS.phoneHref} className="btn btn-ghost btn-tel">
-                  {BUSINESS.phone}
-                </a>
-              </div>
+            <h1 className="max-w-[15ch] text-[clamp(2.5rem,7.4vw,5.5rem)] text-white">
+              {BUSINESS.tagline}
+            </h1>
+
+            <p className="mt-7 max-w-[44ch] text-[17px] leading-relaxed text-white/85 md:text-[19px]">
+              Impact windows, kitchens and full remodels for South Florida homes that have to
+              survive the season and still look like this.
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <Link href="/contact" className="btn btn-amber">
+                Request a quote
+              </Link>
+              <a href={BUSINESS.phoneHref} className="btn btn-on-dark btn-tel">
+                {BUSINESS.phone}
+              </a>
             </div>
           </div>
 
-          <div className="mx-auto w-full max-w-[1400px] border-t border-line/40 px-6 py-6 md:px-10">
+          <div className="relative mx-auto w-full max-w-[1400px] border-t border-white/20 px-6 py-6 md:px-10">
             <ul className="flex flex-wrap items-center gap-x-10 gap-y-3">
-              <li className="flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
-                <Star size={12} strokeWidth={0} fill="currentColor" className="text-amber-text" aria-hidden />
+              <li className="flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-white/85">
+                <Star size={12} strokeWidth={0} fill="currentColor" className="text-amber" aria-hidden />
                 {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} Google reviews
               </li>
-              <li className="font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
+              <li className="font-data text-[12px] uppercase tracking-[0.1em] text-white/85">
                 Licensed &amp; insured
               </li>
-              <li className="font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
+              <li className="font-data text-[12px] uppercase tracking-[0.1em] text-white/85">
                 Miami-Dade &amp; Broward
               </li>
             </ul>

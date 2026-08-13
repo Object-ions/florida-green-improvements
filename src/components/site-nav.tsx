@@ -10,7 +10,7 @@ import { track } from "@/components/analytics";
  * The Vault's nav: transparent over the hero photograph, resolving to solid
  * emerald-black once you leave it. Wide letter-spacing, no weight, no colour.
  */
-export function SiteNav() {
+export function SiteNav({ overDark = false }: { overDark?: boolean } = {}) {
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -32,19 +32,27 @@ export function SiteNav() {
         solid ? "bg-ground/95 backdrop-blur-sm border-b border-line" : "bg-transparent"
       }`}
     >
-      {/* Over a bright photograph the dark nav text has nothing to sit on —
-          the phone number vanished into the sky. A soft bone scrim gives it a
-          floor without reading as a bar. Hidden once the nav goes solid. */}
+      {/* Over a photograph the nav text has nothing to sit on — the phone
+          number used to vanish into the sky. A scrim gives it a floor without
+          reading as a bar. `overDark` flips it for the homepage, whose hero is
+          a dark video: the bone scrim and charcoal text are both invisible
+          there. Hidden once the nav goes solid, which is light on every page. */}
       {!solid ? (
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-[linear-gradient(to_bottom,rgba(250,250,248,.92),rgba(250,250,248,.55)_45%,transparent)]"
+          className={`pointer-events-none absolute inset-x-0 top-0 h-28 ${
+            overDark
+              ? "bg-[linear-gradient(to_bottom,rgba(16,16,16,.62),rgba(16,16,16,.28)_50%,transparent)]"
+              : "bg-[linear-gradient(to_bottom,rgba(250,250,248,.92),rgba(250,250,248,.55)_45%,transparent)]"
+          }`}
         />
       ) : null}
       <nav className="relative mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-5 md:px-10">
         <Link
           href="/"
-          className="on-photo relative font-data text-[11px] uppercase tracking-[0.09em] text-ink transition-opacity hover:opacity-70"
+          className={`relative font-data text-[11px] uppercase tracking-[0.09em] transition-opacity hover:opacity-70 ${
+            overDark && !solid ? "text-white" : "text-ink"
+          }`}
         >
           Florida Green
         </Link>
@@ -54,7 +62,9 @@ export function SiteNav() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="on-photo font-data text-[12px] uppercase tracking-[0.08em] text-ink-2 transition-colors hover:text-ink"
+                className={`font-data text-[12px] uppercase tracking-[0.08em] transition-colors ${
+                  overDark && !solid ? "text-white/85 hover:text-white" : "text-ink-2 hover:text-ink"
+                }`}
               >
                 {item.label}
               </Link>
@@ -66,7 +76,9 @@ export function SiteNav() {
           <a
             href={BUSINESS.phoneHref}
             onClick={() => track("phone_click", { location: "nav" })}
-            className="on-photo relative hidden font-data text-[12px] uppercase tracking-[0.1em] text-ink transition-colors hover:text-amber-text sm:inline"
+            className={`relative hidden font-data text-[12px] uppercase tracking-[0.1em] transition-colors sm:inline ${
+              overDark && !solid ? "text-white hover:text-amber" : "text-ink hover:text-amber-text"
+            }`}
           >
             {BUSINESS.phone}
           </a>
@@ -77,7 +89,9 @@ export function SiteNav() {
             /* The hit area was exactly the 20px icon — the primary navigation
                control on a phone, at less than half the 44px minimum. Negative
                margins absorb the growth so the bar height does not change. */
-            className="-my-3 -mr-3 flex h-11 w-11 items-center justify-center text-ink transition-opacity hover:opacity-70 md:hidden"
+            className={`-my-3 -mr-3 flex h-11 w-11 items-center justify-center transition-opacity hover:opacity-70 md:hidden ${
+              overDark && !solid ? "text-white" : "text-ink"
+            }`}
           >
             <Menu size={20} strokeWidth={1.25} aria-hidden />
           </button>
