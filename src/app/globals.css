@@ -1,29 +1,33 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   /* ── FLORIDA GREEN · "THE VAULT" · EMERALD & BRASS ──────────────
      Locked 2026-08-10. Every ratio below is computed, not estimated. */
-  --color-ground:      var(--fg-ground);       /* #08130E  emerald-black          */
-  --color-raise:       var(--fg-raise);        /* #0E2119  surfaces               */
-  --color-sink:        var(--fg-sink);         /* #050C08  deepest                */
-  --color-ink:         var(--fg-ink);          /* #F1EEE4  16.30:1 AA             */
-  --color-ink-2:       var(--fg-ink-2);        /* #C8CFC6  11.6 :1 AA             */
-  --color-mute:        var(--fg-mute);         /* #93A199   7.03:1 AA             */
-  --color-amber:       var(--fg-amber);        /* stationery accent — FILL ONLY   */
+  --color-ground: var(--fg-ground); /* #08130E  emerald-black          */
+  --color-raise: var(--fg-raise); /* #0E2119  surfaces               */
+  --color-sink: var(--fg-sink); /* #050C08  deepest                */
+  --color-ink: var(--fg-ink); /* #F1EEE4  16.30:1 AA             */
+  --color-ink-2: var(--fg-ink-2); /* #C8CFC6  11.6 :1 AA             */
+  --color-mute: var(--fg-mute); /* #93A199   7.03:1 AA             */
+  --color-amber: var(--fg-amber); /* stationery accent — FILL ONLY   */
   --color-brand-yellow: var(--fg-brand-yellow);
-  --color-amber-text:  var(--fg-amber-text);   /* 5.24:1 — amber used as text     */
-  --color-on-amber:    var(--fg-on-amber);     /* 6.69:1 — text on an amber fill  */
-  --color-field:       var(--fg-field);        /* form borders, 3:1 as UI control */
-  --color-green:       var(--fg-green);        /* #4FB88C   7.72:1 AA · links     */
-  --color-green-deep:  var(--fg-green-deep);   /* #1E6B4F   2.95:1 · FILLS ONLY   */
-  --color-line:        var(--fg-line);         /* #3A4F44  hairlines              */
-  --font-display:      var(--fg-font-display);
-  --font-body:         var(--fg-font-body);
-  --font-data:         var(--fg-font-data);
+  --color-amber-text: var(
+    --fg-amber-text
+  ); /* 5.24:1 — amber used as text     */
+  --color-on-amber: var(--fg-on-amber); /* 6.69:1 — text on an amber fill  */
+  --color-field: var(--fg-field); /* form borders, 3:1 as UI control */
+  --color-green: var(--fg-green); /* #4FB88C   7.72:1 AA · links     */
+  --color-green-deep: var(
+    --fg-green-deep
+  ); /* #1E6B4F   2.95:1 · FILLS ONLY   */
+  --color-line: var(--fg-line); /* #3A4F44  hairlines              */
+  --font-display: var(--fg-font-display);
+  --font-body: var(--fg-font-body);
+  --font-data: var(--fg-font-data);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -75,109 +79,157 @@
 
    Every ratio below is measured.                                       */
 :root {
-  --fg-ground:#FAFAF8;   /* barely-warm white, so panels can still read as raised */
-  --fg-raise:#FFFFFF;
-  --fg-sink:#F0F0EC;
+  --fg-ground: #fafaf8; /* barely-warm white, so panels can still read as raised */
+  --fg-raise: #ffffff;
+  --fg-sink: #f0f0ec;
 
-  --fg-ink:#383838;      /* 11.22:1 — the brand charcoal, exactly            */
-  --fg-ink-2:#575757;    /*  6.91:1                                          */
-  --fg-mute:#696969;     /*  5.25 on ground · 4.80 on sink · 5.49 on white   */
+  --fg-ink: #383838; /* 11.22:1 — the brand charcoal, exactly            */
+  --fg-ink-2: #575757; /*  6.91:1                                          */
+  --fg-mute: #696969; /*  5.25 on ground · 4.80 on sink · 5.49 on white   */
 
   /* Amber is the stationery accent and a FILL. At 1.68:1 it cannot carry
      text; amber-text is the darker cut for when it must.                */
-  --fg-amber:#F8B858;
+  --fg-amber: #f8b858;
   /* The client asked for #F7B858 specifically on hover text, the review star
      and the process numerals. It is the stationery yellow and it is 1.68:1 on
      the ground — see the note in PROJECT_LOG. Kept as its own token so the
      places that use it are greppable rather than scattered hex. */
-  --fg-brand-yellow:#F7B858;
+  --fg-brand-yellow: #f7b858;
   /* Was #8A6212, which read as gold/brown rather than the brand amber. This
      is hue-shifted toward orange (h 27 vs 43) so it reads as the same family
      as the #F8B858 fill. 4.81:1 on ground — still AA for normal text. */
-  --fg-amber-text:#B45309;   /* 4.81:1 */
-  --fg-on-amber:#383838;     /* 6.69:1 on the amber fill                     */
+  --fg-amber-text: #b45309; /* 4.81:1 */
+  --fg-on-amber: #383838; /* 6.69:1 on the amber fill                     */
 
-  --fg-green:#457F28;        /* 4.65:1 — from the logo wordmark              */
-  --fg-green-deep:#3D7223;   /* 5.54:1                                       */
+  --fg-green: #457f28; /* 4.65:1 — from the logo wordmark              */
+  --fg-green-deep: #3d7223; /* 5.54:1                                       */
 
-  --fg-line:#E4E4E0;         /* decorative hairlines                         */
-  --fg-field:#8E8E88;        /* 3.15:1 — form borders are UI controls        */
+  --fg-line: #e4e4e0; /* decorative hairlines                         */
+  --fg-field: #8e8e88; /* 3.15:1 — form borders are UI controls        */
 
-  --fg-font-display: var(--font-archivo), "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --fg-font-body:    var(--font-inter), "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --fg-font-data:    var(--font-archivo), "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --fg-font-display:
+    var(--font-archivo), 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --fg-font-body:
+    var(--font-inter), 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fg-font-data:
+    var(--font-archivo), 'Archivo', 'Helvetica Neue', Arial, sans-serif;
 
   color-scheme: light;
 
-  --background:#FAFAF8;          --foreground:#383838;
-  --card:#FFFFFF;                --card-foreground:#383838;
-  --popover:#FFFFFF;             --popover-foreground:#383838;
-  --primary:#F8B858;             --primary-foreground:#383838;
-  --secondary:#F0F0EC;           --secondary-foreground:#383838;
-  --muted:#F0F0EC;               --muted-foreground:#696969;
-  --accent:#457F28;              --accent-foreground:#FFFFFF;
-  --destructive:oklch(0.55 0.20 27);
-  --border:#E4E4E0;              --input:#8E8E88;  --ring:#457F28;
-  --radius:0.125rem;
+  --background: #fafaf8;
+  --foreground: #383838;
+  --card: #ffffff;
+  --card-foreground: #383838;
+  --popover: #ffffff;
+  --popover-foreground: #383838;
+  --primary: #f8b858;
+  --primary-foreground: #383838;
+  --secondary: #f0f0ec;
+  --secondary-foreground: #383838;
+  --muted: #f0f0ec;
+  --muted-foreground: #696969;
+  --accent: #457f28;
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.55 0.2 27);
+  --border: #e4e4e0;
+  --input: #8e8e88;
+  --ring: #457f28;
+  --radius: 0.125rem;
 }
 
 @layer base {
-  * { @apply border-border outline-ring/50; }
-  html { font-family: var(--fg-font-body); scroll-behavior: smooth; }
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    font-family: var(--fg-font-body);
+    scroll-behavior: smooth;
+  }
   body {
     background: var(--fg-ground);
     color: var(--fg-ink);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  h1,h2,h3,h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--fg-font-display);
-    font-weight: 400;              /* The Vault never shouts with weight. */
+    font-weight: 400; /* The Vault never shouts with weight. */
     text-transform: uppercase;
     letter-spacing: 0.005em;
     line-height: 0.94;
     text-wrap: balance;
   }
-  ::selection { background: var(--fg-amber); color: var(--fg-on-amber); }
-  :focus-visible { outline: 2px solid var(--fg-green); outline-offset: 3px; }
+  ::selection {
+    background: var(--fg-amber);
+    color: var(--fg-on-amber);
+  }
+  :focus-visible {
+    outline: 2px solid var(--fg-green);
+    outline-offset: 3px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important; scroll-behavior: auto !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
 /* Archivo is variable on the width axis — The Vault sets it condensed.
    Applied here rather than per-component so every heading inherits it. */
 @layer base {
-  h1,h2,h3,h4 { font-variation-settings: "wdth" 84; }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-variation-settings: 'wdth' 84;
+  }
   /* Utility labels. Previously 11px monospace at 0.28em, which was genuinely
      painful to read. Archivo at normal width, larger and far tighter. */
   .u-data {
     font-family: var(--fg-font-data);
-    font-variation-settings: "wdth" 100;
+    font-variation-settings: 'wdth' 100;
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--fg-mute);
   }
-  .font-data { font-variation-settings: "wdth" 100; font-weight: 500; }
+  .font-data {
+    font-variation-settings: 'wdth' 100;
+    font-weight: 500;
+  }
 
   /* `.on-photo` used to paint a halo behind text sitting on a photograph. It
      was removed at the client's request — the legibility floor is now the
      section gradient itself, which is the correct place for it. The class is
      kept as a no-op hook so the markup still says which text sits on imagery. */
-  .on-photo { }
-  .skip-link {
-    position: absolute; left: -9999px; top: 0; z-index: 100;
-    background: var(--fg-amber); color: var(--fg-on-amber);
-    padding: 0.75rem 1.25rem; font-family: var(--fg-font-data);
-    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+  .on-photo {
   }
-  .skip-link:focus { left: 0; }
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    background: var(--fg-amber);
+    color: var(--fg-on-amber);
+    padding: 0.75rem 1.25rem;
+    font-family: var(--fg-font-data);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .skip-link:focus {
+    left: 0;
+  }
 
   /* ── BUTTONS ────────────────────────────────────────────────────────
      Was copy-pasted inline across six files with three different paddings
@@ -194,34 +246,43 @@
      --radius (0.125rem) to 1.6px, which is why the "2px -> 6px" softening
      recorded in the log never actually appeared on screen.                */
   .btn {
-    display: inline-flex; align-items: center; justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     min-height: 2.75rem;
     padding-inline: 1.375rem;
     border: 1px solid transparent;
     border-radius: 6px;
     font-family: var(--fg-font-data);
-    font-variation-settings: "wdth" 100;
+    font-variation-settings: 'wdth' 100;
     font-size: 0.75rem;
     font-weight: 500;
     line-height: 1;
     letter-spacing: 0.055em;
     text-transform: uppercase;
     white-space: nowrap;
-    transition: border-color .2s ease, filter .2s ease, background-color .2s ease;
+    transition:
+      border-color 0.2s ease,
+      filter 0.2s ease,
+      background-color 0.2s ease;
   }
   .btn-amber {
     background: var(--fg-amber);
     color: var(--fg-on-amber);
-    box-shadow: 0 1px 2px rgb(56 56 56 / 0.10);
+    box-shadow: 0 1px 2px rgb(56 56 56 / 0.1);
   }
-  .btn-amber:hover { filter: brightness(1.05); }
+  .btn-amber:hover {
+    filter: brightness(1.05);
+  }
 
   .btn-ghost {
-    border-color: rgb(56 56 56 / 0.20);
+    border-color: rgb(56 56 56 / 0.2);
     color: var(--fg-ink);
   }
-  .btn-ghost:hover { border-color: rgb(56 56 56 / 0.45); }
+  .btn-ghost:hover {
+    border-color: rgb(56 56 56 / 0.45);
+  }
 
   /* The ghost button reversed, for the dark hero. A charcoal-bordered
      outline button is invisible on a dark ground; this is the same shape
@@ -273,33 +334,40 @@
      Lighthouse cannot check any of this: its color-contrast audit skips
      elements whose backdrop is an image, and reported PASS throughout. */
   .hero-wash-compact {
-    position: absolute; inset: 0; pointer-events: none;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
     background: linear-gradient(
       to top,
-      var(--fg-ground)        0%,
-      rgba(250,250,248,.97)  28%,
-      rgba(250,250,248,.90)  44%,
-      rgba(250,250,248,.66)  58%,
-      rgba(250,250,248,.34)  72%,
-      rgba(250,250,248,.10)  84%,
-      transparent            94%);
+      var(--fg-ground) 0%,
+      rgba(250, 250, 248, 0.97) 28%,
+      rgba(250, 250, 248, 0.9) 44%,
+      rgba(250, 250, 248, 0.66) 58%,
+      rgba(250, 250, 248, 0.34) 72%,
+      rgba(250, 250, 248, 0.1) 84%,
+      transparent 94%
+    );
   }
 
   @media (min-width: 768px) {
     .hero-wash-compact {
       background:
-        linear-gradient(to top,
-          var(--fg-ground)        0%,
-          rgba(250,250,248,.95)  22%,
-          rgba(250,250,248,.74)  38%,
-          rgba(250,250,248,.34)  54%,
-          transparent            72%),
-        linear-gradient(100deg,
-          rgba(250,250,248,.94)   0%,
-          rgba(250,250,248,.76)  26%,
-          rgba(250,250,248,.38)  46%,
-          rgba(250,250,248,.10)  62%,
-          transparent            74%);
+        linear-gradient(
+          to top,
+          var(--fg-ground) 0%,
+          rgba(250, 250, 248, 0.95) 22%,
+          rgba(250, 250, 248, 0.74) 38%,
+          rgba(250, 250, 248, 0.34) 54%,
+          transparent 72%
+        ),
+        linear-gradient(
+          100deg,
+          rgba(250, 250, 248, 0.94) 0%,
+          rgba(250, 250, 248, 0.76) 26%,
+          rgba(250, 250, 248, 0.38) 46%,
+          rgba(250, 250, 248, 0.1) 62%,
+          transparent 74%
+        );
     }
   }
 
@@ -311,27 +379,32 @@
   .hero-wash-light {
     background: linear-gradient(
       to top,
-      var(--fg-ground)        0%,
-      rgba(250,250,248,.55)  20%,
-      rgba(250,250,248,.36)  36%,
-      rgba(250,250,248,.20)  52%,
-      rgba(250,250,248,.08)  70%,
-      transparent            86%);
+      var(--fg-ground) 0%,
+      rgba(250, 250, 248, 0.55) 20%,
+      rgba(250, 250, 248, 0.36) 36%,
+      rgba(250, 250, 248, 0.2) 52%,
+      rgba(250, 250, 248, 0.08) 70%,
+      transparent 86%
+    );
   }
   @media (min-width: 768px) {
     .hero-wash-light {
       background:
-        linear-gradient(to top,
-          var(--fg-ground)        0%,
-          rgba(250,250,248,.52)  18%,
-          rgba(250,250,248,.32)  34%,
-          rgba(250,250,248,.14)  50%,
-          transparent            70%),
-        linear-gradient(100deg,
-          rgba(250,250,248,.46)   0%,
-          rgba(250,250,248,.30)  24%,
-          rgba(250,250,248,.12)  44%,
-          transparent            62%);
+        linear-gradient(
+          to top,
+          var(--fg-ground) 0%,
+          rgba(250, 250, 248, 0.52) 18%,
+          rgba(250, 250, 248, 0.32) 34%,
+          rgba(250, 250, 248, 0.14) 50%,
+          transparent 70%
+        ),
+        linear-gradient(
+          100deg,
+          rgba(250, 250, 248, 0.46) 0%,
+          rgba(250, 250, 248, 0.3) 24%,
+          rgba(250, 250, 248, 0.12) 44%,
+          transparent 62%
+        );
     }
   }
 
@@ -361,13 +434,13 @@
      ═══════════════════════════════════════════════════════════════════ */
   .hero-glass {
     /* ── TUNE HERE ──────────────────────────────────────────────────── */
-    --glass-tint:     0.46;
-    --glass-blur:     64px;
+    --glass-tint: 0.35;
+    --glass-blur: 4px;
     --glass-saturate: 1.4;
-    --glass-border:   0.30;
-    --glass-shadow:   0.45;
-    --glass-radius:   10px;
-    --glass-max:      820px;
+    --glass-border: 0.3;
+    --glass-shadow: 0.45;
+    --glass-radius: 10px;
+    --glass-max: 820px;
     /* ───────────────────────────────────────────────────────────────── */
 
     width: 100%;
@@ -378,20 +451,27 @@
     background: rgb(250 250 248 / var(--glass-tint));
     /* Prefixed copy kept deliberately: Safari only dropped the requirement
        recently and this is the property the whole effect depends on. */
-    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    -webkit-backdrop-filter: blur(var(--glass-blur))
+      saturate(var(--glass-saturate));
     backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
     box-shadow: 0 24px 80px -44px rgb(56 56 56 / var(--glass-shadow));
   }
 
   @media (min-width: 768px) {
-    .hero-glass { padding: 4rem 3.5rem; }
+    .hero-glass {
+      padding: 4rem 3.5rem;
+    }
   }
 
   /* No backdrop-filter (older Firefox, some in-app browsers): fall back to a
      solid-enough panel, because a transparent card with no blur behind it is
      the one combination where the copy is genuinely unreadable. */
-  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-    .hero-glass { background: rgb(250 250 248 / 0.88); }
+  @supports not (
+    (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+  ) {
+    .hero-glass {
+      background: rgba(250, 250, 248, 0.74);
+    }
   }
 
   /* Square icon controls — the carousel arrows and the service-row chevron.
@@ -399,13 +479,19 @@
      while the buttons beside them were soft, which read as two different
      design systems on one page. */
   .btn-icon {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 2.75rem; height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
     flex-shrink: 0;
     border: 1px solid transparent;
     border-radius: 6px;
-    transition: border-color .2s ease, background-color .2s ease,
-                color .2s ease, filter .2s ease;
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease,
+      filter 0.2s ease;
   }
 }
 
@@ -417,12 +503,20 @@
     opacity: 0;
     transform: translateY(18px);
     transition:
-      opacity .9s cubic-bezier(.22,.68,.32,1) var(--fg-reveal-delay, 0ms),
-      transform .9s cubic-bezier(.22,.68,.32,1) var(--fg-reveal-delay, 0ms);
+      opacity 0.9s cubic-bezier(0.22, 0.68, 0.32, 1) var(--fg-reveal-delay, 0ms),
+      transform 0.9s cubic-bezier(0.22, 0.68, 0.32, 1)
+        var(--fg-reveal-delay, 0ms);
   }
-  .js .fg-reveal[data-shown="true"] { opacity: 1; transform: none; }
+  .js .fg-reveal[data-shown='true'] {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .js .fg-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .js .fg-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
