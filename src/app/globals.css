@@ -440,11 +440,26 @@
     --glass-border: 0.3;
     --glass-shadow: 0.45;
     --glass-radius: 10px;
-    --glass-max: 820px;
+    --glass-max: 100%;
     /* ───────────────────────────────────────────────────────────────── */
 
     width: 100%;
     max-width: var(--glass-max);
+
+    /* Fills the container on both axes. Height comes from `flex: 1` rather
+       than `height: 100%`: the parent is a flex column, so the panel has to
+       GROW into the free space — a percentage height would resolve against a
+       parent whose own height is itself flex-derived, which is the usual
+       reason `height: 100%` silently does nothing here.
+
+       Set --glass-max back to a px value (it was 820px) to return this to a
+       centred card without touching anything else. */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     padding: 3rem 1.5rem;
     border-radius: var(--glass-radius);
     border: 1px solid rgb(255 255 255 / var(--glass-border));
