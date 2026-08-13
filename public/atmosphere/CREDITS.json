@@ -14,28 +14,6 @@
       "alt": "black and white glass building"
     },
     {
-      "file": "/atmosphere/glass-facade.webp",
-      "use": "Section ground — glass facade",
-      "unsplashId": "T0iFfJw-rB0",
-      "photographer": "Christian Ladewig",
-      "photographerUrl": "https://unsplash.com/@dozy_de",
-      "photoUrl": "https://unsplash.com/photos/architectural-photography-of-glass-building-T0iFfJw-rB0",
-      "width": 4774,
-      "height": 3183,
-      "alt": "architectural photography of glass building"
-    },
-    {
-      "file": "/atmosphere/palm-shadow.webp",
-      "use": "Texture — palm shadow on wall",
-      "unsplashId": "J9VbP8CAdcM",
-      "photographer": "Tim Mossholder",
-      "photographerUrl": "https://unsplash.com/@timmossholder",
-      "photoUrl": "https://unsplash.com/photos/a-close-up-of-a-wall-J9VbP8CAdcM",
-      "width": 8256,
-      "height": 5504,
-      "alt": "a close up of a wall"
-    },
-    {
       "file": "/atmosphere/interior-dark.webp",
       "use": "Section ground — minimal interior",
       "unsplashId": "RKi6pLKBayg",
@@ -56,39 +34,6 @@
       "width": 5359,
       "height": 3573,
       "alt": "black framed eyeglasses on brown wooden table"
-    },
-    {
-      "file": "/atmosphere/hero-house-dusk.webp",
-      "use": "Hero — modern luxury home at dusk",
-      "unsplashId": "q6eSeT3euLU",
-      "photographer": "Michael Brown",
-      "photographerUrl": "https://unsplash.com/@vettexan",
-      "photoUrl": "https://unsplash.com/photos/modern-luxury-home-with-swimming-pools-at-dusk-q6eSeT3euLU",
-      "width": 8256,
-      "height": 5504,
-      "alt": "Modern luxury home with swimming pools at dusk"
-    },
-    {
-      "file": "/atmosphere/hero-alt-glow.webp",
-      "use": "Alt hero — modern house exterior glowing",
-      "unsplashId": "4vioYQ9Nn9Y",
-      "photographer": "Arthur BAUDRY",
-      "photographerUrl": "https://unsplash.com/@bipow",
-      "photoUrl": "https://unsplash.com/photos/modern-house-exterior-glows-with-lights-4vioYQ9Nn9Y",
-      "width": 6912,
-      "height": 5376,
-      "alt": "Modern house exterior glows with lights."
-    },
-    {
-      "file": "/atmosphere/hero-white-house.webp",
-      "use": "Homepage hero — chosen by measurement, not taste: of 21 candidates it was the only one whose bright region coincides with the text block, needing a .02 veil for charcoal type where every other candidate needed .57-.65.",
-      "unsplashId": "RyRlvPU3MV4",
-      "photographer": "Noelephants Flying",
-      "photographerUrl": "https://unsplash.com/@noelephantsflying",
-      "photoUrl": "https://unsplash.com/photos/a-white-house-with-a-hedge-in-front-of-it-RyRlvPU3MV4",
-      "width": 4611,
-      "height": 3264,
-      "alt": "A white house with a hedge in front of it"
     },
     {
       "file": "/atmosphere/hero-luxury.webp",
@@ -113,17 +58,6 @@
       "alt": "Modern home with pool and outdoor seating area."
     },
     {
-      "file": "/atmosphere/windows-hero.webp",
-      "use": "Windows & Doors hero — villa with large glazing",
-      "unsplashId": "e5b1RBCHP2w",
-      "photographer": "Salvo Media LLC",
-      "photographerUrl": "https://unsplash.com/@salvomedia",
-      "photoUrl": "https://unsplash.com/photos/a-modern-house-with-a-swimming-pool-and-green-lawn-e5b1RBCHP2w",
-      "width": 6999,
-      "height": 4666,
-      "alt": "A modern house with a swimming pool and green lawn."
-    },
-    {
       "slug": "impact-window-hurricane-protection",
       "file": "/atmosphere/hero-impact-window-hurricane-protection.webp",
       "unsplashId": "hHz4yrvxwlA",
@@ -136,16 +70,15 @@
       "use": "Service hero — impact-window-hurricane-protection"
     },
     {
-      "slug": "windows-and-doors",
       "file": "/atmosphere/hero-windows-and-doors.webp",
-      "unsplashId": "XC4hf0FAt40",
-      "photographer": "Timur Seyfelmlyukov",
-      "photographerUrl": "https://unsplash.com/@timurse",
-      "photoUrl": "https://unsplash.com/photos/modern-building-with-a-bar-and-ocean-view-XC4hf0FAt40",
+      "use": "Service hero — windows-and-doors",
+      "unsplashId": "B99x2rnPTGk",
+      "photographer": "Igor Pyrig",
+      "photographerUrl": "https://unsplash.com/@ctmodessa2023",
+      "photoUrl": "https://unsplash.com/photos/a-living-room-with-large-windows-overlooking-a-lake-B99x2rnPTGk",
       "width": 6240,
-      "height": 4160,
-      "alt": "Modern building with a bar and ocean view",
-      "use": "Service hero — windows-and-doors"
+      "height": 3512,
+      "alt": "a living room with large windows overlooking a lake"
     },
     {
       "slug": "kitchen",
@@ -160,16 +93,15 @@
       "use": "Service hero — kitchen"
     },
     {
-      "slug": "bathroom",
       "file": "/atmosphere/hero-bathroom.webp",
-      "unsplashId": "f8rXXuctnSw",
-      "photographer": "Justin Wolff",
-      "photographerUrl": "https://unsplash.com/@jayphoto",
-      "photoUrl": "https://unsplash.com/photos/a-bathroom-with-a-tub-sink-and-mirror-f8rXXuctnSw",
-      "width": 8055,
-      "height": 5370,
-      "alt": "a bathroom with a tub, sink, and mirror",
-      "use": "Service hero — bathroom"
+      "use": "Service hero — bathroom",
+      "unsplashId": "D8ghwGaYQpw",
+      "photographer": "Patrick Bohn",
+      "photographerUrl": "https://unsplash.com/@denver_real_estate_photographer",
+      "photoUrl": "https://unsplash.com/photos/a-bath-room-with-a-bath-tub-a-sink-and-a-mirror-D8ghwGaYQpw",
+      "width": 8192,
+      "height": 5464,
+      "alt": "a bath room with a bath tub a sink and a mirror"
     },
     {
       "slug": "remodeling",
@@ -196,16 +128,15 @@
       "use": "Service hero — pool"
     },
     {
-      "slug": "landscape",
       "file": "/atmosphere/hero-landscape.webp",
-      "unsplashId": "Sjo_R0_qv3I",
-      "photographer": "Asep Rendi",
-      "photographerUrl": "https://unsplash.com/@aseprendi12",
-      "photoUrl": "https://unsplash.com/photos/a-couple-of-palm-trees-sitting-next-to-a-building-Sjo_R0_qv3I",
-      "width": 6000,
-      "height": 4000,
-      "alt": "a couple of palm trees sitting next to a building",
-      "use": "Service hero — landscape"
+      "use": "Service hero — landscape",
+      "unsplashId": "U8jLTGPLv3M",
+      "photographer": "Renaldo Matamoro",
+      "photographerUrl": "https://unsplash.com/@rmvisuals",
+      "photoUrl": "https://unsplash.com/photos/an-aerial-view-of-a-house-with-a-pool-surrounded-by-palm-trees-U8jLTGPLv3M",
+      "width": 4095,
+      "height": 3072,
+      "alt": "An aerial view of a house with a pool surrounded by palm trees"
     },
     {
       "slug": "artaficial-turf",
