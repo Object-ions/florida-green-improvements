@@ -45,69 +45,83 @@ export default function Home() {
       <SiteNav />
 
       <main id="main">
-        {/* ── HERO ───────────────────────────────────────────────── */}
-        <section className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src="/atmosphere/hero-alt-glow.jpg"
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              quality={72}
-              className="object-cover opacity-[1] [filter:saturate(1.04)_contrast(1.03)]"
-            />
-            <div className="hero-wash" />
-            <div className="absolute inset-0 bg-[radial-gradient(60%_45%_at_92%_10%,rgba(39,107,74,.1),transparent_70%)] mix-blend-multiply" />
-          </div>
+        {/* ── HERO ───────────────────────────────────────────────────────
+             Split, with nothing over the photograph.
 
-          <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-end px-6 pb-14 pt-36 md:px-10 md:pb-16">
-            <p className="u-data on-photo mb-6 text-ink">
+             This was a full-bleed image with charcoal type on top of it and a
+             white wash underneath the type. That never worked: measured across
+             five breakpoints, the headline ran as low as 1.0:1. Pushing the
+             wash up far enough to fix it turned the picture milky, which is
+             what the client then rejected — correctly.
+
+             It is not a tuning problem. Eleven candidate photographs were
+             scored by the veil alpha each would need for charcoal text to
+             clear 4.5:1 in the text zone; every one landed at .57–.64,
+             because any photograph of a building has dark window frames and
+             shadows somewhere under the headline. There is no image that
+             fixes it and no gradient that fixes it.
+
+             So the type comes off the photograph. Zero overlay: the picture
+             runs at full strength, the text sits on clean ground, and both
+             are better for it. */}
+        <section className="relative flex flex-col justify-between overflow-hidden bg-ground md:min-h-[94svh]">
+          <div className="mx-auto grid w-full max-w-[1400px] flex-1 grid-cols-1 items-center gap-8 px-6 pb-10 pt-28 md:grid-cols-[1.02fr_1fr] md:gap-12 md:px-10 md:pb-14 md:pt-32 lg:gap-16">
+            {/* Photograph first on a phone so the page still opens on an
+                image; second on desktop so reading order stays text-first. */}
+            <div className="relative order-1 h-[34svh] w-full overflow-hidden rounded-[6px] md:order-2 md:h-full md:min-h-[62svh]">
+              <Image
+                src="/atmosphere/hero-alt-glow.jpg"
+                alt=""
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={78}
+                className="object-cover [filter:saturate(1.04)_contrast(1.03)]"
+              />
+            </div>
+
+            <div className="order-2 md:order-1">
+              <p className="u-data mb-6 text-ink">
                 <span className="text-green-deep" aria-hidden>&#9679;</span>{" "}
                 {BUSINESS.address.locality}, Florida &middot; Licence {BUSINESS.license}
               </p>
 
-            <h1 className="on-photo max-w-[15ch] text-[clamp(2.5rem,7.6vw,5.75rem)] text-ink">
+              {/* Smaller ceiling than the old full-bleed setting: 5.75rem was
+                  sized against the whole viewport and overflows half of it. */}
+              <h1 className="max-w-[14ch] text-[clamp(2.5rem,5.2vw,4.5rem)] text-ink">
                 {BUSINESS.tagline}
               </h1>
 
-            <p className="on-photo mt-7 max-w-[42ch] text-[17px] leading-relaxed text-ink-2 md:text-[19px]">
+              <p className="mt-7 max-w-[44ch] text-[17px] leading-relaxed text-ink-2 md:text-[19px]">
                 Impact windows, kitchens and full remodels for South Florida homes that have to
                 survive the season and still look like this.
               </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/contact"
-                  className="btn btn-amber"
-                >
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <Link href="/contact" className="btn btn-amber">
                   Request a quote
                 </Link>
-                <a
-                  href={BUSINESS.phoneHref}
-                  className="btn btn-ghost btn-tel bg-ground/70 backdrop-blur-[3px]"
-                >
+                <a href={BUSINESS.phoneHref} className="btn btn-ghost btn-tel">
                   {BUSINESS.phone}
                 </a>
               </div>
-            
+            </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[1400px] border-t border-line/40 px-6 py-6 md:px-10">
-              <ul className="flex flex-wrap items-center gap-x-10 gap-y-3">
-                <li className="on-photo flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
-                  <Star size={12} strokeWidth={0} fill="currentColor" className="text-amber-text" aria-hidden />
-                  {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} Google reviews
-                </li>
-                <li className="on-photo font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
-                  Licensed &amp; insured
-                </li>
-                <li className="on-photo font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
-                  Miami-Dade &amp; Broward
-                </li>
-              </ul>
-            </div>
-          
+          <div className="mx-auto w-full max-w-[1400px] border-t border-line/40 px-6 py-6 md:px-10">
+            <ul className="flex flex-wrap items-center gap-x-10 gap-y-3">
+              <li className="flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
+                <Star size={12} strokeWidth={0} fill="currentColor" className="text-amber-text" aria-hidden />
+                {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} Google reviews
+              </li>
+              <li className="font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
+                Licensed &amp; insured
+              </li>
+              <li className="font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
+                Miami-Dade &amp; Broward
+              </li>
+            </ul>
+          </div>
         </section>
 
         {/* ── STATEMENT ──────────────────────────────────────────── */}
