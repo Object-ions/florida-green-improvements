@@ -22,12 +22,12 @@ export function SiteFooter() {
 
           <div>
             <p className="u-data mb-6">Services</p>
-            <ul className="flex flex-col gap-2.5">
+            <ul className="flex flex-col gap-0.5">
               {SERVICES.map((s) => (
                 <li key={s.slug}>
                   <Link
                     href={`/services/${s.slug}`}
-                    className="text-[15px] text-mute transition-colors hover:text-ink"
+                    className="block py-1.5 text-[15px] text-mute transition-colors hover:text-ink"
                   >
                     {s.name}
                   </Link>
@@ -41,7 +41,7 @@ export function SiteFooter() {
             <address className="not-italic">
               <a
                 href={BUSINESS.phoneHref}
-                className="block text-[15px] text-ink transition-colors hover:text-amber-text"
+                className="block py-1.5 text-[15px] text-ink transition-colors hover:text-amber-text"
               >
                 {BUSINESS.phone}
               </a>
@@ -51,13 +51,13 @@ export function SiteFooter() {
                 {address.locality}, {address.region} {address.postalCode}
               </span>
             </address>
-            <ul className="mt-8 flex flex-col gap-2.5">
+            <ul className="mt-8 flex flex-col gap-0.5">
               <li>
                 <a
                   href={BUSINESS.social.instagram}
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="text-[15px] text-mute transition-colors hover:text-ink"
+                  className="block py-1.5 text-[15px] text-mute transition-colors hover:text-ink"
                 >
                   Instagram
                 </a>
@@ -67,13 +67,13 @@ export function SiteFooter() {
                   href={BUSINESS.social.facebook}
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="text-[15px] text-mute transition-colors hover:text-ink"
+                  className="block py-1.5 text-[15px] text-mute transition-colors hover:text-ink"
                 >
                   Facebook
                 </a>
               </li>
               <li>
-                <Link href="/contact" className="text-[15px] text-mute transition-colors hover:text-ink">
+                <Link href="/contact" className="block py-1.5 text-[15px] text-mute transition-colors hover:text-ink">
                   Request a quote
                 </Link>
               </li>

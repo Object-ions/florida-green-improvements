@@ -65,8 +65,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               quality={74}
               className="object-cover opacity-[1] [filter:saturate(1.04)_contrast(1.03)]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(250,250,248,.76)_0%,rgba(250,250,248,.18)_38%,transparent_72%)]" />
-            <div className="absolute inset-x-0 bottom-0 h-[44%] bg-[linear-gradient(to_top,rgba(250,250,248,.86)_0%,rgba(250,250,248,.46)_32%,transparent_100%)]" />
+            <div className="hero-wash-compact" />
             <div className="absolute inset-0 bg-[radial-gradient(100%_75%_at_82%_18%,rgba(39,107,74,.13),transparent_66%)] mix-blend-multiply" />
           </div>
 
@@ -78,7 +77,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                     <Link href="/" className="transition-colors hover:text-ink">Home</Link>
                   </li>
                   <li aria-hidden>/</li>
-                  <li className="text-green">{service.name}</li>
+                  <li className="text-green-deep">{service.name}</li>
                 </ol>
               </nav>
             

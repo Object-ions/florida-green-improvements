@@ -30,13 +30,12 @@ export default function AboutPage() {
           <div className="absolute inset-0">
             <Image src="/showcase/about.jpg" alt="" fill priority sizes="100vw" quality={74}
               className="object-cover opacity-[1] [filter:saturate(1.04)_contrast(1.03)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(250,250,248,.76)_0%,rgba(250,250,248,.18)_38%,transparent_72%)]" />
-            <div className="absolute inset-x-0 bottom-0 h-[44%] bg-[linear-gradient(to_top,rgba(250,250,248,.86)_0%,rgba(250,250,248,.46)_32%,transparent_100%)]" />
+            <div className="hero-wash-compact" />
             <div className="absolute inset-0 bg-[radial-gradient(100%_75%_at_80%_20%,rgba(39,107,74,.13),transparent_66%)] mix-blend-multiply" />
           </div>
           <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24">
             
-              <p className="u-data mb-7 text-green">Since 2016 · {BUSINESS.address.locality}, Florida</p>
+              <p className="u-data mb-7 text-ink">Since 2016 · {BUSINESS.address.locality}, Florida</p>
               <h1 className="max-w-[15ch] text-[clamp(2.5rem,7.5vw,6rem)] text-ink">Built by people who answer the phone</h1>
             
           </div>

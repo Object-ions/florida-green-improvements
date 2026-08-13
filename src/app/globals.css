@@ -223,6 +223,96 @@
     font-variant-numeric: tabular-nums;
   }
 
+  /* ── HERO LEGIBILITY WASH ──────────────────────────────────────────
+     Every hero sets charcoal type over a photograph, bottom-aligned. The
+     old treatment was a fixed 100–105deg diagonal plus a short bottom fade
+     — it washed the LEFT EDGE, which is right at 1440 and useless at 390,
+     where the text block spans the full width and the headline landed on a
+     sunlit window. Measured 1.0–2.9:1 on every page at every breakpoint.
+
+     Lighthouse never caught it: the color-contrast audit skips any element
+     whose backdrop is an image, so the site reported PASS the whole time.
+     Trust the glyph-sampling harness over that audit here.
+
+     The wash is now anchored to the BOTTOM, where the text always is, and
+     only turns diagonal once there is width to spare. Above the text band
+     the photograph is still untouched, which is the point — the wash pays
+     for legibility only where legibility is actually needed. */
+  .hero-wash {
+    position: absolute; inset: 0; pointer-events: none;
+    /* On a phone the text block is tall — three headline lines, a paragraph
+       and two buttons — so it occupies roughly 60% of the viewport and the
+       eyebrow sits near the top. The wash has to reach that high; there is
+       no gradient shape that both covers the type and leaves the phone
+       showing a lot of photograph. The top ~10% stays clear. */
+    background: linear-gradient(
+      to top,
+      var(--fg-ground)        0%,
+      rgba(250,250,248,.97)  46%,
+      rgba(250,250,248,.92)  60%,
+      rgba(250,250,248,.74)  74%,
+      rgba(250,250,248,.42)  86%,
+      rgba(250,250,248,.14)  95%,
+      transparent           100%);
+  }
+  /* The homepage hero is 100svh with a tall text block. The About and
+     service heroes are 62–68svh and carry only an eyebrow and a one-line
+     title pinned to the bottom, so the tall wash above erased the whole
+     photograph on a phone for no benefit. This variant covers the bottom
+     third and leaves the rest of the frame alone. */
+  .hero-wash-compact {
+    position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(
+      to top,
+      var(--fg-ground)        0%,
+      rgba(250,250,248,.97)  28%,
+      rgba(250,250,248,.90)  44%,
+      rgba(250,250,248,.66)  58%,
+      rgba(250,250,248,.34)  72%,
+      rgba(250,250,248,.10)  84%,
+      transparent            94%);
+  }
+
+  @media (min-width: 768px) {
+    .hero-wash-compact {
+      background:
+        linear-gradient(to top,
+          var(--fg-ground)        0%,
+          rgba(250,250,248,.95)  22%,
+          rgba(250,250,248,.74)  38%,
+          rgba(250,250,248,.34)  54%,
+          transparent            72%),
+        linear-gradient(100deg,
+          rgba(250,250,248,.94)   0%,
+          rgba(250,250,248,.76)  26%,
+          rgba(250,250,248,.38)  46%,
+          rgba(250,250,248,.10)  62%,
+          transparent            74%);
+    }
+  }
+
+  @media (min-width: 768px) {
+    /* Two layers, so the top-right of the frame stays fully photographic
+       while the bottom-left — the only place type ever sits — reaches an
+       effective ~.95 once the two compose. */
+    .hero-wash {
+      background:
+        linear-gradient(to top,
+          var(--fg-ground)        0%,
+          rgba(250,250,248,.96)  28%,
+          rgba(250,250,248,.84)  44%,
+          rgba(250,250,248,.60)  60%,
+          rgba(250,250,248,.28)  74%,
+          transparent            88%),
+        linear-gradient(100deg,
+          rgba(250,250,248,.95)   0%,
+          rgba(250,250,248,.80)  26%,
+          rgba(250,250,248,.42)  46%,
+          rgba(250,250,248,.12)  62%,
+          transparent            74%);
+    }
+  }
+
   /* Square icon controls — the carousel arrows and the service-row chevron.
      Same 44px box and the same 6px radius as .btn. These were hard-cornered
      while the buttons beside them were soft, which read as two different

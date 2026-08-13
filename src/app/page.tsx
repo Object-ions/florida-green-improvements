@@ -57,14 +57,13 @@ export default function Home() {
               quality={72}
               className="object-cover opacity-[1] [filter:saturate(1.04)_contrast(1.03)]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(250,250,248,.9)_0%,rgba(250,250,248,.5)_22%,rgba(250,250,248,.1)_45%,transparent_62%)]" />
-            <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(to_top,var(--fg-ground)_2%,rgba(250,250,248,.86)_26%,transparent_100%)]" />
+            <div className="hero-wash" />
             <div className="absolute inset-0 bg-[radial-gradient(60%_45%_at_92%_10%,rgba(39,107,74,.1),transparent_70%)] mix-blend-multiply" />
           </div>
 
           <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-end px-6 pb-14 pt-36 md:px-10 md:pb-16">
-            <p className="u-data on-photo mb-6 text-ink-2">
-                <span className="text-green">&#9679;</span>{" "}
+            <p className="u-data on-photo mb-6 text-ink">
+                <span className="text-green-deep" aria-hidden>&#9679;</span>{" "}
                 {BUSINESS.address.locality}, Florida &middot; Licence {BUSINESS.license}
               </p>
 

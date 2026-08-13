@@ -74,7 +74,10 @@ export function SiteNav() {
             type="button"
             onClick={() => setOpen(true)}
             aria-label="Open menu"
-            className="text-ink transition-opacity hover:opacity-70 md:hidden"
+            /* The hit area was exactly the 20px icon — the primary navigation
+               control on a phone, at less than half the 44px minimum. Negative
+               margins absorb the growth so the bar height does not change. */
+            className="-my-3 -mr-3 flex h-11 w-11 items-center justify-center text-ink transition-opacity hover:opacity-70 md:hidden"
           >
             <Menu size={20} strokeWidth={1.25} aria-hidden />
           </button>
@@ -85,7 +88,7 @@ export function SiteNav() {
         <div className="fixed inset-0 z-50 flex flex-col bg-ground md:hidden">
           <div className="flex items-center justify-between px-6 py-5">
             <span className="font-data text-[11px] uppercase tracking-[0.09em] text-ink">Menu</span>
-            <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="text-ink">
+            <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="-my-3 -mr-3 flex h-11 w-11 items-center justify-center text-ink">
               <X size={20} strokeWidth={1.25} aria-hidden />
             </button>
           </div>
