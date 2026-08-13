@@ -80,17 +80,6 @@
       "alt": "Modern house exterior glows with lights."
     },
     {
-      "file": "/atmosphere/whole-home.webp",
-      "use": "Statement section — open-plan living and kitchen in one frame",
-      "unsplashId": "RbbZn_M5fgU",
-      "photographer": "Bailey Alexander",
-      "photographerUrl": "https://unsplash.com/@baileyal3xander",
-      "photoUrl": "https://unsplash.com/photos/a-living-room-filled-with-furniture-and-a-kitchen-RbbZn_M5fgU",
-      "width": 3333,
-      "height": 5000,
-      "alt": "a living room filled with furniture and a kitchen"
-    },
-    {
       "file": "/atmosphere/hero-white-house.webp",
       "use": "Homepage hero — chosen by measurement, not taste: of 21 candidates it was the only one whose bright region coincides with the text block, needing a .02 veil for charcoal type where every other candidate needed .57-.65.",
       "unsplashId": "RyRlvPU3MV4",
@@ -240,6 +229,17 @@
       "width": 3822,
       "height": 2156,
       "alt": "Modern luxury home with large windows at dusk"
+    },
+    {
+      "file": "/atmosphere/statement-luxury.webp",
+      "use": "Statement section — double-height living space; replaced whole-home.webp, which the client judged not luxury enough",
+      "unsplashId": "mmAo_lkAOiY",
+      "photographer": "Valton Myrtaj",
+      "photographerUrl": "https://unsplash.com/@valtonmyrtaj",
+      "photoUrl": "https://unsplash.com/photos/a-living-room-filled-with-furniture-and-a-chandelier-mmAo_lkAOiY",
+      "width": 2080,
+      "height": 3120,
+      "alt": "a living room filled with furniture and a chandelier"
     }
   ],
   "derived": [

@@ -335,6 +335,65 @@
     }
   }
 
+  /* ══ HERO GLASS PANEL ═══════════════════════════════════════════════
+     The frosted card the homepage hero copy sits on.
+
+     Written as plain CSS rather than Tailwind utilities so it can be tuned
+     by hand. Everything adjustable is a variable in the block below — change
+     a number there and the whole panel follows; nothing else needs editing.
+
+     What each one does:
+       --glass-tint      0 = fully clear, 1 = solid. The single biggest lever
+                         on legibility. Below ~.30 the headline starts to
+                         disappear over bright frames of the video.
+       --glass-blur      How far the backdrop is smeared. Blur buys contrast
+                         almost as cheaply as tint does, because it averages
+                         away the light and dark extremes the type has to sit
+                         on — so if the panel looks too milky, raise this and
+                         lower the tint rather than the other way round.
+       --glass-saturate  Keeps colour in the blurred backdrop. Blur alone
+                         washes it out and the panel goes grey.
+       --glass-border    Top highlight. This is what actually reads as
+                         "glass"; at 0 the card reads as flat paper.
+       --glass-shadow    Lift off the photograph behind it.
+       --glass-radius    Corner rounding.
+       --glass-max       Panel width.
+     ═══════════════════════════════════════════════════════════════════ */
+  .hero-glass {
+    /* ── TUNE HERE ──────────────────────────────────────────────────── */
+    --glass-tint:     0.46;
+    --glass-blur:     64px;
+    --glass-saturate: 1.4;
+    --glass-border:   0.30;
+    --glass-shadow:   0.45;
+    --glass-radius:   10px;
+    --glass-max:      820px;
+    /* ───────────────────────────────────────────────────────────────── */
+
+    width: 100%;
+    max-width: var(--glass-max);
+    padding: 3rem 1.5rem;
+    border-radius: var(--glass-radius);
+    border: 1px solid rgb(255 255 255 / var(--glass-border));
+    background: rgb(250 250 248 / var(--glass-tint));
+    /* Prefixed copy kept deliberately: Safari only dropped the requirement
+       recently and this is the property the whole effect depends on. */
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    box-shadow: 0 24px 80px -44px rgb(56 56 56 / var(--glass-shadow));
+  }
+
+  @media (min-width: 768px) {
+    .hero-glass { padding: 4rem 3.5rem; }
+  }
+
+  /* No backdrop-filter (older Firefox, some in-app browsers): fall back to a
+     solid-enough panel, because a transparent card with no blur behind it is
+     the one combination where the copy is genuinely unreadable. */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .hero-glass { background: rgb(250 250 248 / 0.88); }
+  }
+
   /* Square icon controls — the carousel arrows and the service-row chevron.
      Same 44px box and the same 6px radius as .btn. These were hard-cornered
      while the buttons beside them were soft, which read as two different

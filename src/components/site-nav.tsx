@@ -58,18 +58,49 @@ export function SiteNav({ overDark = false }: { overDark?: boolean } = {}) {
         </Link>
 
         <ul className="hidden items-center gap-9 md:flex">
-          {PRIMARY_NAV.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className={`font-data text-[12px] uppercase tracking-[0.08em] transition-colors ${
-                  overDark && !solid ? "text-white/85 hover:text-white" : "text-ink-2 hover:text-ink"
-                }`}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
+          {PRIMARY_NAV.map((item) => {
+            const linkClass = `font-data text-[12px] uppercase tracking-[0.08em] transition-colors ${
+              overDark && !solid ? "text-white/85 hover:text-white" : "text-ink-2 hover:text-ink"
+            }`;
+
+            /* Services carries a dropdown of every service page. CSS-driven —
+               `group-hover` for the mouse, `focus-within` for the keyboard, so
+               tabbing through the panel holds it open with no JS state and no
+               timers to leak. The panel has no top margin: a gap between the
+               trigger and the menu is the classic way these close under the
+               cursor on the way down. `pt-4` inside the wrapper is the bridge. */
+            if (item.label === "Services") {
+              return (
+                <li key={item.href} className="group relative">
+                  <Link href={item.href} className={linkClass}>
+                    {item.label}
+                  </Link>
+                  <div className="pointer-events-none absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+                    <ul className="min-w-[248px] rounded-[6px] border border-line bg-ground/97 py-2 shadow-[0_18px_50px_-20px_rgba(56,56,56,.35)] backdrop-blur-md">
+                      {SERVICES.map((s) => (
+                        <li key={s.slug}>
+                          <Link
+                            href={`/services/${s.slug}`}
+                            className="block whitespace-nowrap px-5 py-2.5 font-data text-[12px] uppercase tracking-[0.08em] text-ink-2 transition-colors hover:bg-sink hover:text-ink"
+                          >
+                            {s.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+              );
+            }
+
+            return (
+              <li key={item.href}>
+                <Link href={item.href} className={linkClass}>
+                  {item.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex items-center gap-4">

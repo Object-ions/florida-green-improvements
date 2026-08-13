@@ -132,7 +132,7 @@ export default function Home() {
               backdrop collapses the local extremes that were measuring 1.1:1,
               before any tint is applied at all. */}
           <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col items-center justify-center px-6 py-24 text-center md:px-10">
-            <div className="w-full max-w-[820px] rounded-[10px] border border-white/30 bg-ground/46 px-6 py-12 shadow-[0_24px_80px_-44px_rgba(56,56,56,.45)] backdrop-blur-[64px] backdrop-saturate-[1.4] md:px-14 md:py-16">
+            <div className="hero-glass">
               <p className="u-data mb-6 text-ink">
                 <span className="text-ink" aria-hidden>&#9679;</span>{" "}
                 {BUSINESS.address.locality}, Florida &middot; Licence {BUSINESS.license}
@@ -204,7 +204,7 @@ export default function Home() {
               <Reveal delay={240}>
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[6px]">
                   <Image
-                    src="/atmosphere/whole-home.webp"
+                    src="/atmosphere/statement-luxury.webp"
                     alt=""
                     fill
                     sizes="(max-width: 1024px) 100vw, 400px"
