@@ -141,23 +141,46 @@
         "/atmosphere/hero.mp4",
         "/atmosphere/hero.webm"
       ],
-      "use": "Homepage hero background video",
-      "derivedFrom": "/atmosphere/hero-luxury.jpg",
-      "method": "12s seamless loop, slow cinematic push rendered with ffmpeg zoompan. The zoom curve is a sine over the full duration, so the last frame returns to the first and the loop point is invisible.",
-      "note": "No separate licence. Same Unsplash photograph, same photographer, same attribution — motion only. Still ATMOSPHERE ONLY: never captioned or implied to be a Florida Green project.",
-      "photographer": "Salvo Media LLC",
-      "photographerUrl": "https://unsplash.com/@salvomedia",
-      "photoUrl": "https://unsplash.com/photos/contemporary-house-with-swimming-pool-and-lush-green-lawn--atd5-2ciHc",
+      "use": "Homepage hero background loop",
+      "builtWith": "Remotion (source in /video). Three-shot sequence with linear cross-dissolves, a distinct camera move per shot, a travelling light sweep and a breathing vignette. 15s, 1600x900 @ 24fps.",
+      "replaces": "An earlier ffmpeg zoompan on a single still — the client called it \"a shaking image, not a real video\", which was accurate.",
+      "loop": "Seamless by construction: every animated value is a function of the circular distance from the frame to a fixed point, so all have period TOTAL. Measured seam 2.29/255 (encoder noise).",
+      "derivedFrom": [
+        "/atmosphere/hero-luxury.jpg",
+        "/atmosphere/windows-hero.jpg",
+        "/atmosphere/free-estimate.jpg"
+      ],
+      "note": "No new licence. Three already-licensed Unsplash photographs, motion only. ATMOSPHERE ONLY — never captioned or implied to be a Florida Green project.",
+      "sources": [
+        {
+          "file": "/atmosphere/hero-luxury.jpg",
+          "photographer": "Salvo Media LLC",
+          "photographerUrl": "https://unsplash.com/@salvomedia",
+          "photoUrl": "https://unsplash.com/photos/contemporary-house-with-swimming-pool-and-lush-green-lawn--atd5-2ciHc"
+        },
+        {
+          "file": "/atmosphere/windows-hero.jpg",
+          "photographer": "Salvo Media LLC",
+          "photographerUrl": "https://unsplash.com/@salvomedia",
+          "photoUrl": "https://unsplash.com/photos/a-modern-house-with-a-swimming-pool-and-green-lawn-e5b1RBCHP2w"
+        },
+        {
+          "file": "/atmosphere/free-estimate.jpg",
+          "photographer": "RETRATO INMOBILIARIO",
+          "photographerUrl": "https://unsplash.com/@retratoinmobiliario",
+          "photoUrl": "https://unsplash.com/photos/modern-home-with-pool-and-outdoor-seating-area-_ELoYrhi3ao"
+        }
+      ],
       "encodes": [
         {
           "file": "/atmosphere/hero.webm",
-          "codec": "VP9",
-          "note": "preferred — ~1.1 MB"
+          "codec": "VP9 crf48",
+          "note": "preferred — 1,147 KB"
         },
         {
           "file": "/atmosphere/hero.mp4",
-          "codec": "H.264 high",
-          "note": "Safari fallback — ~1.9 MB"
+          "codec": "H.264 high crf32",
+          "note": "Safari fallback — 1,340 KB"
         }
       ]
     }

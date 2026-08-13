@@ -76,3 +76,8 @@ tmp/
 
 # Local Netlify folder
 .netlify
+
+# Remotion render artefacts (the encoded output is committed under public/atmosphere)
+video/out/
+video/node_modules/
+video/public/
