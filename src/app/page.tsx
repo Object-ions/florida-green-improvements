@@ -29,7 +29,7 @@ import { businessSchema, JsonLd } from "@/lib/schema";
 
    Whatever goes here must clear IMG-01: atmosphere only, never captioned
    or implied to be a Florida Green project. */
-const HERO_POSTER = "/atmosphere/hero-alt-glow.jpg";
+const HERO_POSTER = "/atmosphere/hero-white-house.jpg";
 const HERO_VIDEO: HeroSource[] | null = [
   { src: "/atmosphere/hero.webm", type: "video/webm" },
   { src: "/atmosphere/hero.mp4", type: "video/mp4" },
@@ -64,29 +64,33 @@ export default function Home() {
   return (
     <>
       <JsonLd data={businessSchema()} />
-      <SiteNav overDark />
+      <SiteNav />
 
       <main id="main">
         {/* ── HERO ───────────────────────────────────────────────────────
-             Full bleed, type over the media, dark overlay, type reversed out.
+             Full bleed, type over the media, LIGHT overlay, charcoal type.
 
-             Worth reading the history before changing this again, because
-             three of the four possible designs have now been tried:
+             Worth reading the history before changing this again — all four
+             possible designs have now been built and measured:
 
              1. Full bleed + CHARCOAL type + white veil. Measured as low as
                 1.0:1 across five breakpoints. Raising the veil enough to fix
                 it turned the picture milky, and that was rejected.
              2. Split — type beside the picture, no overlay. Measured clean,
                 but the client wanted the picture full bleed.
-             3. Full bleed + WHITE type + dark overlay. This one. It works
-                because reversing the type is what buys the headroom: white
-                on a .66 dark veil is 5.7:1, where charcoal under a .62 white
-                veil was still failing. Same veil strength, opposite result.
+             3. Full bleed + WHITE type + dark overlay. Measured clean, but
+                the client did not want a dark hero.
+             4. Full bleed + charcoal type + a LIGHT overlay. This one.
 
-             The rule underneath it: dark type over a photograph is the
-             expensive direction. Light type is cheap. If this ever has to go
-             back to charcoal, it has to leave the photograph too. */}
-        <section className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden bg-[#141414]">
+             What made 4 possible was not a better gradient — it was picking
+             a photograph whose bright region is where the words go, and then
+             putting the words there. Twenty-one candidates were scored by the
+             veil alpha each needs for charcoal type to clear 4.5:1; this one
+             needs .02 against the .57-.65 every other candidate wanted.
+
+             Before changing the photograph, score the replacement the same
+             way. A hero image here is a legibility decision first. */}
+        <section className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden bg-ground">
           <div className="absolute inset-0">
             {/* The fallback, and the LCP element. Always rendered, always
                 painted first; the video layers on top of it. */}
@@ -96,35 +100,49 @@ export default function Home() {
               fill
               priority
               sizes="100vw"
-              quality={74}
-              className="object-cover [filter:saturate(1.02)]"
+              quality={80}
+              className="object-cover object-[50%_62%]"
             />
             {HERO_VIDEO ? <HeroVideo sources={HERO_VIDEO} /> : null}
 
-            {/* Overlay. Dark, not white — that is the whole point. A white
-                veil heavy enough to carry charcoal type turns the picture
-                milky, which is what was rejected; a dark veil at the same
-                strength reads as cinematic and the picture survives it.
-                Reversing the type out is what buys the headroom.
+            {/* A light overlay, and a genuinely light one — .18 at the top
+                where the type sits, fading to nothing.
 
-                Measured against a pure-white source pixel, worst case:
-                  .84 band -> white text 8.7:1
-                  .66 band -> white text 5.7:1
-                  .46 band -> white text 3.4:1  (nothing sits this high) */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(16,16,16,.86)_0%,rgba(16,16,16,.78)_28%,rgba(16,16,16,.66)_48%,rgba(16,16,16,.46)_68%,rgba(16,16,16,.3)_86%,rgba(16,16,16,.22)_100%)]" />
+                It can be this weak only because of the photograph. The type
+                sits over the white facade and sky, which measure p5 191
+                (desktop) and 159 (mobile); charcoal on that needs a veil of
+                .02 to clear 4.5:1 across most of the block.
+
+                .38 at the very top is not for the facade — it is for the dark
+                roof diagonal that crosses the eyebrow line, which measured
+                3.08:1 at .18. Composite maths: that band sits at rgb 131, and
+                4.5:1 against charcoal needs rgb 160, so 29/119 = .244 of white
+                is the floor at 1440. The mobile crop puts a darker part of that diagonal
+                under the same line, so the top stop is .54 — measured, not
+                guessed. It fades to nothing by 88%, and the nav already lays
+                a .92 scrim over the top 112px anyway.
+
+                The previous dusk photograph needed .62 in the same position,
+                and .62 of white over a dark picture is the grey fog that got
+                rejected. The fix was never the gradient — it was picking a
+                photograph whose bright area is where the words go. */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(250,250,248,.54)_0%,rgba(250,250,248,.34)_24%,rgba(250,250,248,.12)_48%,rgba(250,250,248,.03)_70%,transparent_88%)]" />
           </div>
 
-          <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-end px-6 pb-14 pt-36 md:px-10 md:pb-16">
-            <p className="u-data mb-6 !text-white/90">
-              <span className="text-amber" aria-hidden>&#9679;</span>{" "}
+          {/* Type sits at the TOP, not the bottom. On this photograph the
+              clean area is the facade and sky; the bottom is hedge and window
+              reveals and measures .54. */}
+          <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-start px-6 pb-10 pt-32 md:px-10 md:pt-36">
+            <p className="u-data mb-6 text-ink">
+              <span className="text-ink" aria-hidden>&#9679;</span>{" "}
               {BUSINESS.address.locality}, Florida &middot; Licence {BUSINESS.license}
             </p>
 
-            <h1 className="max-w-[15ch] text-[clamp(2.5rem,7.4vw,5.5rem)] text-white">
+            <h1 className="max-w-[15ch] text-[clamp(2.5rem,7.4vw,5.5rem)] text-ink">
               {BUSINESS.tagline}
             </h1>
 
-            <p className="mt-7 max-w-[44ch] text-[17px] leading-relaxed text-white/85 md:text-[19px]">
+            <p className="mt-7 max-w-[44ch] text-[17px] leading-relaxed text-ink-2 md:text-[19px]">
               Impact windows, kitchens and full remodels for South Florida homes that have to
               survive the season and still look like this.
             </p>
@@ -133,22 +151,22 @@ export default function Home() {
               <Link href="/contact" className="btn btn-amber">
                 Request a quote
               </Link>
-              <a href={BUSINESS.phoneHref} className="btn btn-on-dark btn-tel">
+              <a href={BUSINESS.phoneHref} className="btn btn-ghost btn-tel bg-ground/70 backdrop-blur-[3px]">
                 {BUSINESS.phone}
               </a>
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[1400px] border-t border-white/20 px-6 py-6 md:px-10">
+          <div className="relative mx-auto w-full max-w-[1400px] border-t border-line/50 bg-ground/85 px-6 py-6 backdrop-blur-[2px] md:px-10">
             <ul className="flex flex-wrap items-center gap-x-10 gap-y-3">
-              <li className="flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-white/85">
-                <Star size={12} strokeWidth={0} fill="currentColor" className="text-amber" aria-hidden />
+              <li className="flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
+                <Star size={12} strokeWidth={0} fill="currentColor" className="text-amber-text" aria-hidden />
                 {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} Google reviews
               </li>
-              <li className="font-data text-[12px] uppercase tracking-[0.1em] text-white/85">
+              <li className="font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
                 Licensed &amp; insured
               </li>
-              <li className="font-data text-[12px] uppercase tracking-[0.1em] text-white/85">
+              <li className="font-data text-[12px] uppercase tracking-[0.1em] text-ink-2">
                 Miami-Dade &amp; Broward
               </li>
             </ul>

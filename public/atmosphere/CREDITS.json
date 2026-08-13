@@ -89,6 +89,17 @@
       "width": 3333,
       "height": 5000,
       "alt": "a living room filled with furniture and a kitchen"
+    },
+    {
+      "file": "/atmosphere/hero-white-house.jpg",
+      "use": "Homepage hero — chosen by measurement, not taste: of 21 candidates it was the only one whose bright region coincides with the text block, needing a .02 veil for charcoal type where every other candidate needed .57-.65.",
+      "unsplashId": "RyRlvPU3MV4",
+      "photographer": "Noelephants Flying",
+      "photographerUrl": "https://unsplash.com/@noelephantsflying",
+      "photoUrl": "https://unsplash.com/photos/a-white-house-with-a-hedge-in-front-of-it-RyRlvPU3MV4",
+      "width": 4611,
+      "height": 3264,
+      "alt": "A white house with a hedge in front of it"
     }
   ],
   "derived": [
@@ -98,22 +109,22 @@
         "/atmosphere/hero.webm"
       ],
       "use": "Homepage hero background video",
-      "derivedFrom": "/atmosphere/hero-alt-glow.jpg",
+      "derivedFrom": "/atmosphere/hero-white-house.jpg",
       "method": "12s seamless loop, slow cinematic push rendered with ffmpeg zoompan. The zoom curve is a sine over the full duration, so the last frame returns to the first and the loop point is invisible.",
       "note": "No separate licence. Same Unsplash photograph, same photographer, same attribution — motion only. Still ATMOSPHERE ONLY: never captioned or implied to be a Florida Green project.",
-      "photographer": "Arthur BAUDRY",
-      "photographerUrl": "https://unsplash.com/@bipow",
-      "photoUrl": "https://unsplash.com/photos/modern-house-exterior-glows-with-lights-4vioYQ9Nn9Y",
+      "photographer": "Noelephants Flying",
+      "photographerUrl": "https://unsplash.com/@noelephantsflying",
+      "photoUrl": "https://unsplash.com/photos/a-white-house-with-a-hedge-in-front-of-it-RyRlvPU3MV4",
       "encodes": [
         {
           "file": "/atmosphere/hero.webm",
           "codec": "VP9",
-          "note": "preferred — ~698 KB"
+          "note": "preferred — ~831 KB"
         },
         {
           "file": "/atmosphere/hero.mp4",
           "codec": "H.264 high",
-          "note": "Safari fallback — ~1.8 MB"
+          "note": "Safari fallback — ~1.6 MB"
         }
       ]
     }
