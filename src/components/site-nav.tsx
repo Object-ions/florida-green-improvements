@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import { BUSINESS, PRIMARY_NAV, SERVICES } from "@/lib/business";
+import { BUSINESS, CATEGORIES, PRIMARY_NAV, servicesByCategory } from "@/lib/business";
 import { track } from "@/components/analytics";
 
 /**
@@ -47,17 +47,21 @@ export function SiteNav({ overDark = false }: { overDark?: boolean } = {}) {
           }`}
         />
       ) : null}
-      <nav className="relative mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-5 md:px-10">
+      {/* Tighter gaps between md and lg. At exactly 768 the full nav appears
+          for the first time and has to share the bar with the logo, the phone
+          number and the CTA — at gap-9 every one of those wrapped onto two or
+          three lines. Nothing here changes above lg. */}
+      <nav className="relative mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-6 py-5 md:px-10 lg:gap-6">
         <Link
           href="/"
-          className={`relative font-data text-[11px] uppercase tracking-[0.09em] transition-opacity hover:opacity-70 ${
+          className={`relative whitespace-nowrap font-data text-[11px] uppercase tracking-[0.09em] transition-opacity hover:opacity-70 ${
             overDark && !solid ? "text-white" : "text-ink"
           }`}
         >
           Florida Green
         </Link>
 
-        <ul className="hidden items-center gap-9 md:flex">
+        <ul className="hidden items-center gap-5 md:flex lg:gap-9">
           {PRIMARY_NAV.map((item) => {
             const linkClass = `font-data text-[12px] uppercase tracking-[0.08em] transition-colors ${
               overDark && !solid ? "text-white/85 hover:text-white" : "text-ink-2 hover:text-ink"
@@ -68,7 +72,14 @@ export function SiteNav({ overDark = false }: { overDark?: boolean } = {}) {
                tabbing through the panel holds it open with no JS state and no
                timers to leak. The panel has no top margin: a gap between the
                trigger and the menu is the classic way these close under the
-               cursor on the way down. `pt-4` inside the wrapper is the bridge. */
+               cursor on the way down. `pt-4` inside the wrapper is the bridge.
+
+               Grouped by category since the Aug 13 revision. A flat list of
+               nine links gave the visitor no way to see that impact windows,
+               indoor rooms and the garden are three different conversations —
+               and it was where "Impact Glazing" was still showing. Three
+               columns, a category heading each, no descriptions: the client
+               asked for concise, and the detail belongs on the pages. */
             if (item.label === "Services") {
               return (
                 <li key={item.href} className="group relative">
@@ -76,18 +87,51 @@ export function SiteNav({ overDark = false }: { overDark?: boolean } = {}) {
                     {item.label}
                   </Link>
                   <div className="pointer-events-none absolute left-1/2 top-full z-50 -translate-x-1/2 pt-4 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
-                    <ul className="min-w-[248px] rounded-[6px] border border-line bg-ground/97 py-2 shadow-[0_18px_50px_-20px_rgba(56,56,56,.35)] backdrop-blur-md">
-                      {SERVICES.map((s) => (
-                        <li key={s.slug}>
+                    {/* Three columns only where there is room for them. The
+                        desktop nav starts at md (768px), and a 760px three-up
+                        panel centred on a trigger sitting left of centre hung
+                        67px off the left edge of a 768 tablet — measured, not
+                        guessed. Below lg the groups stack instead, which is
+                        narrow enough to stay inside the viewport at 768. */}
+                    <div className="flex max-h-[70svh] max-w-[min(88vw,760px)] flex-col gap-5 overflow-y-auto surface border border-line bg-ground/97 p-6 shadow-[0_18px_50px_-20px_rgba(56,56,56,.35)] backdrop-blur-md lg:flex-row lg:gap-8 lg:overflow-visible">
+                      {/* Two levels that cannot be confused for each other.
+
+                          The first cut had the group heading and its links at
+                          the same 12px uppercase tracked setting in two shades
+                          of grey, with headings wrapping to three lines — so
+                          every column read as six sibling items. Now the
+                          heading is the small tracked label and the services
+                          are larger, darker and in normal case, which is
+                          exactly how the footer already sets a list of
+                          services. Case is doing most of the work: it
+                          separates the two levels at a glance in a way that a
+                          shade of grey never did. */}
+                      {CATEGORIES.map((cat) => (
+                        /* 208px is what "Impact Windows & Doors" needs to stay
+                           on one line at 15px. Three of those plus the gaps
+                           and padding come to 712px, inside the 760 cap. */
+                        <div key={cat.id} className="min-w-[208px]">
                           <Link
-                            href={`/services/${s.slug}`}
-                            className="block whitespace-nowrap px-5 py-2.5 font-data text-[12px] uppercase tracking-[0.08em] text-ink-2 transition-colors hover:bg-sink hover:text-ink"
+                            href={`/#${cat.anchor}`}
+                            className="u-data block whitespace-nowrap transition-colors hover:text-ink"
                           >
-                            {s.name}
+                            {cat.label}
                           </Link>
-                        </li>
+                          <ul className="mt-3 border-t border-line pt-2">
+                            {servicesByCategory(cat.id).map((s) => (
+                              <li key={s.slug}>
+                                <Link
+                                  href={`/services/${s.slug}`}
+                                  className="block surface-sm px-2 py-2 text-[15px] leading-snug text-ink-2 transition-colors hover:bg-sink hover:text-ink"
+                                >
+                                  {s.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 </li>
               );
@@ -103,11 +147,14 @@ export function SiteNav({ overDark = false }: { overDark?: boolean } = {}) {
           })}
         </ul>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 lg:gap-4">
           <a
             href={BUSINESS.phoneHref}
             onClick={() => track("phone_click", { location: "nav" })}
-            className={`relative hidden font-data text-[12px] uppercase tracking-[0.1em] transition-colors sm:inline ${
+            /* whitespace-nowrap: a phone number broken across lines is not a
+               phone number. It is also the widest single item in the bar, so
+               it is the first thing to wrap when the row gets tight. */
+            className={`relative hidden whitespace-nowrap font-data text-[12px] uppercase tracking-[0.1em] transition-colors sm:inline ${
               overDark && !solid ? "text-white hover:text-amber" : "text-ink hover:text-brand-yellow"
             }`}
           >
@@ -161,20 +208,35 @@ export function SiteNav({ overDark = false }: { overDark?: boolean } = {}) {
                 </li>
               ))}
             </ul>
-            <p className="u-data mt-10 mb-4">All services</p>
-            <ul className="flex flex-col gap-3 border-t border-line/40 pt-6">
-              {SERVICES.map((s) => (
-                <li key={s.slug}>
-                  <Link
-                    href={`/services/${s.slug}`}
-                    onClick={() => setOpen(false)}
-                    className="font-data text-[11px] uppercase tracking-[0.09em] text-mute"
-                  >
-                    {s.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {/* Same three groups as the desktop dropdown. A phone has the
+                vertical room the dropdown does not, so the category headings
+                are links to the matching homepage section and the services sit
+                under them — 44px rows, because this is the only navigation a
+                thumb gets. */}
+            {CATEGORIES.map((cat) => (
+              <div key={cat.id} className="mt-9">
+                <Link
+                  href={`/#${cat.anchor}`}
+                  onClick={() => setOpen(false)}
+                  className="u-data mb-3 block"
+                >
+                  {cat.label}
+                </Link>
+                <ul className="flex flex-col border-t border-line/40 pt-1">
+                  {servicesByCategory(cat.id).map((s) => (
+                    <li key={s.slug}>
+                      <Link
+                        href={`/services/${s.slug}`}
+                        onClick={() => setOpen(false)}
+                        className="flex min-h-[44px] items-center text-[16px] text-ink-2"
+                      >
+                        {s.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       ) : null}

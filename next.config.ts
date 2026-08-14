@@ -23,6 +23,16 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
+    /**
+     * Next 16 only serves qualities that are declared here — anything else is
+     * a console warning in dev and a 400 from the image optimiser in
+     * production. Every value the site actually asks for is listed:
+     *
+     *   grep -rho 'quality={[0-9]*}' src/ | sort -u
+     *
+     * Add the number here first if you introduce a new one.
+     */
+    qualities: [45, 48, 55, 62, 68, 70, 72, 74, 75, 78, 82],
   },
 
   async headers() {

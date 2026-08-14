@@ -35,8 +35,9 @@ export function SiteFooter() {
               Florida Green Improvements
             </p>
             <p className="mt-6 max-w-[34ch] text-[15px] leading-relaxed text-mute">
-              A licensed Florida general contractor working across impact glazing, interior
-              renovation and outdoor living in Miami-Dade and Broward.
+              A licensed Florida general contractor working across impact windows and doors,
+              hurricane protection, kitchen and bathroom remodeling and outdoor renovation in
+              Miami-Dade and Broward.
             </p>
             {/* Was one long uppercase line that ran the full column width and
                 read as fine print. Two lines, boxed, and the licence number
@@ -111,12 +112,26 @@ export function SiteFooter() {
                 </a>
               </li>
             </ul>
-            <Link
-              href="/contact"
-              className="mt-4 inline-block py-1.5 text-[15px] text-mute transition-colors hover:text-ink"
-            >
-              Request a quote
-            </Link>
+            {/* The sections a visitor most often arrives looking for and then
+                cannot find from a service page — financing above all. Deep
+                links rather than nothing, since these live on the homepage. */}
+            <ul className="mt-8 flex flex-col gap-0.5">
+              {[
+                { href: "/#financing", label: "Financing & $0 down" },
+                { href: "/#reviews", label: "Google reviews" },
+                { href: "/#faq", label: "FAQ" },
+                { href: "/contact", label: "Request a quote" },
+              ].map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="block py-1.5 text-[15px] text-mute transition-colors hover:text-ink"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

@@ -101,7 +101,7 @@ export function ContactBlock({
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
-          className="flex flex-col justify-between gap-12 border border-line/60 bg-raise p-7 sm:p-9 lg:p-11"
+          className="surface flex flex-col justify-between gap-12 border border-line/60 bg-raise p-7 sm:p-9 lg:p-11"
         >
           <div>
             {showHeading ? (
@@ -159,7 +159,7 @@ export function ContactBlock({
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, ease: [0.22, 0.68, 0.32, 1] }}
-          className="relative min-h-[460px] overflow-hidden border border-line/60 bg-sink lg:min-h-[680px]"
+          className="surface relative min-h-[460px] overflow-hidden border border-line/60 bg-sink lg:min-h-[680px]"
         >
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <motion.div
@@ -195,7 +195,7 @@ export function ContactBlock({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: reduce ? 0 : -6 }}
                 transition={{ duration: 0.25 }}
-                className="on-photo inline-flex items-center border border-line/70 bg-ground/60 px-3.5 py-2 font-data text-[11px] font-medium uppercase tracking-[0.1em] text-ink backdrop-blur-sm"
+                className="on-photo surface-sm inline-flex items-center border border-line/70 bg-ground/60 px-3.5 py-2 font-data text-[11px] font-medium uppercase tracking-[0.1em] text-ink backdrop-blur-sm"
               >
                 {SHOWCASE[index].label}
               </motion.span>

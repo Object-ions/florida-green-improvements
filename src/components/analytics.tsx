@@ -81,7 +81,14 @@ type EventName =
   | "service_view"
   /* Header + section CTAs added Aug 12. Tracked separately from
      quote_request so we can see which entry point earns the lead. */
-  | "cta_click";
+  | "cta_click"
+  /* Lead popup, added Aug 13. Three events rather than one: without the view
+     we cannot tell a popup nobody saw from a popup everybody closed, and
+     without the category click we cannot tell which of the five things people
+     actually came for. */
+  | "popup_view"
+  | "popup_close"
+  | "popup_category_click";
 
 /**
  * Fire a GA4 conversion event. These are the numbers that turn "the site looks

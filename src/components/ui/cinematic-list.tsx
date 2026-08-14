@@ -119,7 +119,13 @@ function CinematicListItem({ id, title, meta, href, src, alt = "" }: CinematicIt
             >
               {title}
             </h4>
-            <span className="mt-1 font-data text-[11px] font-medium uppercase tracking-[0.1em] text-mute transition-colors duration-500 group-hover:text-white md:hidden">
+            {/* Hidden outright, not just below md. `meta` is the category, and
+                since the Aug 13 hierarchy fix the category label sits directly
+                above the list — so this printed "STORM PROTECTION" under every
+                row in a group headed STORM PROTECTION. It survives in the
+                anchor's aria-label and in the desktop hover state, where it
+                appears over the photograph rather than under the title. */}
+            <span className="mt-1 hidden font-data text-[11px] font-medium uppercase tracking-[0.1em] text-mute transition-colors duration-500 group-hover:text-white">
               {meta}
             </span>
           </div>

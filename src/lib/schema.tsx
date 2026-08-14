@@ -1,4 +1,4 @@
-import { BUSINESS, SERVICES, type Service } from "./business";
+import { BUSINESS, FAQS, SERVICES, showcaseSrc, type Service } from "./business";
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.floridagreenimprovements.com";
 
@@ -74,8 +74,34 @@ export function serviceSchema(service: Service) {
     description: service.description,
     url: `${SITE}/services/${service.slug}`,
     serviceType: service.name,
+    image: `${SITE}${showcaseSrc(service)}`,
     provider: { "@id": `${SITE}/#business` },
     areaServed: BUSINESS.areaServed.map((name) => ({ "@type": "AdministrativeArea", name })),
+  };
+}
+
+/**
+ * FAQPage, for the FAQ block on the homepage.
+ *
+ * Emitted only for questions that are actually rendered on the page — Google
+ * treats FAQ markup with no visible counterpart as a manual-action offence,
+ * and it is the same FAQS array either way, so the two cannot drift.
+ *
+ * No Review markup ships alongside it. Two of the three Google reviews are
+ * shown as exact excerpts, and marking up a truncated quote as a full
+ * `reviewBody` is the kind of thing that costs a site its rich results. The
+ * AggregateRating in businessSchema() already carries the 5.0 / 44.
+ */
+export function faqSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${SITE}/#faq`,
+    mainEntity: FAQS.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
   };
 }
 

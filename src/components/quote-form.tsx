@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SERVICES } from "@/lib/business";
 import { track } from "@/components/analytics";
 
 type Errors = Partial<Record<"name" | "email" | "phone" | "service" | "message" | "form", string>>;
 
 const field =
-  "w-full border border-field bg-raise px-4 py-3.5 text-[15px] text-ink placeholder:text-mute " +
+  "surface w-full border border-field bg-raise px-4 py-3.5 text-[15px] text-ink placeholder:text-mute " +
   "transition-colors focus:border-green focus:outline-none";
 const label = "u-data mb-2.5 block";
 
@@ -15,6 +15,31 @@ export function QuoteForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [state, setState] = useState<"idle" | "sending" | "sent">("idle");
   const [started, setStarted] = useState(false);
+  const serviceRef = useRef<HTMLSelectElement>(null);
+
+  /**
+   * The lead popup and the service pages link in with ?service=Kitchen.
+   *
+   * Read from `location` rather than with useSearchParams: that hook opts the
+   * whole route out of static rendering unless it is wrapped in Suspense, and
+   * these pages are worth keeping static.
+   *
+   * Written to the DOM node rather than to React state, which keeps the select
+   * uncontrolled — state here would either render "" on the server and the
+   * chosen value on the client (a hydration mismatch) or need a second render
+   * to correct itself. Setting `.value` after mount is the one thing an effect
+   * is unambiguously for.
+   *
+   * The value is only ever matched against the option list below, so a crafted
+   * query string cannot inject anything: an unknown value leaves the select on
+   * "Select a service".
+   */
+  useEffect(() => {
+    const wanted = new URLSearchParams(window.location.search).get("service");
+    if (!wanted || !serviceRef.current) return;
+    const allowed = SERVICES.some((s) => s.name === wanted) || wanted === "Something else";
+    if (allowed) serviceRef.current.value = wanted;
+  }, []);
 
   function onFirstInput() {
     if (started) return;
@@ -54,7 +79,7 @@ export function QuoteForm() {
 
   if (state === "sent") {
     return (
-      <div className="border border-green-deep bg-raise p-10" role="status">
+      <div className="surface border border-green-deep bg-raise p-10" role="status">
         <p className="u-data mb-4 text-green">Request received</p>
         <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] text-ink">Thank you — we have it.</h2>
         <p className="mt-5 max-w-[44ch] text-[16px] leading-relaxed text-mute">
@@ -67,7 +92,7 @@ export function QuoteForm() {
   return (
     <form onSubmit={onSubmit} onInput={onFirstInput} noValidate className="flex flex-col gap-7">
       {errors.form ? (
-        <p role="alert" className="border border-line bg-raise px-4 py-3 text-[15px] text-ink">
+        <p role="alert" className="surface border border-line bg-raise px-4 py-3 text-[15px] text-ink">
           {errors.form}
         </p>
       ) : null}
@@ -106,7 +131,7 @@ export function QuoteForm() {
 
       <div>
         <label htmlFor="service" className={label}>What do you need?</label>
-        <select id="service" name="service" defaultValue="" className={field}>
+        <select id="service" name="service" ref={serviceRef} defaultValue="" className={field}>
           <option value="">Select a service</option>
           {SERVICES.map((s) => (
             <option key={s.slug} value={s.name}>{s.name}</option>

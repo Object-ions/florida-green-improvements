@@ -7,8 +7,13 @@ import { Reveal } from "@/components/reveal";
 import { ContactBlock } from "@/components/contact-block";
 import { CinematicList } from "@/components/ui/cinematic-list";
 import { HeroVideo, type HeroSource } from "@/components/hero-video";
-import { BUSINESS, SERVICES, CATEGORIES, servicesByCategory } from "@/lib/business";
-import { businessSchema, JsonLd } from "@/lib/schema";
+import { GoogleReviews } from "@/components/google-reviews";
+import { WhyChooseUs } from "@/components/why-choose-us";
+import { Financing } from "@/components/financing";
+import { Faq } from "@/components/faq";
+import { QuotePopup } from "@/components/quote-popup";
+import { BUSINESS, SERVICES, CATEGORIES, servicesByCategory, showcaseSrc } from "@/lib/business";
+import { businessSchema, faqSchema, JsonLd } from "@/lib/schema";
 
 /* ── THE VAULT ────────────────────────────────────────────────────────
    Photography is the ground of every section. Type sits small and wide
@@ -64,6 +69,7 @@ export default function Home() {
   return (
     <>
       <JsonLd data={businessSchema()} />
+      <JsonLd data={faqSchema()} />
       <SiteNav />
 
       <main id="main">
@@ -174,8 +180,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── STATEMENT ──────────────────────────────────────────── */}
-        <section className="mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-40">
+        {/* ── STATEMENT ────────────────────────────────────────────
+             Asymmetric padding on purpose. `py-40` put 160px below this
+             section and Services put another 128px above itself, so the two
+             stacked to 288px of nothing between the paragraph and the service
+             list — half a laptop screen. The gap into a section is the sum of
+             both sides, and only one of them can afford to be generous.
+             Top keeps its air; bottom pays for the join. */}
+        <section className="mx-auto max-w-[1400px] px-6 pt-28 pb-20 md:px-10 md:pt-40 md:pb-20">
           <div className="grid gap-14 md:grid-cols-[132px_1fr]">
             <Reveal>
               <p className="u-data md:pt-3">About</p>
@@ -186,10 +198,15 @@ export default function Home() {
                 <h2 className="max-w-[24ch] text-[clamp(1.75rem,4vw,3.25rem)] font-display uppercase leading-[0.98] text-ink">
                   One contractor for the whole job.
                 </h2>
+                {/* "Impact glazing" was here until Aug 13. The client's note
+                    was that he did not understand the phrase, and he is the
+                    person it was supposed to sell to. Homeowner wording now,
+                    everywhere: impact windows and doors, hurricane protection. */}
                 <p className="mt-10 max-w-[62ch] text-[17px] leading-relaxed text-mute md:text-[18px]">
                   Florida Green Improvements is a licensed general contractor working across impact
-                  glazing, full interior renovation and outdoor living. One permit, one schedule, one
-                  point of contact — from the first drawing to the final inspection.
+                  windows and doors, hurricane protection, kitchen and bathroom remodeling, and
+                  outdoor renovation. One permit, one schedule, one point of contact — from the
+                  first drawing to the final inspection.
                 </p>
                 {/* Ghost rather than amber on purpose: the brass fill is the
                     page's one loud CTA and it already appears in the hero and
@@ -202,7 +219,7 @@ export default function Home() {
               </Reveal>
 
               <Reveal delay={240}>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[6px]">
+                <div className="relative aspect-[4/5] overflow-hidden surface">
                   <Image
                     src="/atmosphere/statement-luxury.webp"
                     alt=""
@@ -219,19 +236,52 @@ export default function Home() {
 
         {/* ── SERVICES, split indoor / outdoor ──────────────────── */}
         <section id="services" className="border-t border-line">
-          <div className="mx-auto max-w-[1400px] px-6 pt-24 md:px-10 md:pt-32">
+          {/* 80px in, 80px out of the section above it: 160px total across the
+              rule, which is the spacing this page uses between major sections
+              everywhere else. It was 288. */}
+          <div className="mx-auto max-w-[1400px] px-6 pt-16 md:px-10 md:pt-20">
             <Reveal>
               <h2 className="u-data">Services · {SERVICES.length}</h2>
             </Reveal>
           </div>
 
-          <div id="work" className="mx-auto max-w-[1400px] px-6 pb-24 md:px-10 md:pb-32">
+          {/* Each category carries its own id so the nav dropdown, the mobile
+              menu and any future campaign link can land on the right group
+              rather than dumping the visitor at the top of the list.
+              `scroll-mt` clears the fixed header. */}
+          <div id="work" className="mx-auto max-w-[1400px] px-6 pb-16 md:px-10 md:pb-16">
+            {/* Group-to-group was mt-28 — 112px, wider than the gap between
+                some whole sections, so the three groups read as three separate
+                sections rather than three parts of one list. 64px is enough to
+                say "new group" and little enough to say "same section". */}
             {CATEGORIES.map((cat, ci) => (
-              <div key={cat.id} className={ci ? "mt-20 md:mt-28" : "mt-12"}>
+              <div
+                key={cat.id}
+                id={cat.anchor}
+                className={`scroll-mt-28 ${ci ? "mt-14 md:mt-16" : "mt-10"}`}
+              >
+                {/* The group label is an EYEBROW, not a heading at row scale.
+                    It was set at clamp(...,2.75rem) directly above rows set at
+                    clamp(...,2.75rem) — identical size, identical case,
+                    identical weight — so the group and its contents read as one
+                    flat list. The client's note was "order and hierarchy here
+                    is very not clear", and he was right.
+
+                    Small tracked label over large condensed content is the
+                    pattern this site already uses everywhere else: About,
+                    Overview, Detail, How it works, Free estimates. This section
+                    was the one place that broke it. The rows keep their scale —
+                    they are the thing being chosen, so they stay the big type.
+
+                    Stacked left rather than label-left / blurb-right: at 1400px
+                    a small label and a blurb pinned to opposite edges read as
+                    two unrelated fragments. */}
                 <Reveal>
-                  <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 pb-6">
-                    <h3 className="text-[clamp(1.75rem,4vw,3rem)] text-ink">{cat.label}</h3>
-                    <p className="max-w-[42ch] text-[15px] text-mute md:text-[16px]">{cat.blurb}</p>
+                  <div className="pb-6">
+                    <h3 className="u-data text-ink">{cat.label}</h3>
+                    <p className="mt-3 max-w-[54ch] text-[15px] leading-relaxed text-mute md:text-[16px]">
+                      {cat.blurb}
+                    </p>
                   </div>
                 </Reveal>
 
@@ -240,9 +290,9 @@ export default function Home() {
                     items={servicesByCategory(cat.id).map((s, i) => ({
                       id: String(i + 1).padStart(2, "0"),
                       title: s.name,
-                      meta: cat.label,
+                      meta: cat.short,
                       href: `/services/${s.slug}`,
-                      src: `/showcase/${s.slug}.webp`,
+                      src: showcaseSrc(s),
                     }))}
                   />
                 </Reveal>
@@ -273,7 +323,7 @@ export default function Home() {
               {PROCESS.map((step, i) => (
                 <Reveal key={step.n} delay={i * 140}>
                   <div className="group">
-                    <div className="relative mb-8 aspect-[4/3] overflow-hidden rounded-[6px]">
+                    <div className="relative mb-8 aspect-[4/3] overflow-hidden surface">
                       <Image
                         src={step.img}
                         alt=""
@@ -307,6 +357,24 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── THE PROOF RUN ──────────────────────────────────────────────
+             Order is the argument, and it is deliberate:
+
+               Why choose us   the claim, in his own words
+               Reviews         other people making the same claim
+               Financing       the objection that kills most of these leads
+               FAQ             everything left that stops someone calling
+
+             Reviews sit immediately after the claim rather than at the foot of
+             the page, because a claim followed by proof is worth more than
+             either alone. Financing follows the proof and not the other way
+             round: "$0 down" is persuasive once you already believe the work
+             is good, and cheap-sounding before that. */}
+        <WhyChooseUs />
+        <GoogleReviews />
+        <Financing />
+        <Faq />
+
         {/* ── CTA ────────────────────────────────────────────────── */}
         <section className="relative overflow-hidden border-t border-line/40">
           {/* Was palm-shadow at 22% — a wall texture, effectively invisible.
@@ -334,7 +402,7 @@ export default function Home() {
             <Reveal>
               {/* ground/95 measured, not picked: over the darkest pixel in this
                   photograph the muted body copy still reads 4.76:1. */}
-              <div className="mx-auto max-w-[840px] rounded-[6px] bg-ground/20 px-7 py-14 text-center shadow-[0_20px_70px_-28px_rgba(56,56,56,.5)] backdrop-blur-[6px] md:px-16 md:py-20">
+              <div className="mx-auto max-w-[840px] surface bg-ground/20 px-7 py-14 text-center shadow-[0_20px_70px_-28px_rgba(56,56,56,.5)] backdrop-blur-[6px] md:px-16 md:py-20">
                 <p className="u-data mb-8">Free estimates</p>
                 {/* Was clamped to 5rem against the full 1400px container. Inside
                     a 720px panel that overflowed the card on desktop. */}
@@ -362,6 +430,7 @@ export default function Home() {
 
       <SiteFooter />
       <CallBar />
+      <QuotePopup />
     </>
   );
 }

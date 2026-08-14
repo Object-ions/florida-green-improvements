@@ -4,6 +4,8 @@ import Link from "next/link";
 import { SiteNav, CallBar } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
+import { WhyChooseUs } from "@/components/why-choose-us";
+import { QuotePopup } from "@/components/quote-popup";
 import { BUSINESS, SERVICES } from "@/lib/business";
 import { breadcrumbSchema, JsonLd } from "@/lib/schema";
 
@@ -52,9 +54,9 @@ export default function AboutPage() {
               </p>
               <p className="mt-8 max-w-[60ch] text-[17px] leading-relaxed text-mute md:text-[18px]">
                 We are a licensed Florida general contractor, which means one company carries the permit, the
-                schedule and the responsibility for the whole job — impact glazing, full interior
-                renovation and everything outside the walls. You are not managing five trades. You
-                are calling one number.
+                schedule and the responsibility for the whole job — impact windows and doors,
+                hurricane protection, full interior renovation and everything outside the walls.
+                You are not managing five trades. You are calling one number.
               </p>
             </Reveal>
           </div>
@@ -76,6 +78,11 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* The client's own "Why Choose Us" block lived on the old About page
+            as well as the homepage. Same component, same source copy — one
+            place to edit, so the two can never disagree. */}
+        <WhyChooseUs />
+
         <section className="relative overflow-hidden border-t border-line/40">
           <div className="absolute inset-0">
             <Image src="/atmosphere/pool-dusk.webp" alt="" fill sizes="100vw" quality={45}
@@ -95,6 +102,7 @@ export default function AboutPage() {
       </main>
       <SiteFooter />
       <CallBar />
+      <QuotePopup />
     </>
   );
 }

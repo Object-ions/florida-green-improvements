@@ -6,7 +6,8 @@ import { ArrowUpRight, Star } from "lucide-react";
 import { SiteNav, CallBar } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
-import { BUSINESS, SERVICES, getService } from "@/lib/business";
+import { QuotePopup } from "@/components/quote-popup";
+import { BUSINESS, SERVICES, getService, showcaseSrc } from "@/lib/business";
 import { serviceSchema, breadcrumbSchema, JsonLd } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -39,7 +40,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const service = getService(slug);
   if (!service) notFound();
 
-  const others = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 4);
+  /* Siblings in the same category first. Someone reading about pergolas is far
+     more likely to want turf than to want impact windows, and the internal
+     links Google reads should say so. Padded from the rest of the catalogue so
+     the block is never short. */
+  const rest = SERVICES.filter((s) => s.slug !== service.slug);
+  const others = [
+    ...rest.filter((s) => s.category === service.category),
+    ...rest.filter((s) => s.category !== service.category),
+  ].slice(0, 4);
 
   return (
     <>
@@ -107,9 +116,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <Reveal>
               <figure className="grid gap-8 md:grid-cols-[132px_1fr] md:gap-14">
                 <figcaption className="u-data md:pt-2">{service.name}</figcaption>
-                <div className="relative aspect-[16/10] w-full overflow-hidden border border-line/60">
+                <div className="surface relative aspect-[16/10] w-full overflow-hidden border border-line/60">
                   <Image
-                    src={`/showcase/${service.slug}.webp`}
+                    src={showcaseSrc(service)}
                     alt=""
                     fill
                     sizes="(max-width: 768px) 100vw, 900px"
@@ -162,11 +171,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             {/* Translucent panel, matching the homepage free-estimate block.
                 The photograph behind this runs at 85% and the charcoal copy was
                 sitting straight on it. */}
-            <div className="grid gap-12 rounded-[6px] bg-ground/20 px-6 py-12 backdrop-blur-[3px] md:grid-cols-[1fr_auto] md:items-end md:px-12 md:py-14">
+            <div className="grid gap-12 surface bg-ground/20 px-6 py-12 backdrop-blur-[3px] md:grid-cols-[1fr_auto] md:items-end md:px-12 md:py-14">
               <Reveal>
                 <p className="u-data mb-6">Free estimate</p>
                 <h2 className="max-w-[18ch] text-[clamp(1.875rem,5vw,3.75rem)] text-ink">
-                  Talk to us about your {service.name.toLowerCase()} project
+                  Talk to us about your {(service.ctaName ?? service.name).toLowerCase()} project
                 </h2>
                 <p className="mt-7 flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-mute">
                   <Star size={12} strokeWidth={0} fill="currentColor" className="text-brand-yellow" aria-hidden />
@@ -226,6 +235,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <SiteFooter />
       <CallBar />
+      <QuotePopup />
     </>
   );
 }

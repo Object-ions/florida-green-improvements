@@ -135,6 +135,22 @@
   --input: #8e8e88;
   --ring: #457f28;
   --radius: 0.125rem;
+
+  /* ── SURFACE RADIUS ─────────────────────────────────────────────────
+     One number for every panel, card, field and framed image.
+
+     This exists as its own token because `--radius` above is 0.125rem, so
+     the ENTIRE Tailwind radius scale resolves to 1.6–3.5px and paints as
+     square. That is why `.btn` and `.btn-icon` hardcode 6px rather than
+     using `rounded-md`, and it is why every surface added since — review
+     cards, financing cards, form fields, the contact panel — came out
+     hard-cornered sitting next to buttons that were not.
+
+     Change it here and every surface follows. Do NOT reach for
+     `rounded-md`; it does nothing visible in this project. */
+  --fg-radius: 6px;
+  /* Boxes under ~32px, where the full radius eats the corner. */
+  --fg-radius-sm: 4px;
 }
 
 @layer base {
@@ -214,6 +230,15 @@
      kept as a no-op hook so the markup still says which text sits on imagery. */
   .on-photo {
   }
+
+  /* Every card, panel, field and framed image. See --fg-radius above for why
+     this is a class rather than a Tailwind utility. */
+  .surface {
+    border-radius: var(--fg-radius);
+  }
+  .surface-sm {
+    border-radius: var(--fg-radius-sm);
+  }
   .skip-link {
     position: absolute;
     left: -9999px;
@@ -242,9 +267,11 @@
        padding   32px   -> 22px      sides
        height    ~50px  -> 44px      set once, so a pair can never mismatch
 
-     Radius is stated in px on purpose. `rounded-md` resolves through
-     --radius (0.125rem) to 1.6px, which is why the "2px -> 6px" softening
-     recorded in the log never actually appeared on screen.                */
+     Radius comes from --fg-radius, shared with `.surface`. It used to be a
+     literal 6px here because `rounded-md` resolves through --radius
+     (0.125rem) to 1.6px — which is why the "2px -> 6px" softening recorded
+     in the log never actually appeared on screen. Hardcoding it fixed the
+     buttons and left every card square beside them; the token fixes both. */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -253,7 +280,7 @@
     min-height: 2.75rem;
     padding-inline: 1.375rem;
     border: 1px solid transparent;
-    border-radius: 6px;
+    border-radius: var(--fg-radius);
     font-family: var(--fg-font-data);
     font-variation-settings: 'wdth' 100;
     font-size: 0.75rem;
@@ -489,6 +516,34 @@
     }
   }
 
+  /* ── FAQ ACCORDION ─────────────────────────────────────────────────
+     Native <details>/<summary>, so keyboard operation, ARIA state and the
+     content-is-in-the-HTML property all come free. All this block does is
+     take the default disclosure triangle off and rotate the + into an ×.
+
+     `list-style: none` is the standards way; the ::-webkit-details-marker
+     rule beside it is the one Safari still needs. Both are required. */
+  .faq-item > summary {
+    list-style: none;
+  }
+  .faq-item > summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item > summary::marker {
+    content: '';
+  }
+  .faq-item[open] > summary .faq-icon {
+    transform: rotate(45deg);
+    border-color: var(--fg-brand-yellow);
+    color: var(--fg-ink);
+  }
+  /* The whole summary row is the target, so the focus ring belongs on the
+     row rather than on the heading inside it. */
+  .faq-item > summary:focus-visible {
+    outline: 2px solid var(--fg-green);
+    outline-offset: 2px;
+  }
+
   /* Square icon controls — the carousel arrows and the service-row chevron.
      Same 44px box and the same 6px radius as .btn. These were hard-cornered
      while the buttons beside them were soft, which read as two different
@@ -501,7 +556,7 @@
     height: 2.75rem;
     flex-shrink: 0;
     border: 1px solid transparent;
-    border-radius: 6px;
+    border-radius: var(--fg-radius);
     transition:
       border-color 0.2s ease,
       background-color 0.2s ease,

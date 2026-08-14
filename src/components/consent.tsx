@@ -74,7 +74,7 @@ function ConsentBanner({ onChoose }: { onChoose: (v: "granted" | "denied") => vo
          `bottom-20` on mobile clears the sticky call bar; the RIGHT corner on
          desktop because the hero CTAs are left-aligned and the first version
          of this card sat directly on top of "Request a quote". */
-      className="fixed bottom-20 left-4 right-4 z-[60] rounded-[6px] border border-line bg-ground/97 p-4 shadow-[0_12px_40px_-14px_rgba(56,56,56,.4)] backdrop-blur-md sm:left-auto sm:max-w-[380px] md:bottom-6 md:right-6"
+      className="fixed bottom-20 left-4 right-4 z-[60] surface border border-line bg-ground/97 p-4 shadow-[0_12px_40px_-14px_rgba(56,56,56,.4)] backdrop-blur-md sm:left-auto sm:max-w-[380px] md:bottom-6 md:right-6"
     >
       <p className="text-[13px] leading-[1.5] text-ink-2">
         We use Google Analytics to see how people find this site. Nothing is stored on your device
