@@ -2,6 +2,9 @@ import { BUSINESS, FAQS, SERVICES, showcaseSrc, type Service } from "./business"
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.floridagreenimprovements.com";
 
+/** The homepage hero, which is also the LCP element. Keep the two in step. */
+const HERO_IMAGE = "/atmosphere/hero-luxury.webp";
+
 /**
  * JSON-LD. The old site carried ZERO structured data on all 15 pages
  * (baseline finding F-03) — which is precisely why a genuine 5.0 rating from
@@ -18,7 +21,15 @@ export function businessSchema() {
     legalName: BUSINESS.legalName,
     url: SITE,
     telephone: BUSINESS.phone,
-    image: `${SITE}/atmosphere/hero-house-dusk.webp`,
+    /**
+     * Must point at a file that EXISTS — this is the image Google uses for the
+     * business rich result. It pointed at /atmosphere/hero-house-dusk.webp,
+     * which was one of the six unreferenced files deleted in the Aug 12 image
+     * audit; the audit resolved the route map but did not grep the schema, so
+     * this reference survived and 404'd in production from that day.
+     * Verified live before changing: 404. Now the homepage hero.
+     */
+    image: `${SITE}${HERO_IMAGE}`,
     priceRange: "$$-$$$",
     address: {
       "@type": "PostalAddress",
