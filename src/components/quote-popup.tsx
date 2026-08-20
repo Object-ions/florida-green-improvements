@@ -16,7 +16,7 @@ import { track } from "@/components/analytics";
  *   1. eyebrow   Free estimate · No obligation      — the offer, quietly
  *   2. headline  RENOVATE YOUR HOME                 — the only large type
  *   3. one line  what to do next
- *   4. five      the categories, as TAPPABLE TARGETS rather than prose
+ *   4. the grid  the categories, as TAPPABLE TARGETS rather than prose
  *
  * The categories are links, not a list. Picking one carries the choice into
  * the quote form (?service=), so the visitor who clicks "Kitchen" arrives at a

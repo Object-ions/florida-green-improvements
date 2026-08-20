@@ -35,9 +35,9 @@ export function SiteFooter() {
               Florida Green Improvements
             </p>
             <p className="mt-6 max-w-[34ch] text-[15px] leading-relaxed text-mute">
-              A licensed Florida general contractor working across impact windows and doors,
-              hurricane protection, kitchen and bathroom remodeling and outdoor renovation in
-              Miami-Dade and Broward.
+              A licensed Florida general contractor working across hurricane-rated impact windows
+              and doors, kitchen and bathroom remodeling and outdoor renovation in Miami-Dade
+              and Broward.
             </p>
             {/* Was one long uppercase line that ran the full column width and
                 read as fine print. Two lines, boxed, and the licence number

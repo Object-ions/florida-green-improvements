@@ -58,18 +58,6 @@
       "alt": "Modern home with pool and outdoor seating area."
     },
     {
-      "slug": "impact-window-hurricane-protection",
-      "file": "/atmosphere/hero-impact-window-hurricane-protection.webp",
-      "unsplashId": "hHz4yrvxwlA",
-      "photographer": "Avi Werde",
-      "photographerUrl": "https://unsplash.com/@aviwerde",
-      "photoUrl": "https://unsplash.com/photos/white-and-brown-concrete-building-hHz4yrvxwlA",
-      "width": 5969,
-      "height": 3979,
-      "alt": "white and brown concrete building",
-      "use": "Service hero — impact-window-hurricane-protection"
-    },
-    {
       "file": "/atmosphere/hero-windows-and-doors.webp",
       "use": "Service hero — windows-and-doors",
       "unsplashId": "B99x2rnPTGk",
@@ -128,27 +116,28 @@
       "use": "Service hero — pool"
     },
     {
-      "file": "/atmosphere/hero-landscape.webp",
-      "use": "Service hero — landscape",
-      "unsplashId": "U8jLTGPLv3M",
-      "photographer": "Renaldo Matamoro",
-      "photographerUrl": "https://unsplash.com/@rmvisuals",
-      "photoUrl": "https://unsplash.com/photos/an-aerial-view-of-a-house-with-a-pool-surrounded-by-palm-trees-U8jLTGPLv3M",
-      "width": 4095,
-      "height": 3072,
-      "alt": "An aerial view of a house with a pool surrounded by palm trees"
+      "slug": "outdoor-living",
+      "file": "/atmosphere/hero-outdoor-living.webp",
+      "unsplashId": "AhLzIPJqI-8",
+      "photographer": "Salvo Media LLC",
+      "photographerUrl": "https://unsplash.com/@salvomedia",
+      "photoUrl": "https://unsplash.com/photos/modern-outdoor-patio-with-a-swimming-pool-and-outdoor-kitchen-AhLzIPJqI-8",
+      "width": 6889,
+      "height": 4593,
+      "alt": "Modern outdoor patio with a swimming pool and outdoor kitchen",
+      "use": "Service hero — outdoor-living. New 2026-08-19; the page had been borrowing free-estimate.webp, which shows a house, not outdoor facilities."
     },
     {
       "slug": "artaficial-turf",
       "file": "/atmosphere/hero-artaficial-turf.webp",
-      "unsplashId": "5tcXJV5rNX4",
-      "photographer": "Shoham Avisrur",
-      "photographerUrl": "https://unsplash.com/@shoham_avisrur",
-      "photoUrl": "https://unsplash.com/photos/swimming-pool-ladder-with-lounge-chairs-on-grass-5tcXJV5rNX4",
-      "width": 6960,
-      "height": 4640,
-      "alt": "Swimming pool ladder with lounge chairs on grass",
-      "use": "Service hero — artaficial-turf"
+      "unsplashId": "3Jb1wgUwG4M",
+      "photographer": "AZIZ KOURI",
+      "photographerUrl": "https://unsplash.com/@kourigrapher",
+      "photoUrl": "https://unsplash.com/photos/spacious-green-lawn-and-swimming-pool-with-lounge-chairs-3Jb1wgUwG4M",
+      "width": 7507,
+      "height": 4929,
+      "alt": "Spacious green lawn and swimming pool with lounge chairs",
+      "use": "Service hero — artaficial-turf. Replaced 5tcXJV5rNX4 (a pool ladder, grass incidental) on 2026-08-19: the client asked the turf page to lead with the surface it sells."
     },
     {
       "file": "/atmosphere/service-cta.webp",

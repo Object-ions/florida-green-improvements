@@ -36,7 +36,11 @@ const SHOWCASE = [
   { label: "Bathrooms", src: "/showcase/bathroom.webp", pos: "50% 60%" },
   { label: "Remodeling", src: "/showcase/remodeling.webp", pos: "50% 50%" },
   { label: "Pools", src: "/showcase/pool.webp", pos: "50% 72%" },
-  { label: "Landscaping", src: "/showcase/landscape.webp", pos: "50% 62%" },
+  /* Was "Landscaping" over /showcase/landscape.webp. That service was retired
+     on Aug 19 and its photograph deleted with it, so the slide now names the
+     thing that absorbed the scope and shows the counter, the pergola and the
+     water — which is what the label is actually promising. */
+  { label: "Outdoor living", src: "/showcase/outdoor-living.webp", pos: "50% 50%" },
 ];
 
 export function ContactBlock({

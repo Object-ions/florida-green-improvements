@@ -48,13 +48,16 @@ export const BUSINESS = {
 /**
  * Categories follow the wording a homeowner actually uses, not the trade's.
  * "Impact glazing" was cut everywhere at the client's request (revision round
- * 2026-08-13): it is called Impact Windows & Doors, or Hurricane Protection.
+ * 2026-08-13): it is called Impact Windows & Doors.
  *
- * Three groups rather than the old indoor/outdoor pair, because the old split
- * put impact windows under "Outdoor" — which is why the outdoor list was
- * showing windows, the specific thing the client asked us to stop doing.
+ * Back to two groups at the 2026-08-19 revision. The third — Storm Protection —
+ * held exactly two rows, and the client asked for the standalone Hurricane
+ * Protection page to go and for Impact Windows & Doors to sit under Indoor.
+ * That emptied the group, so the group went with it. Storm wording survives
+ * inside the windows page and the general copy, where it earns its keep as
+ * search language without claiming to be a separate thing you can buy.
  */
-export type CategoryId = "protection" | "indoor" | "outdoor";
+export type CategoryId = "indoor" | "outdoor";
 
 export type Service = {
   slug: string;
@@ -110,19 +113,12 @@ export const CATEGORIES: {
   blurb: string;
 }[] = [
   {
-    id: "protection",
-    label: "Storm Protection",
-    short: "Storm protection",
-    anchor: "impact-windows",
-    blurb:
-      "Impact windows and doors rated for the season, that also cut heat, UV and street noise.",
-  },
-  {
     id: "indoor",
     label: "Indoor Renovation",
     short: "Indoor",
     anchor: "indoor",
-    blurb: "Kitchens, bathrooms and whole-home improvement, room by room, under one contract.",
+    blurb:
+      "Impact windows and doors, kitchens, bathrooms and whole-home improvement, room by room, under one contract.",
   },
   {
     id: "outdoor",
@@ -140,56 +136,47 @@ export const SERVICES: Service[] = [
   {
     slug: "windows-and-doors",
     name: "Impact Windows & Doors",
-    title: "Impact Window & Door Installation in South Florida",
+    /**
+     * This page absorbed the retired Hurricane Protection page on 2026-08-19.
+     * Nothing new was written for it: the storm, utility-bill and noise copy
+     * below is that page's own wording, moved rather than invented, so the
+     * term a Miami homeowner actually searches for still resolves to a real
+     * page instead of a redirect into a list.
+     *
+     * Three points, not four. The Detail grid is md:grid-cols-3 and a fourth
+     * would sit alone on a second row, so the inherited material folds into
+     * the intro and into point 03 instead of adding a card.
+     */
+    title: "Impact Windows & Doors, Hurricane Rated | South Florida",
     description:
-      "Energy-efficient impact windows and doors with UV protection and year-round security. Financing available. Licensed contractor serving Miami-Dade and Broward.",
-    summary: "Energy efficiency, UV protection, year-round security.",
+      "Hurricane-rated impact windows and doors: energy efficiency, UV protection and year-round security. Financing available. Licensed Miami-Dade contractor.",
+    summary: "Hurricane rated, energy efficient, quiet all year.",
     intro:
-      "Impact windows and doors do three jobs at once in South Florida: they cut solar heat gain, they block the UV that fades your interior, and they protect the house every day of the year — not only during the season.",
+      "Impact windows and doors do several jobs at once in South Florida: they are engineered to withstand hurricane-force debris and pressure, they cut solar heat gain, they block the UV that fades your interior, and laminated impact glass measurably dampens street and aircraft noise. Living in Florida demands adequate protection for your home — and this is protection that works every day of the year, not only during the season.",
     points: [
       {
         title: "Energy efficiency",
-        body: "Impact windows are engineered to minimise solar heat gain during summer and retain warmth inside your home during colder seasons.",
+        body: "Impact windows are engineered to minimise solar heat gain during summer and retain warmth inside your home during colder seasons. Reduced heat transfer means the system works less to hold temperature, and the saving continues long after installation.",
       },
       {
         title: "UV protection",
         body: "Impact glass shields your valuables from fading and discoloration caused by prolonged exposure to direct sunlight — especially crucial in Florida, where direct sunlight is prevalent throughout the year.",
       },
       {
-        title: "Security all year",
+        title: "Storm-rated security",
         body: "Impact glass not only withstands hurricanes but offers the highest level of protection to your home and its contents year-round when properly installed.",
       },
     ],
     hero: "/atmosphere/hero-windows-and-doors.webp",
-    category: "protection",
+    /**
+     * Indoor since 2026-08-19, at the client's request. It sits oddly beside
+     * kitchens and bathrooms on paper, but it is the right call for the
+     * reader: what a homeowner is buying is the room — the light, the quiet
+     * and the bill — and the window is the thing that changes it. The storm
+     * rating is on the page; it is no longer the shelf it is sold from.
+     */
+    category: "indoor",
     legacyPath: "/windows-and-doors/",
-  },
-  {
-    slug: "impact-window-hurricane-protection",
-    name: "Hurricane Protection",
-    title: "Hurricane Protection & Impact Windows | Miami-Dade",
-    description:
-      "Hurricane protection for South Florida homes: impact-rated windows and doors, lower utility bills and noise reduction. Licensed contractor CGC1529180, free estimates.",
-    summary: "Storm-rated protection that also cuts your bills.",
-    intro:
-      "Premium impact windows offer increased protection against severe weather such as hurricanes and storms, while improving energy efficiency by reducing heat transfer. Living in Florida demands adequate protection for your home. Your home is not just a building — it is a sanctuary. Keeping your family safe is our top priority, just as it is yours.",
-    points: [
-      {
-        title: "Storm protection",
-        body: "Engineered to withstand hurricane-force debris impact and pressure, protecting the structure and everything inside it.",
-      },
-      {
-        title: "Lower utility bills",
-        body: "Reduced heat transfer means the system works less to hold temperature — the saving continues long after installation.",
-      },
-      {
-        title: "Noise reduction",
-        body: "Laminated impact glass measurably dampens street and aircraft noise, which matters in dense Miami-Dade neighbourhoods.",
-      },
-    ],
-    hero: "/atmosphere/hero-impact-window-hurricane-protection.webp",
-    category: "protection",
-    legacyPath: "/impact-window-hurricane-protection/",
   },
   {
     slug: "kitchen",
@@ -305,6 +292,13 @@ export const SERVICES: Service[] = [
       },
       { title: "Supporting local pros", body: "The crews on your job are local trades, not a subcontracted travelling team." },
     ],
+    /**
+     * Both photographs replaced 2026-08-19. Same paths, new files: the pair
+     * in place before showed a pool ladder and a house elevation with a lawn
+     * somewhere in shot, so the page selling grass led with everything except
+     * grass. The client asked to see the surface itself, and both frames are
+     * now lawn-dominant.
+     */
     hero: "/atmosphere/hero-artaficial-turf.webp",
     category: "outdoor",
     legacyPath: "/artaficial-turf/",
@@ -346,30 +340,15 @@ export const SERVICES: Service[] = [
         body: "Pool, turf, paving, planting and structures scoped together — one contractor, one schedule, one point of contact.",
       },
     ],
-    hero: "/atmosphere/free-estimate.webp",
-    showcase: "/showcase/about.webp",
+    /**
+     * Photography replaced 2026-08-19. It was borrowing the free-estimate
+     * still and the About plate — a house with a pool, and nothing that said
+     * *outdoor living* specifically. The client's note was to show the actual
+     * facilities: pool, bar, outdoor kitchen. Both images now do, and the page
+     * has its own showcase plate rather than sharing About's.
+     */
+    hero: "/atmosphere/hero-outdoor-living.webp",
     category: "outdoor",
-  },
-  {
-    slug: "landscape",
-    name: "Landscape",
-    title: "Landscape Maintenance Services in South Florida",
-    description:
-      "Lawn care, weed control, pruning and seasonal cleanups that keep your outdoor space maintained year-round. Serving Miami-Dade and Broward County.",
-    summary: "Lawn care, weed control, pruning, seasonal cleanups.",
-    intro:
-      "Our landscape maintenance keeps your outdoor space looking right through the whole year. Whether you need regular lawn care, seasonal cleanups or something more specialised, we have the team and the equipment for it.",
-    points: [
-      { title: "Lawn mowing", body: "Grass kept trimmed to the correct height for a neat, consistent appearance." },
-      { title: "Weed control", body: "Safe and effective methods to keep weeds from taking over the planting." },
-      {
-        title: "Pruning and trimming",
-        body: "Trees, shrubs and bushes pruned to promote healthy growth and hold their shape.",
-      },
-    ],
-    hero: "/atmosphere/hero-landscape.webp",
-    category: "outdoor",
-    legacyPath: "/landscape/",
   },
 ];
 
@@ -396,7 +375,7 @@ export const PRIMARY_NAV = [
    the open questions at the end of this file.                            */
 
 /**
- * The five things a visitor is here to buy, in the client's own words. Used by
+ * The four things a visitor is here to buy, in the client's own words. Used by
  * the lead popup and by the "what do you need?" select on the quote form.
  * `service` matches a SERVICES name so the form's own validation accepts it.
  */
@@ -412,11 +391,6 @@ export const RENOVATION_CATEGORIES = [
     label: "Impact Windows & Doors",
     service: "Impact Windows & Doors",
     href: "/services/windows-and-doors",
-  },
-  {
-    label: "Hurricane Protection",
-    service: "Hurricane Protection",
-    href: "/services/impact-window-hurricane-protection",
   },
 ];
 
@@ -498,7 +472,7 @@ export const FINANCING = {
 export const FAQS = [
   {
     q: "What services does Florida Green Improvements offer?",
-    a: "We cover impact windows and doors, hurricane protection, kitchen remodeling, bathroom remodeling, whole-home improvement, and outdoor renovation — pools, artificial turf, outdoor kitchens, pergolas and landscaping.",
+    a: "We cover hurricane-rated impact windows and doors, kitchen remodeling, bathroom remodeling, whole-home improvement, and outdoor renovation — pools, artificial turf, outdoor kitchens and pergolas.",
   },
   {
     q: "Are your contractors licensed and insured?",
@@ -586,6 +560,19 @@ export const LEGACY_REDIRECTS: { from: string; to: string }[] = [
   { from: "/services/roofing", to: "/#services" },
   { from: "/services/air-conditioning", to: "/#services" },
   { from: "/services/solar-panels", to: "/#services" },
+  /**
+   * Retired 2026-08-19. These two are NOT the roofing case — they are not
+   * dead scope, they are scope that moved, so neither lands on the services
+   * list. Hurricane Protection went to Impact Windows & Doors, which now
+   * carries its copy verbatim; Landscape went to Outdoor Living Renovation,
+   * whose scope already covers turf, paving, planting and structures. Both
+   * the WordPress paths and the /services/ URLs are covered, because the
+   * /services/ ones were live on the new build before the cut.
+   */
+  { from: "/impact-window-hurricane-protection", to: "/services/windows-and-doors" },
+  { from: "/services/impact-window-hurricane-protection", to: "/services/windows-and-doors" },
+  { from: "/landscape", to: "/services/outdoor-living" },
+  { from: "/services/landscape", to: "/services/outdoor-living" },
   ...SERVICES.filter((s) => s.legacyPath).map((s) => ({
     from: s.legacyPath!.replace(/\/$/, ""),
     to: `/services/${s.slug}`,

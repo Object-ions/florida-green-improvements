@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     template: `%s | ${BUSINESS.name}`,
   },
   description:
-    "Licensed general contractor serving Miami-Dade and Broward. Impact windows and hurricane protection, kitchens, bathrooms, full remodels, pools, landscaping and turf. Rated 5.0 from 44 Google reviews. Licence CGC1529180.",
+    "Licensed general contractor serving Miami-Dade and Broward. Hurricane-rated impact windows and doors, kitchens, bathrooms, full remodels, pools, turf and outdoor living. Rated 5.0 from 44 Google reviews. Licence CGC1529180.",
   applicationName: BUSINESS.name,
   authors: [{ name: BUSINESS.name }],
   creator: BUSINESS.name,

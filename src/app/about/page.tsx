@@ -54,8 +54,8 @@ export default function AboutPage() {
               </p>
               <p className="mt-8 max-w-[60ch] text-[17px] leading-relaxed text-mute md:text-[18px]">
                 We are a licensed Florida general contractor, which means one company carries the permit, the
-                schedule and the responsibility for the whole job — impact windows and doors,
-                hurricane protection, full interior renovation and everything outside the walls.
+                schedule and the responsibility for the whole job — hurricane-rated impact windows
+                and doors, full interior renovation and everything outside the walls.
                 You are not managing five trades. You are calling one number.
               </p>
             </Reveal>

@@ -201,10 +201,13 @@ export default function Home() {
                 {/* "Impact glazing" was here until Aug 13. The client's note
                     was that he did not understand the phrase, and he is the
                     person it was supposed to sell to. Homeowner wording now,
-                    everywhere: impact windows and doors, hurricane protection. */}
+                    everywhere: impact windows and doors. Hurricane protection
+                    stopped being a separate item in this list on Aug 19, when
+                    the standalone page was retired — it is now what the
+                    windows ARE, which is also how it is sold. */}
                 <p className="mt-10 max-w-[62ch] text-[17px] leading-relaxed text-mute md:text-[18px]">
-                  Florida Green Improvements is a licensed general contractor working across impact
-                  windows and doors, hurricane protection, kitchen and bathroom remodeling, and
+                  Florida Green Improvements is a licensed general contractor working across
+                  hurricane-rated impact windows and doors, kitchen and bathroom remodeling, and
                   outdoor renovation. One permit, one schedule, one point of contact — from the
                   first drawing to the final inspection.
                 </p>

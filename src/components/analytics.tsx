@@ -84,7 +84,7 @@ type EventName =
   | "cta_click"
   /* Lead popup, added Aug 13. Three events rather than one: without the view
      we cannot tell a popup nobody saw from a popup everybody closed, and
-     without the category click we cannot tell which of the five things people
+     without the category click we cannot tell which of the four things people
      actually came for. */
   | "popup_view"
   | "popup_close"
