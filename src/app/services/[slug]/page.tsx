@@ -180,7 +180,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <p className="mt-7 flex items-center gap-2 font-data text-[12px] uppercase tracking-[0.1em] text-mute">
                   <Star size={12} strokeWidth={0} fill="currentColor" className="text-brand-yellow" aria-hidden />
                   {BUSINESS.rating.value.toFixed(1)} · {BUSINESS.rating.count} Google reviews ·
-                  Licence {BUSINESS.license}
+                  License {BUSINESS.license}
                 </p>
               </Reveal>
               <Reveal delay={160}>

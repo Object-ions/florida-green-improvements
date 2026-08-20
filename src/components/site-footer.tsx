@@ -45,7 +45,7 @@ export function SiteFooter() {
                 page and was the least prominent thing in the footer. */}
             <div className="mt-8 inline-block border-l-2 border-amber pl-4">
               <p className="font-data text-[13px] font-medium uppercase tracking-[0.08em] text-ink">
-                Licence {BUSINESS.license}
+                License {BUSINESS.license}
               </p>
               <p className="mt-1 font-data text-[12px] uppercase tracking-[0.08em] text-mute">
                 {BUSINESS.licenseLabel}

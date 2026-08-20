@@ -55,7 +55,7 @@ export async function POST(request: Request) {
 
   const html = `
     <div style="font-family:system-ui,-apple-system,sans-serif;line-height:1.6;color:#111">
-      <h2 style="margin:0 0 16px;font-size:18px">New quote request — ${esc(service || "General enquiry")}</h2>
+      <h2 style="margin:0 0 16px;font-size:18px">New quote request — ${esc(service || "General inquiry")}</h2>
       <table style="border-collapse:collapse;font-size:14px">
         <tr><td style="padding:4px 16px 4px 0;color:#666">Name</td><td><strong>${esc(name)}</strong></td></tr>
         <tr><td style="padding:4px 16px 4px 0;color:#666">Email</td><td><a href="mailto:${esc(email)}">${esc(email)}</a></td></tr>

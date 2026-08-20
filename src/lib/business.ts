@@ -156,7 +156,7 @@ export const SERVICES: Service[] = [
     points: [
       {
         title: "Energy efficiency",
-        body: "Impact windows are engineered to minimise solar heat gain during summer and retain warmth inside your home during colder seasons. Reduced heat transfer means the system works less to hold temperature, and the saving continues long after installation.",
+        body: "Impact windows are engineered to minimize solar heat gain during summer and retain warmth inside your home during colder seasons. Reduced heat transfer means the system works less to hold temperature, and the saving continues long after installation.",
       },
       {
         title: "UV protection",
@@ -186,7 +186,7 @@ export const SERVICES: Service[] = [
       "Full kitchen renovation managed end to end — permits, design, materials and build. Design consultation at no additional cost. Licensed contractor CGC1529180.",
     summary: "Managed end to end, from permit to punch list.",
     intro:
-      "Our team manages every aspect of your kitchen renovation from start to finish. That includes obtaining permits, securing construction approval and organising materials before work begins. We build a plan with you that fits your needs and your budget.",
+      "Our team manages every aspect of your kitchen renovation from start to finish. That includes obtaining permits, securing construction approval and organizing materials before work begins. We build a plan with you that fits your needs and your budget.",
     points: [
       {
         title: "Plan",
@@ -238,7 +238,7 @@ export const SERVICES: Service[] = [
     points: [
       {
         title: "Kitchens and bathrooms",
-        body: "Renovating your kitchen and bathroom can significantly increase your home's value. Given how much time is spent in these rooms, improving their organisation and efficiency pays back twice.",
+        body: "Renovating your kitchen and bathroom can significantly increase your home's value. Given how much time is spent in these rooms, improving their organization and efficiency pays back twice.",
       },
       { title: "Living spaces", body: "Reconfiguration, finishes and built-ins designed around the existing structure." },
       { title: "One contractor", body: "A single licensed GC carrying the permit, the schedule and the responsibility." },
@@ -270,10 +270,16 @@ export const SERVICES: Service[] = [
     legacyPath: "/pool/",
   },
   {
-    slug: "artaficial-turf",
-    // ⚠️ Q-02 — "Artaficial" is misspelled on the live site, in the URL, the
-    // <title> and the <h1>. Slug retained pending Shay's sign-off. To fix:
-    // change slug to "artificial-turf" and add the old path to the redirect map.
+    slug: "artificial-turf",
+    /**
+     * Q-02 CLOSED 2026-08-19. "Artaficial" is misspelled on the client's live
+     * site. The <title> and <h1> were corrected in an earlier round; the slug
+     * was the last place it survived, and a URL nobody types is a URL that
+     * cannot rank for its own keyword. Renamed, with BOTH the WordPress path
+     * and the old /services/ URL 301'd below, so nothing that ranks today is
+     * thrown away. Reverting means undoing three things, not one: this slug,
+     * the two redirect entries, and the two image filenames.
+     */
     name: "Artificial Turf",
     title: "Artificial Grass & Turf Installation in South Florida",
     description:
@@ -290,7 +296,7 @@ export const SERVICES: Service[] = [
         title: "Trusted installers",
         body: "All our installers are local, licensed and insured. We run background checks on everyone who will enter your home.",
       },
-      { title: "Supporting local pros", body: "The crews on your job are local trades, not a subcontracted travelling team." },
+      { title: "Supporting local pros", body: "The crews on your job are local trades, not a subcontracted traveling team." },
     ],
     /**
      * Both photographs replaced 2026-08-19. Same paths, new files: the pair
@@ -299,7 +305,7 @@ export const SERVICES: Service[] = [
      * grass. The client asked to see the surface itself, and both frames are
      * now lawn-dominant.
      */
-    hero: "/atmosphere/hero-artaficial-turf.webp",
+    hero: "/atmosphere/hero-artificial-turf.webp",
     category: "outdoor",
     legacyPath: "/artaficial-turf/",
   },
@@ -496,7 +502,7 @@ export const FAQS = [
   },
   {
     q: "Are your products environmentally friendly?",
-    a: "We prioritise sustainability and environmental responsibility when we select products. Energy-efficient windows and doors and the materials we specify for remodeling are chosen to reduce environmental impact as well as to last.",
+    a: "We prioritize sustainability and environmental responsibility when we select products. Energy-efficient windows and doors and the materials we specify for remodeling are chosen to reduce environmental impact as well as to last.",
   },
 ];
 
@@ -573,6 +579,15 @@ export const LEGACY_REDIRECTS: { from: string; to: string }[] = [
   { from: "/services/impact-window-hurricane-protection", to: "/services/windows-and-doors" },
   { from: "/landscape", to: "/services/outdoor-living" },
   { from: "/services/landscape", to: "/services/outdoor-living" },
+  /**
+   * Q-02, closed 2026-08-19: the turf slug lost its misspelling. `legacyPath`
+   * on the service still reads "/artaficial-turf/" — that is the client's real
+   * WordPress URL and it MUST keep the typo, because it is the thing being
+   * redirected FROM. It is auto-mapped by the spread below, which now sends it
+   * to the corrected slug. Only the /services/ form needs adding by hand: it
+   * was live on the new build under the old spelling before the rename.
+   */
+  { from: "/services/artaficial-turf", to: "/services/artificial-turf" },
   ...SERVICES.filter((s) => s.legacyPath).map((s) => ({
     from: s.legacyPath!.replace(/\/$/, ""),
     to: `/services/${s.slug}`,

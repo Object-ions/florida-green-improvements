@@ -40,7 +40,7 @@ export function WhyChooseUs() {
               </div>
 
               <p className="mt-8 font-data text-[12px] uppercase tracking-[0.09em] text-mute">
-                Licence {BUSINESS.license} · {BUSINESS.licenseLabel}
+                License {BUSINESS.license} · {BUSINESS.licenseLabel}
               </p>
             </div>
           </Reveal>

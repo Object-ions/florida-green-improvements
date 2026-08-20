@@ -141,7 +141,7 @@ export default function Home() {
             <div className="hero-glass">
               <p className="u-data mb-6 text-ink">
                 <span className="text-ink" aria-hidden>&#9679;</span>{" "}
-                {BUSINESS.address.locality}, Florida &middot; Licence {BUSINESS.license}
+                {BUSINESS.address.locality}, Florida &middot; License {BUSINESS.license}
               </p>
 
               <h1 className="mx-auto max-w-[15ch] text-[clamp(2.25rem,6vw,4.5rem)] text-ink">
